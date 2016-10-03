@@ -18,6 +18,7 @@ namespace CliMate
         public PerlinNoise(int seed)
         {
             perlinGen.Seed = seed;
+            perlinGen.Frequency = 0.5;
         }
 
         public double GetValue(double x, double y)
