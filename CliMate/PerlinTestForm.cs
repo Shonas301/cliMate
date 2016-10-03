@@ -25,21 +25,24 @@ namespace CliMate
             PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
 
             //Generate a heightmap
-            Bitmap map = new Bitmap(100, 100);
+            Heightmap map = new Heightmap(100, 100);
 
-            for (int x = 0; x < map.Width; x++)
+            for (int x = 0; x < map.width; x++)
             {
-                for (int y = 0; y < map.Height; y++)
+                for (int y = 0; y < map.height; y++)
                 {
-                    double height = generator.GetValue(x, y) * 100;
-                    int intHeight = (int)height % 255;
-                    //Console.WriteLine(height);
-                    map.SetPixel(x, y, Color.FromArgb(intHeight, intHeight, intHeight));
+                    double height = generator.GetValue(x, y) * Heightmap.MAX_HEIGHT;
+                    map.SetValue(x, y, height);
                 }
             }
 
             //Display the bitmap
-            picBox.Image = map;
+            picBox.Image = map.ToBitmap();
+        }
+
+        private void PerlinTestForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

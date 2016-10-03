@@ -81,6 +81,7 @@
             this.Controls.Add(this.seedBox);
             this.Name = "PerlinTestForm";
             this.Text = "PerlinTestForm";
+            this.Load += new System.EventHandler(this.PerlinTestForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.seedBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picBox)).EndInit();
             this.ResumeLayout(false);

@@ -4,31 +4,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+using SharpNoise.Modules;
+
 namespace CliMate
 {
     /* Wrapper class for perlin noise */
     public class PerlinNoise
     {
-        public int seed { get; private set; }
+        public int seed { get { return perlinGen.Seed; } }
+
+        private Perlin perlinGen = new Perlin();
 
         public PerlinNoise(int seed)
         {
-            this.seed = seed;
+            perlinGen.Seed = seed;
         }
 
         public double GetValue(double x, double y)
         {
             //Returns the value at the given position
-            //TODO: Use actual perlin noise
-
-            int xInt = x.GetHashCode();
-            int yInt = y.GetHashCode();
-
-            int combined = xInt ^ yInt ^ seed;
-            double dub = (double)combined / int.MaxValue;
-            dub *= 100;
-
-            return dub;
+            return perlinGen.GetValue(x, y, 0);
         }
     }
 }
