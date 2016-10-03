@@ -22,8 +22,7 @@ namespace CliMate
         private void generateButton_Click(object sender, EventArgs e)
         {
             //Set up the generator
-            Perlin generator = new Perlin();
-            generator.Seed = (int)(seedBox.Value);
+            PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
 
             //Generate a heightmap
             Bitmap map = new Bitmap(100, 100);
@@ -32,8 +31,9 @@ namespace CliMate
             {
                 for (int y = 0; y < map.Height; y++)
                 {
-                    double height = generator.GetValue(x, y, 0);
-                    int intHeight = (int)height;
+                    double height = generator.GetValue(x, y) * 100;
+                    int intHeight = (int)height % 255;
+                    //Console.WriteLine(height);
                     map.SetPixel(x, y, Color.FromArgb(intHeight, intHeight, intHeight));
                 }
             }

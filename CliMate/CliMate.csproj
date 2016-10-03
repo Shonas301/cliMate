@@ -56,6 +56,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="PerlinNoise.cs" />
     <Compile Include="PerlinTestForm.cs">
       <SubType>Form</SubType>
     </Compile>
