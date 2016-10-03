@@ -33,7 +33,8 @@ namespace CliMate
                 for (int y = 0; y < map.Height; y++)
                 {
                     double height = generator.GetValue(x, y, 0);
-                    map.SetPixel(x, y, Color.FromArgb(0, 0, (int)height));
+                    int intHeight = (int)height;
+                    map.SetPixel(x, y, Color.FromArgb(intHeight, intHeight, intHeight));
                 }
             }
 
