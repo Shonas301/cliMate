@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using SharpNoise.Modules;
+
 namespace CliMate
 {
     public partial class PerlinTestForm : Form
@@ -17,8 +19,26 @@ namespace CliMate
             InitializeComponent();
         }
 
-        private void PerlinTestForm_Load(object sender, EventArgs e)
+        private void generateButton_Click(object sender, EventArgs e)
         {
+            //Set up the generator
+            Perlin generator = new Perlin();
+            generator.Seed = (int)(seedBox.Value);
+
+            //Generate a heightmap
+            Bitmap map = new Bitmap(100, 100);
+
+            for (int x = 0; x < map.Width; x++)
+            {
+                for (int y = 0; y < map.Height; y++)
+                {
+                    double height = generator.GetValue(x, y, 0);
+                    map.SetPixel(x, y, Color.FromArgb(0, 0, (int)height));
+                }
+            }
+
+            //Display the bitmap
+            picBox.Image = map;
         }
     }
 }
