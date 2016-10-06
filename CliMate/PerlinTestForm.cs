@@ -43,7 +43,6 @@ namespace CliMate
 
         private void PerlinTestForm_Load(object sender, EventArgs e)
         {
-
         }
     }
 }
