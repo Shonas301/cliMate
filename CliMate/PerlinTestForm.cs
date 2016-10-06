@@ -14,6 +14,11 @@ namespace CliMate
 {
     public partial class PerlinTestForm : Form
     {
+        public const string TEST_FILE = "test.png";
+
+        public Heightmap map = null;
+     
+
         public PerlinTestForm()
         {
             InitializeComponent();
@@ -25,7 +30,7 @@ namespace CliMate
             PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
 
             //Generate a heightmap
-            Heightmap map = new Heightmap(100, 100);
+            map = new Heightmap(100, 100);
 
             for (int x = 0; x < map.width; x++)
             {
@@ -51,6 +56,19 @@ namespace CliMate
 
             PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
             MessageBox.Show("" + generator.SearchMaxValue(999999, 0.1));
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //Save the heightmap
+            //map.ToBitmap().Save(TEST_FILE);
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            //Load the heightmap
+            //map = new Heightmap(new Bitmap(TEST_FILE));
+            //picBox.Image = map.ToBitmap();
         }
     }
 }

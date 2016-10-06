@@ -24,12 +24,9 @@ namespace CliMate
             contents = new double[width, height];
         }
 
-        public Heightmap(Bitmap bitmap)
+        public Heightmap(Bitmap bitmap) : this(bitmap.Width, bitmap.Height)
         {
             //Imports a heightmap from a bitmap
-
-            this.width = bitmap.Width;
-            this.height = bitmap.Height;
 
             //Convert every pixel to a height
             for (int x = 0; x < width; x++)
