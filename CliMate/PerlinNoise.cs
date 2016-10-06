@@ -11,7 +11,7 @@ namespace CliMate
     /* Wrapper class for perlin noise */
     public class PerlinNoise
     {
-        public const double SCALE_FACTOR = 1.5;     //Height is divided by this magic number to keep it below 1.0
+        public const double SCALE_FACTOR = 2;     //Height is divided by this magic number to keep it below 1.0
 
         public int seed { get { return perlinGen.Seed; } }
 
@@ -20,13 +20,13 @@ namespace CliMate
         public PerlinNoise(int seed)
         {
             perlinGen.Seed = seed;
-            perlinGen.Frequency = 0.5;
+            perlinGen.Frequency = 0.1;
         }
 
         public double SearchMaxValue(double searchSpace, double increment)
         {
             //Searches all positive x-values less than searchSpace.  Increments by the given value.
-            //Returns the highest absolute value
+            //Returns the highest absolute value, not scaled by SCALE_FACTOR.
             //Very slow, only use for debugging purposes.
 
             double highest = double.MinValue;
@@ -40,7 +40,7 @@ namespace CliMate
                 }
             }
 
-            return highest;
+            return highest * SCALE_FACTOR; //Un-scale it.
         }
 
         public double GetValue(double x, double y)

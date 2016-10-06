@@ -32,7 +32,7 @@ namespace CliMate
                 for (int y = 0; y < map.height; y++)
                 {
                     double height = generator.GetValue(x, y) * Heightmap.MAX_HEIGHT;
-                    Console.WriteLine(height);
+                    //Console.WriteLine(height);
                     map.SetValue(x, y, height);
                 }
             }
