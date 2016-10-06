@@ -67,7 +67,6 @@ namespace CliMate
             double percent = shiftedVal / shiftedMax;
 
             //Use the computed percent value to lerp between black and white
-
             return Utils.LerpColor(Color.White, Color.Black, percent);
         }
     }

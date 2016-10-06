@@ -44,5 +44,13 @@ namespace CliMate
         private void PerlinTestForm_Load(object sender, EventArgs e)
         {
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Find the highest value of perlin noise
+
+            PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
+            MessageBox.Show("" + generator.SearchMaxValue(999999, 0.1));
+        }
     }
 }
