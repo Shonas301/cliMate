@@ -24,6 +24,25 @@ namespace CliMate
             contents = new double[width, height];
         }
 
+        public Heightmap(Bitmap bitmap)
+        {
+            //Imports a heightmap from a bitmap
+
+            this.width = bitmap.Width;
+            this.height = bitmap.Height;
+
+            //Convert every pixel to a height
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < height; y++)
+                {
+                    Color c = bitmap.GetPixel(x, y);
+                    SetValue(x, y, ColorToValue(c));
+                }
+            }
+
+        }
+
         public double GetValue(int x, int y)
         {
             return contents[x, y];
@@ -68,6 +87,15 @@ namespace CliMate
 
             //Use the computed percent value to lerp between black and white
             return Utils.LerpColor(Color.White, Color.Black, percent);
+        }
+
+        private double ColorToValue(Color color)
+        {
+            //Returns the value that the given color represents
+            //This is slightly lossy, because we're storing it as a decimal but saving it as an integer.
+            //Then we're loading it as an integer and turning it into a decimal.
+
+            return color.GetBrightness();
         }
     }
 }
