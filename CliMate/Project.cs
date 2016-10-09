@@ -1,24 +1,25 @@
 ﻿using System;
+using System.IO;
 
 public class Project
 {
 
     private String filePath;
     private int frequency; //unclear about what this does
-    //private Overlay[] mapData;
+    private Overlay[] mapData;
 
     public Project()
     {
         this.filePath = Path.GetFullPath(@"mydir");
         this.frequency = 10; //random value?
-        //this.mapData = new Overlay[x]; 
+        this.mapData = new Overlay[10];  //chosen randomly, needs to be re chosen
     }
 
     public Project(String filePath, int frequency)
     {
         this.filePath = filePath;
         this.frequency = frequency;
-        //this.mapData = new Overlay[x];
+        this.mapData = new Overlay[10]; //still random
     }
 
     public String getFilePath()
@@ -41,12 +42,12 @@ public class Project
         this.frequency = frequency;
     }
 
-    /*
-    public void getOverlays()
+    
+    public Overlay[] getOverlays()
     {
         return mapData;
     }
-    */
+    
     public void save() {}
 
     public void load() {}

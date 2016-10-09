@@ -1,11 +1,11 @@
 ﻿using System;
 
-public class PlateOverlay
+public class PlateOverlay : Overlay
 {
     private int weight;
     private int[] movement;
 
-	public PlateOverlay()
+	public PlateOverlay() : base()
 	{
         Random rand = new Random();
 
