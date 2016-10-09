@@ -47,6 +47,11 @@ public class Project
     {
         return mapData;
     }
+
+    public void addOverlay(Overlay overlay)
+    {
+        //TODO
+    }
     
     public void save() {}
 
