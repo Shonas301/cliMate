@@ -6,16 +6,22 @@ using System.Threading.Tasks;
 
 using OpenTK;
 
-namespace OpenTKGridTest
+namespace CliMate
 {
     class Screen
     {
-        public const int WIDTH = 1200;
-        public const int HEIGHT = 800;
-        static void Display() 
+        public const int WIDTH = 1800;
+        public const int HEIGHT = 400;
+        public static void run()
         {
+            GridData grid = new GridData(10);
+            grid.debugRandom();
+            //grid.printValues();
+            grid.getTile(0, 0, 0).setColor(System.Drawing.Color.Red);
+            grid.getTile(0, 4, 0).setColor(System.Drawing.Color.Red);
+
             GameWindow window = new GameWindow(WIDTH, HEIGHT);
-            Grid hexGrid = new Grid(window);
+            DisplayGrid hexGrid = new DisplayGrid(window, grid);
 
             window.Run();
         }

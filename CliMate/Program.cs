@@ -16,7 +16,9 @@ namespace CliMate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            Screen.run();
             Application.Run(new Form1());
+            
         }
     }
 }
