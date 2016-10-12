@@ -22,7 +22,7 @@ namespace CliMate
 
         private void InitializeOpenFileDialog()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void Form1_Load(object sender, EventArgs e)
