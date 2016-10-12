@@ -43,7 +43,6 @@ namespace CliMate
             if (imageSelector.ShowDialog() == DialogResult.OK)
             {
                 string fileName = imageSelector.FileName;
-
             }
         }
     }
