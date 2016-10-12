@@ -8,18 +8,30 @@ public class Project
     private int frequency; //unclear about what this does
     private Overlay[] mapData;
 
+    //Built-in overlays
+    //public HeightOverlay heightOverlay { get; private set; }
+    //public MoistureOverlay moistureOverlay { get; private set; }
+
+    /*
     public Project()
     {
         this.filePath = Path.GetFullPath(@"mydir");
         this.frequency = 10; //random value?
-        this.mapData = new Overlay[10];  //chosen randomly, needs to be re chosen
-    }
+        this.mapData = new Overlay[10];  
+    }*/
 
-    public Project(String filePath, int frequency)
+    public Project(String filePath = null, int frequency = 10)
     {
+        //Frequency is defaulted to a random value.
+        //Default filePath to Path.GetFullPath
+        if (filePath == null)
+        {
+            filePath = Path.GetFullPath(@"mydir");
+        }
+
         this.filePath = filePath;
         this.frequency = frequency;
-        this.mapData = new Overlay[10]; //still random
+        this.mapData = new Overlay[10]; //chosen randomly, needs to be re chosen
     }
 
     public String getFilePath()
