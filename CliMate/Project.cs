@@ -1,12 +1,14 @@
 ﻿using System;
 using System.IO;
 
+using System.Collections.Generic;
+
 public class Project
 {
 
     private String filePath;
     private int frequency; //unclear about what this does
-    private Overlay[] mapData;
+    private List<Overlay> mapData = new List<Overlay>();
 
     //Built-in overlays
     public HeightOverlay heightOverlay { get; private set; }
@@ -32,7 +34,6 @@ public class Project
 
         this.filePath = filePath;
         this.frequency = frequency;
-        this.mapData = new Overlay[10]; //chosen randomly, needs to be re chosen
 
         //Initialize the built-in overlays
         heightOverlay = new HeightOverlay();
@@ -65,15 +66,15 @@ public class Project
         this.frequency = frequency;
     }
 
-    
     public Overlay[] getOverlays()
     {
-        return mapData;
+        return mapData.ToArray();
     }
 
     public void addOverlay(Overlay overlay)
     {
-        //TODO
+        //Adds an overlay to the project
+        mapData.Add(overlay);
     }
     
     public void save() {}
