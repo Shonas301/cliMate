@@ -12,6 +12,8 @@ namespace CliMate
 {
     public partial class Form1 : Form
     {
+        public static Project currentOpenProject = new Project();
+
         public Form1()
         {
             InitializeComponent();
