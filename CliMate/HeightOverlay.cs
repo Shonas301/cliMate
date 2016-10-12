@@ -1,11 +1,16 @@
 ﻿using System;
+using CliMate;
+using System.Drawing;
 
 public class HeightOverlay : Overlay
 {
-    private PlateOverlay[] plates;
+    //private PlateOverlay[] plates;    //Why do we need this?
     private bool tectonic;
     private int seaLevel;
-	public HeightOverlay()
+
+    private Heightmap contents;
+
+    public HeightOverlay()
 	{
         tectonic = false;
         Random rand = new Random();
@@ -18,20 +23,20 @@ public class HeightOverlay : Overlay
         this.seaLevel = seaLevel;
     }
 
-    public void tectonicSim()
+    public void tectonicSim(PlateOverlay[] plates)
     {
         //TODO
     }
 
     public void convertFromImage(String filepath)
     {
-        //TODO
-        //All in Alex's code, conspire to rework his into this class?
+        //Set the heightmap
+        contents = new Heightmap(new Bitmap(filepath));
     }
 
     public void addNoise()
     {
-        //TODO
+        //Add perlin noise to it.
     }
 
     public bool getTectonic()

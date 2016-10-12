@@ -6,6 +6,7 @@ using System.Collections.Generic;
 public class Project
 {
 
+
     private String filePath;
     private int frequency; //unclear about what this does
     private List<Overlay> mapData = new List<Overlay>();
