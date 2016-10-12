@@ -10,17 +10,26 @@ public class HeightOverlay : Overlay
 
     private Heightmap contents = new Heightmap(1, 1);
 
+    /*
     public HeightOverlay()
 	{
         tectonic = false;
         Random rand = new Random();
         seaLevel = rand.Next(1, 100); //random 
 	}
+    */
 
-    public HeightOverlay(bool tectonic, int seaLevel)
+    public HeightOverlay(bool tectonic = false, int seaLevel = 0)
     {
         this.tectonic = tectonic;
         this.seaLevel = seaLevel;
+
+        /*
+        Random rand = new Random();
+        seaLevel = rand.Next(1, 100); //random
+        //Removed this part because I think it should be initialized to something deterministic, like zero.
+        //If you want a random sea level, pass a random number as a parameter.
+        */
     }
 
     public void tectonicSim(PlateOverlay[] plates)
