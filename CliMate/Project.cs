@@ -9,8 +9,9 @@ public class Project
     private Overlay[] mapData;
 
     //Built-in overlays
-    //public HeightOverlay heightOverlay { get; private set; }
-    //public MoistureOverlay moistureOverlay { get; private set; }
+    public HeightOverlay heightOverlay { get; private set; }
+    public MoistureOverlay moistureOverlay { get; private set; }
+    public TempOverlay tempOverlay { get; private set; }
 
     /*
     public Project()
@@ -32,6 +33,16 @@ public class Project
         this.filePath = filePath;
         this.frequency = frequency;
         this.mapData = new Overlay[10]; //chosen randomly, needs to be re chosen
+
+        //Initialize the built-in overlays
+        heightOverlay = new HeightOverlay();
+        moistureOverlay = new MoistureOverlay();
+        tempOverlay = new TempOverlay();
+
+        //Add all built-in overlays
+        addOverlay(heightOverlay);
+        addOverlay(moistureOverlay);
+        addOverlay(tempOverlay);
     }
 
     public String getFilePath()
