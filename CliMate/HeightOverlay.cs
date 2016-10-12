@@ -49,7 +49,7 @@ public class HeightOverlay : Overlay
         this.tectonic = tectonic;
     }
 
-    public void getSeaLevel()
+    public int getSeaLevel()
     {
         return seaLevel;
     }
