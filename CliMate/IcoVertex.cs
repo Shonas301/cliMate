@@ -2,9 +2,9 @@
 
 public class IcoVertex
 {
-    private int value;
-    private bool edge;
-    private bool corner;
+    public int value { get; private set; }
+    public bool edge { get; private set; }
+    public bool corner { get; private set; }
 
 	public IcoVertex()
 	{
@@ -17,36 +17,6 @@ public class IcoVertex
     {
         this.value = value;
         this.edge = edge;
-        this.corner = corner;
-    }
-
-    public int getValue()
-    {
-        return value;
-    }
-
-    public void setValue(int value)
-    {
-        this.value = value;
-    }
-
-    public bool getEdge()
-    {
-        return edge;
-    }
-
-    public void setEdge(bool edge)
-    {
-        this.edge = edge;
-    }
-
-    public bool getCorner()
-    {
-        return this.corner;
-    }
-
-    public void setCorner(bool corner)
-    {
         this.corner = corner;
     }
 }

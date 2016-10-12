@@ -2,7 +2,7 @@
 
 public class GridDisplay
 {
-    private Overlay currentOverlay;
+    public Overlay currentOverlay { get; private set; }
 
 	public GridDisplay()
 	{

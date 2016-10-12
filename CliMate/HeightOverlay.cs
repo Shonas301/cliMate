@@ -2,9 +2,9 @@
 
 public class HeightOverlay : Overlay
 {
-    private PlateOverlay[] plates;
-    private bool tectonic;
-    private int seaLevel;
+    public PlateOverlay[] plates { get; private set; }
+    public bool tectonic { get; private set; }
+    public int seaLevel { get; private set; }
 	public HeightOverlay()
 	{
         tectonic = false;
@@ -34,24 +34,8 @@ public class HeightOverlay : Overlay
         //TODO
     }
 
-    public bool getTectonic()
-    {
-        return tectonic;
-    }
+    
 
-    public void setTectonic(bool tectonic)
-    {
-        this.tectonic = tectonic;
-    }
-
-    public void getSeaLevel()
-    {
-        return seaLevel;
-    }
-
-    public void setSeaLevel(int seaLevel)
-    {
-        this.seaLevel = seaLevel;
-    }
+    
 
 }

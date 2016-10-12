@@ -2,8 +2,8 @@
 
 public class ClimateOverlay : Overlay
 {
-    private TempOverlay temp;
-    private MoistureOverlay moisture;
+    public TempOverlay temp { get; private set; }
+    public MoistureOverlay moisture { get; private set; }
 
 	public ClimateOverlay()
 	{
@@ -18,25 +18,5 @@ public class ClimateOverlay : Overlay
     public void calcClimates()
     {
         //TODO
-    }
-
-    public TempOverlay getTempOverlay()
-    {
-        return temp;
-    }
-
-    public void setTempOverlay(TempOverlay temp)
-    {
-        this.temp = temp;
-    }
-
-    public MoistureOverlay getMoistureOverlay()
-    {
-        return moisture;
-    }
-
-    public void setMoistureOverlay(MoistureOverlay moisture)
-    {
-        this.moisture = moisture;
     }
 }
