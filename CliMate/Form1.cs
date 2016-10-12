@@ -20,7 +20,7 @@ namespace CliMate
 
         private void InitializeOpenFileDialog()
         {
-            throw new NotImplementedException();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -40,11 +40,11 @@ namespace CliMate
             imageSelector.InitialDirectory = @"C:\";
 
             //press the OK button
-            if (imageSelector.ShowDialog() == DialogResult.OK) {
+            if (imageSelector.ShowDialog() == DialogResult.OK)
+            {
                 string fileName = imageSelector.FileName;
 
             }
         }
     }
 }
-
