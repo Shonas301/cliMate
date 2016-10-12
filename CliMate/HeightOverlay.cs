@@ -8,7 +8,7 @@ public class HeightOverlay : Overlay
     private bool tectonic;
     private int seaLevel;
 
-    private Heightmap contents;
+    private Heightmap contents = new Heightmap(1, 1);
 
     public HeightOverlay()
 	{
@@ -34,9 +34,28 @@ public class HeightOverlay : Overlay
         contents = new Heightmap(new Bitmap(filepath));
     }
 
-    public void addNoise()
+    public void addNoise(PerlinNoise perlinGen)
     {
-        //Add perlin noise to it.
+        //Adds noise from the given PerlinNoise generator to every pixel in the heightmap.
+
+        //Assertion: contents must not be null
+        if (contents == null)
+        {
+            throw new Exception("HeightOverlay.contents is null.");
+        }
+
+        //Iterate over all pixels
+        for (int x = 0; x < contents.width; x++)
+        {
+            for(int y = 0; y < contents.height; y++)
+            {
+                //Add the corresponding noise value to this pixel
+                double currentVal = contents.GetValue(x, y);
+                double noiseVal = perlinGen.GetValue((double)x, (double)y);
+
+                contents.SetValue(x, y, currentVal + noiseVal);
+            }
+        }
     }
 
     public bool getTectonic()
