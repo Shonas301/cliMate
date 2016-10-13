@@ -57,7 +57,7 @@ namespace CliMate
             {
                 for (int y = 0; y < height; y++)
                 {
-                    double value = noiseGen.GetValue((double)x, (double)y);
+                    double value = noiseGen.GetValue((double)x, (double)y) * Heightmap.MAX_HEIGHT;
                     previewMap.SetValue(x, y, value);
                 }
             }

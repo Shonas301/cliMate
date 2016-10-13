@@ -58,7 +58,6 @@ namespace CliMate
                 for (int y = 0; y < height; y++)
                 {
                     double value = GetValue(x, y);
-                    Debug.Print("" + value);
                     bitmap.SetPixel(x, y, ValueToColor(value));
                 }
             }
