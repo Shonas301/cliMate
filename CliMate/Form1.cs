@@ -88,6 +88,7 @@ namespace CliMate
         {
             Canvas c = new Canvas();
             c.ShowDialog();
+            UpdateDisplay();
         }
 
         private void UpdateDisplay()
