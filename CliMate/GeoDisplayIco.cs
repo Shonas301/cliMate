@@ -10,7 +10,7 @@ using System.Drawing;
 
 namespace CliMate
 {
-    class DisplayGrid
+    class GeoDisplayIco
     {
         //These just get division out of the way so the program isn't doing it every time it draws a shape 
         const float ASPECT = (float)Screen.WIDTH / (float)Screen.HEIGHT;
@@ -23,9 +23,9 @@ namespace CliMate
 
 
         public GameWindow window;
-        private GridData grid;
+        private GeoGrid grid;
 
-        public DisplayGrid(GameWindow window, GridData grid)
+        public GeoDisplayIco(GameWindow window, GeoGrid grid)
         {
             this.window = window;
             this.grid = grid;
@@ -36,6 +36,10 @@ namespace CliMate
             window.Closing += Window_Closing;
 
         }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        //<OPENGL HOOKS>
+        ///////////////////////////////////////////////////////////////////////////////
 
         private void Window_Load(object sender, EventArgs e)
         {
@@ -70,6 +74,11 @@ namespace CliMate
         {
 
         }
+
+        ///////////////////////////////////////////////////////////////////////////////
+        //</OPENGL HOOKS>
+        ///////////////////////////////////////////////////////////////////////////////
+
 
         //Method for drawing a hexagon
         private void DrawHex(float x, float y, float size, Color value)

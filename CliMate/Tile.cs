@@ -8,6 +8,7 @@ using System.Drawing;
 
 namespace CliMate
 {
+    //I figure this'll be a superclass at some point if we want tiles to hang on to other data such as wind vectors or something.
     class Tile
     {
         private Color color;

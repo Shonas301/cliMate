@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 using OpenTK;
 
+
 namespace CliMate
 {
     class Screen
@@ -14,14 +15,12 @@ namespace CliMate
         public const int HEIGHT = 400;
         public static void run()
         {
-            GridData grid = new GridData(10);
-            grid.debugRandom();
-            //grid.printValues();
+            GeoGrid grid = new GeoGrid(10);
             grid.getTile(0, 0, 0).setColor(System.Drawing.Color.Red);
             grid.getTile(0, 4, 0).setColor(System.Drawing.Color.Red);
 
             GameWindow window = new GameWindow(WIDTH, HEIGHT);
-            DisplayGrid hexGrid = new DisplayGrid(window, grid);
+            GeoDisplayIco hexGrid = new GeoDisplayIco(window, grid);
 
             window.Run();
         }

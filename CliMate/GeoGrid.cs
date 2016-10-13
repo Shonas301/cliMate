@@ -8,13 +8,13 @@ using System.Drawing;
 
 namespace CliMate
 {
-    class GridData
+    class GeoGrid
     {
         private Tile[][][] grid;
         int frequency;
         const int NUMPARA = 5;
 
-        public GridData(int frequency)
+        public GeoGrid(int frequency)
         {
 
             /*So anyway, this breaks up the icosahedron into 5 parallelograms
@@ -117,24 +117,8 @@ namespace CliMate
                     }
                 }
             }
-            System.Console.WriteLine("Equal:" + Object.ReferenceEquals(grid[0][0][0],grid[4][0][0]));
         }
-        public void debugRandom()
-        {
-            Random rand = new Random();
-            int counter = 0;
-            for (int i = 0; i < NUMPARA; i++)
-            {
-                for (int j = 0; j < frequency; j++)
-                {
-                    for(int k = 0; k< frequency*2-2; k++)
-                    {
-                        grid[i][j][k].setColor(Color.FromArgb(counter % 256, counter % 256, counter % 256));
-                        counter ++;
-                    }
-                }
-            }
-        }
+        
         public Color getColor(int parallel,  int row, int column)
         {
             return grid[parallel][row][column].getColor();
@@ -150,18 +134,12 @@ namespace CliMate
             return frequency;
         }
 
-        public void printValues()
+        /*public Bitmap sendDisplay(int width, int height, int mode)
         {
-            for (int i = 0; i < NUMPARA; i++)
+            if (mode==TRIANGULAR)
             {
-                for (int j = 0; j < frequency; j++)
-                {
-                    for (int k = 0; k < frequency * 2; k++)
-                    {
-                        System.Console.WriteLine("grid["+i+"]["+j+"]["+k+"] Color: " + grid[i][j][k].getColor().GetBrightness()*255);
-                    }
-                }
+
             }
-        }
+        }*/
     }
 }
