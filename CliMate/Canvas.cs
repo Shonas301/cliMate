@@ -19,7 +19,7 @@ namespace CliMate
 
         private void Canvas_Load(object sender, EventArgs e)
         {
-
+            //Form1.currentOpenProject.HeightOverlay.contents;
         }
     }
 }
