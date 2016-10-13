@@ -43,6 +43,11 @@ public class HeightOverlay : Overlay
         contents = new Heightmap(new Bitmap(filepath));
     }
 
+    public Bitmap ToBitmap()
+    {
+        return contents.ToBitmap();
+    }
+
     public void addNoise(PerlinNoise perlinGen)
     {
         //Adds noise from the given PerlinNoise generator to every pixel in the heightmap.

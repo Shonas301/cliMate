@@ -55,7 +55,7 @@ namespace CliMate
             {
                 string fileName = imageSelector.FileName;
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
-                if(File.Exists(sourceDir))
+                if (File.Exists(sourceDir))
                 {
                     File.Delete(sourceDir);
                 }
@@ -65,7 +65,7 @@ namespace CliMate
                 currentOpenProject.heightOverlay.convertFromImage(fileName);
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
-        }
+        }      
 
         private void openRecentToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -83,6 +83,10 @@ namespace CliMate
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
             }
         }
+        private void UpdateDisplay()
+        {
+            openTKPanel.BackgroundImage = currentOpenProject.heightOverlay.ToBitmap();
+
+        }
     }
-}
 
