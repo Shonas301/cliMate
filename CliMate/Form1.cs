@@ -65,12 +65,12 @@ namespace CliMate
                 currentOpenProject.heightOverlay.convertFromImage(fileName);
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
-        }      
+        }
 
         private void openRecentToolStripMenuItem_Click(object sender, EventArgs e)
         {
             string recent = @"remberence.txt";
-            if(!File.Exists(recent))
+            if (!File.Exists(recent))
             {
                 MessageBox.Show("No recent files to open!");
             }
@@ -89,4 +89,5 @@ namespace CliMate
 
         }
     }
+}
 
