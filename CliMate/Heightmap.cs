@@ -1,10 +1,3 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing;
-
 namespace CliMate
 {
     public class Heightmap
@@ -69,7 +62,7 @@ namespace CliMate
             return bitmap;
         }
 
-        private Color ValueToColor(double value)
+        public static Color ValueToColor(double value)
         {
             //Converts the given height value to a color
 
@@ -86,7 +79,7 @@ namespace CliMate
             return Utils.LerpColor(Color.White, Color.Black, percent);
         }
 
-        private double ColorToValue(Color color)
+        public static double ColorToValue(Color color)
         {
             //Returns the value that the given color represents
             //This is slightly lossy, because we're storing it as a decimal but saving it as an integer.
@@ -96,3 +89,4 @@ namespace CliMate
         }
     }
 }
+>>>>>>> master

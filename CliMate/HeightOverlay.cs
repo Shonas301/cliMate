@@ -1,37 +1,70 @@
 ﻿using System;
+using CliMate;
+using System.Drawing;
 
 public class HeightOverlay : Overlay
 {
-    private PlateOverlay[] plates;
+    //private PlateOverlay[] plates;    //Why do we need this?
     private bool tectonic;
     private int seaLevel;
-	public HeightOverlay()
+
+    private Heightmap contents = new Heightmap(1, 1);
+
+    /*
+    public HeightOverlay()
 	{
         tectonic = false;
         Random rand = new Random();
         seaLevel = rand.Next(1, 100); //random 
 	}
+    */
 
-    public HeightOverlay(bool tectonic, int seaLevel)
+    public HeightOverlay(bool tectonic = false, int seaLevel = 0)
     {
         this.tectonic = tectonic;
         this.seaLevel = seaLevel;
+
+        /*
+        Random rand = new Random();
+        seaLevel = rand.Next(1, 100); //random
+        //Removed this part because I think it should be initialized to something deterministic, like zero.
+        //If you want a random sea level, pass a random number as a parameter.
+        */
     }
 
-    public void tectonicSim()
+    public void tectonicSim(PlateOverlay[] plates)
     {
         //TODO
     }
 
     public void convertFromImage(String filepath)
     {
-        //TODO
-        //All in Alex's code, conspire to rework his into this class?
+        //Set the heightmap
+        contents = new Heightmap(new Bitmap(filepath));
     }
 
-    public void addNoise()
+    public void addNoise(PerlinNoise perlinGen)
     {
-        //TODO
+        //Adds noise from the given PerlinNoise generator to every pixel in the heightmap.
+
+        //Assertion: contents must not be null
+        if (contents == null)
+        {
+            throw new Exception("HeightOverlay.contents is null.");
+        }
+
+        //Iterate over all pixels
+        for (int x = 0; x < contents.width; x++)
+        {
+            for(int y = 0; y < contents.height; y++)
+            {
+                //Add the corresponding noise value to this pixel
+                double currentVal = contents.GetValue(x, y);
+                double noiseVal = perlinGen.GetValue((double)x, (double)y);
+
+                contents.SetValue(x, y, currentVal + noiseVal);
+            }
+        }
     }
 
     public bool getTectonic()
