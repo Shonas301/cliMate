@@ -52,6 +52,11 @@ namespace CliMate
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
         }
+
+        private void UpdateDisplay()
+        {
+            openTKPanel.BackgroundImage = currentOpenProject.heightOverlay.ToBitmap();
+        }
     }
 }
 
