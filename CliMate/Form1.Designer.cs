@@ -50,6 +50,9 @@
             this.brushPointerToggle = new System.Windows.Forms.Button();
             this.regularPointerToggle = new System.Windows.Forms.Button();
             this.openTKPanel = new System.Windows.Forms.Panel();
+            this.heightmapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.generateNewMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.augmentExistingMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
             this.SuspendLayout();
@@ -84,32 +87,32 @@
             // newToolStripMenuItem
             // 
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -150,7 +153,8 @@
             // generateToolStripMenuItem
             // 
             this.generateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.createBiomesToolStripMenuItem});
+            this.createBiomesToolStripMenuItem,
+            this.heightmapToolStripMenuItem});
             this.generateToolStripMenuItem.Name = "generateToolStripMenuItem";
             this.generateToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.generateToolStripMenuItem.Text = "Generate";
@@ -158,7 +162,7 @@
             // createBiomesToolStripMenuItem
             // 
             this.createBiomesToolStripMenuItem.Name = "createBiomesToolStripMenuItem";
-            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createBiomesToolStripMenuItem.Text = "Create Biomes";
             // 
             // helpToolStripMenuItem
@@ -228,8 +232,28 @@
             this.openTKPanel.Name = "openTKPanel";
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
             this.openTKPanel.TabIndex = 2;
-            // button1
             // 
+            // heightmapToolStripMenuItem
+            // 
+            this.heightmapToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.generateNewMapToolStripMenuItem,
+            this.augmentExistingMapToolStripMenuItem});
+            this.heightmapToolStripMenuItem.Name = "heightmapToolStripMenuItem";
+            this.heightmapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.heightmapToolStripMenuItem.Text = "Heightmap";
+            // 
+            // generateNewMapToolStripMenuItem
+            // 
+            this.generateNewMapToolStripMenuItem.Name = "generateNewMapToolStripMenuItem";
+            this.generateNewMapToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.generateNewMapToolStripMenuItem.Text = "Generate new map";
+            this.generateNewMapToolStripMenuItem.Click += new System.EventHandler(this.generateNewMapToolStripMenuItem_Click);
+            // 
+            // augmentExistingMapToolStripMenuItem
+            // 
+            this.augmentExistingMapToolStripMenuItem.Name = "augmentExistingMapToolStripMenuItem";
+            this.augmentExistingMapToolStripMenuItem.Size = new System.Drawing.Size(194, 22);
+            this.augmentExistingMapToolStripMenuItem.Text = "Augment existing map";
             // 
             // Form1
             // 
@@ -241,7 +265,6 @@
             this.Controls.Add(this.menuStrip1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -279,6 +302,9 @@
         private System.Windows.Forms.Label toolsLabel;
         private System.Windows.Forms.Button brushPointerToggle;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heightmapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem generateNewMapToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem augmentExistingMapToolStripMenuItem;
     }
 }
 

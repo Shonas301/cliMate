@@ -57,6 +57,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GeneratePerlinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneratePerlinForm.Designer.cs">
+      <DependentUpon>GeneratePerlinForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="GridDisply.cs" />
     <Compile Include="Heightmap.cs" />
     <Compile Include="HeightOverlay.cs" />
@@ -78,6 +84,9 @@
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneratePerlinForm.resx">
+      <DependentUpon>GeneratePerlinForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerlinTestForm.resx">
       <DependentUpon>PerlinTestForm.cs</DependentUpon>

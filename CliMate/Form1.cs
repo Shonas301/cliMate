@@ -14,6 +14,8 @@ namespace CliMate
     {
         public static Project currentOpenProject = new Project();
 
+        private Form generatePerlinForm = new GeneratePerlinForm();
+
         public Form1()
         {
             InitializeComponent();
@@ -56,6 +58,11 @@ namespace CliMate
         private void UpdateDisplay()
         {
             openTKPanel.BackgroundImage = currentOpenProject.heightOverlay.ToBitmap();
+        }
+
+        private void generateNewMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            generatePerlinForm.ShowDialog();
         }
     }
 }
