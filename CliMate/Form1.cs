@@ -96,5 +96,10 @@ namespace CliMate
             openTKPanel.BackgroundImage = currentOpenProject.heightOverlay.ToBitmap();
 
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
