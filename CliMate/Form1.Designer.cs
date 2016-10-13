@@ -32,6 +32,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.heightmapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,9 +86,18 @@
             // 
             // newToolStripMenuItem
             // 
+            this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.heightmapToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
+            // 
+            // heightmapToolStripMenuItem
+            // 
+            this.heightmapToolStripMenuItem.Name = "heightmapToolStripMenuItem";
+            this.heightmapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.heightmapToolStripMenuItem.Text = "Heightmap";
+            this.heightmapToolStripMenuItem.Click += new System.EventHandler(this.heightmapToolStripMenuItem_Click);
             // 
             // openToolStripMenuItem
             // 
@@ -286,6 +296,7 @@
         private System.Windows.Forms.Button brushPointerToggle;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem openRecentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heightmapToolStripMenuItem;
     }
 }
 

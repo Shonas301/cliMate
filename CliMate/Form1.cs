@@ -20,7 +20,7 @@ namespace CliMate
             InitializeComponent();
             InitializeOpenFileDialog();
         }
-
+            
         private void InitializeOpenFileDialog()
         {
             //throw new NotImplementedException();
@@ -83,6 +83,13 @@ namespace CliMate
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
             }
         }
+
+        private void heightmapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Canvas c = new Canvas();
+            c.ShowDialog();
+        }
+
         private void UpdateDisplay()
         {
             openTKPanel.BackgroundImage = currentOpenProject.heightOverlay.ToBitmap();

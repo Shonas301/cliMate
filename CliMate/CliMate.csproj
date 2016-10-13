@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -32,14 +32,14 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenTK.1.1.2349.61993\lib\NET40\OpenTK.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenTK.GLControl.1.1.2349.61993\lib\NET40\OpenTK.GLControl.dll</HintPath>
-      <Private>True</Private>
+  <ItemGroup> 
+  <Reference Include="OpenTK, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">   
+      <HintPath>..\packages\OpenTK.1.1.2349.61993\lib\NET40\OpenTK.dll</HintPath>   
+      <Private>True</Private>   
+    </Reference>    
+    <Reference Include="OpenTK.GLControl, Version=1.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">   
+      <HintPath>..\packages\OpenTK.GLControl.1.1.2349.61993\lib\NET40\OpenTK.GLControl.dll</HintPath>   
+      <Private>True</Private>   
     </Reference>
     <Reference Include="SharpNoise, Version=0.11.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SharpNoise.0.11.0\lib\net45\SharpNoise.dll</HintPath>
@@ -58,8 +58,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ClimateOverlay.cs" />
-    <Compile Include="Grid.cs" />
+  <Compile Include="Canvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Canvas.Designer.cs">
+      <DependentUpon>Canvas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClimateOverlay.cs" /> 
+    <Compile Include="Grid.cs" />   
     <Compile Include="GeoDisplayIco.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -81,23 +87,26 @@
       <DependentUpon>PerlinTestForm.cs</DependentUpon>
     </Compile>
     <Compile Include="PlateOverlay.cs" />
-    <Compile Include="GeoGrid.cs" />
-    <Compile Include="GridDisplayEquiRect.cs" />
-    <Compile Include="MapNode.cs" />
+    <Compile Include="GeoGrid.cs" />    
+    <Compile Include="GridDisplayEquiRect.cs" />    
+    <Compile Include="MapNode.cs" />    
     <Compile Include="MapProject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TempOverlay.cs" />
     <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="Form1.resx">
+      <EmbeddedResource Include="Canvas.resx">
+      <DependentUpon>Canvas.cs</DependentUpon>
+    </EmbeddedResource>
+     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerlinTestForm.resx">
       <DependentUpon>PerlinTestForm.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="RectGrid.cs" />
-    <Compile Include="Screen.cs" />
+    <Compile Include="RectGrid.cs" />   
+    <Compile Include="Screen.cs" />   
     <Compile Include="Tile.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -130,8 +139,8 @@
     <Content Include="img\stylusButtonImage%28Edit%29.png" />
     <Content Include="img\stylusButtonImage%28Origin%29.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Text\" />
+  <ItemGroup>   
+    <Folder Include="Text\" />    
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -141,4 +150,4 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-</Project>
+  </Project>
