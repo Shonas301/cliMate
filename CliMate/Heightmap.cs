@@ -1,3 +1,5 @@
+using System.Drawing;
+
 namespace CliMate
 {
     public class Heightmap
@@ -89,4 +91,3 @@ namespace CliMate
         }
     }
 }
->>>>>>> master
