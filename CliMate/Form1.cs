@@ -65,6 +65,7 @@ namespace CliMate
 
                 //sends filepath to height Overlay
                 currentOpenProject.heightOverlay.convertFromImage(fileName);
+                UpdateDisplay();
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
         }

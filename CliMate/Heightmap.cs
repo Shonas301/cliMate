@@ -1,4 +1,5 @@
 using System.Drawing;
+using System.Diagnostics;
 
 namespace CliMate
 {
@@ -56,7 +57,9 @@ namespace CliMate
             {
                 for (int y = 0; y < height; y++)
                 {
-                    bitmap.SetPixel(x, y, ValueToColor(GetValue(x, y)));
+                    double value = GetValue(x, y);
+                    Debug.Print("" + value);
+                    bitmap.SetPixel(x, y, ValueToColor(value));
                 }
             }
 
@@ -87,7 +90,7 @@ namespace CliMate
             //This is slightly lossy, because we're storing it as a decimal but saving it as an integer.
             //Then we're loading it as an integer and turning it into a decimal.
 
-            return color.GetBrightness();
+            return color.GetBrightness() * MAX_HEIGHT;
         }
     }
 }
