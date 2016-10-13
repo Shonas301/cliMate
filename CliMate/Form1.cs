@@ -15,7 +15,7 @@ namespace CliMate
         public Form1()
         {
             InitializeComponent();
-            InitializeOpenFileDialog();
+            //InitializeOpenFileDialog();
         }
 
         private void InitializeOpenFileDialog()
@@ -29,7 +29,7 @@ namespace CliMate
             perlinForm.Show();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+       /* private void button1_Click(object sender, EventArgs e)
         {
             //button for getting file
             //Opens file navigation window to select an image 
@@ -44,7 +44,7 @@ namespace CliMate
                 string fileName = imageSelector.FileName;
 
             }
-        }
+        }*/
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
         {
