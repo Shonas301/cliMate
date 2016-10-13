@@ -8,7 +8,7 @@ public class HeightOverlay : Overlay
     private bool tectonic;
     private int seaLevel;
 
-    private Heightmap contents = new Heightmap(1, 1);
+    public Heightmap contents = new Heightmap(1, 1);
 
     /*
     public HeightOverlay()

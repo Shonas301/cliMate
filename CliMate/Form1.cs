@@ -94,6 +94,7 @@ namespace CliMate
         private void generateNewMapToolStripMenuItem_Click(object sender, EventArgs e)
         {
             generatePerlinForm.ShowDialog();
+            UpdateDisplay();
         }
     }
 }

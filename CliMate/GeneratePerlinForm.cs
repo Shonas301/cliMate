@@ -68,5 +68,12 @@ namespace CliMate
             //Enable the Okay button
             OKButton.Enabled = true;
         }
+
+        private void OKButton_Click(object sender, EventArgs e)
+        {
+            //Update the project's heightmap
+            Form1.currentOpenProject.heightOverlay.contents = previewMap;
+            this.Close();
+        }
     }
 }
