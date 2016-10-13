@@ -46,6 +46,8 @@ namespace CliMate
             {
                 string fileName = imageSelector.FileName;
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
+                
+                //sends filepath to height Overlay
                 currentOpenProject.heightOverlay.convertFromImage(fileName);
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
