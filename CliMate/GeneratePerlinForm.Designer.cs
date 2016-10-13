@@ -76,7 +76,7 @@
             // 
             // heightBox
             // 
-            this.heightBox.Location = new System.Drawing.Point(85, 3);
+            this.heightBox.Location = new System.Drawing.Point(85, 6);
             this.heightBox.Name = "heightBox";
             this.heightBox.Size = new System.Drawing.Size(58, 20);
             this.heightBox.TabIndex = 1;
@@ -111,7 +111,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(163, 9);
+            this.label5.Location = new System.Drawing.Point(163, 11);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(30, 13);
             this.label5.TabIndex = 3;
@@ -119,7 +119,7 @@
             // 
             // seedBox
             // 
-            this.seedBox.Location = new System.Drawing.Point(166, 25);
+            this.seedBox.Location = new System.Drawing.Point(166, 27);
             this.seedBox.Name = "seedBox";
             this.seedBox.Size = new System.Drawing.Size(100, 20);
             this.seedBox.TabIndex = 4;
@@ -150,6 +150,7 @@
             this.OKButton.TabIndex = 7;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
+            this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
             // 
             // cancelButton
             // 
