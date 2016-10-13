@@ -49,6 +49,7 @@
             this.brushPointerToggle = new System.Windows.Forms.Button();
             this.regularPointerToggle = new System.Windows.Forms.Button();
             this.openTKPanel = new System.Windows.Forms.Panel();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
             this.SuspendLayout();
@@ -71,6 +72,7 @@
             // fileToolStripMenuItem
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
             this.openToolStripMenuItem,
             this.saveToolStripMenuItem,
             this.saveAsToolStripMenuItem,
@@ -82,25 +84,25 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(114, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             // 
             // editToolStripMenuItem
@@ -149,7 +151,7 @@
             // createBiomesToolStripMenuItem
             // 
             this.createBiomesToolStripMenuItem.Name = "createBiomesToolStripMenuItem";
-            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.createBiomesToolStripMenuItem.Text = "Create Biomes";
             // 
             // helpToolStripMenuItem
@@ -220,6 +222,12 @@
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
             this.openTKPanel.TabIndex = 2;
             // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.newToolStripMenuItem.Text = "New";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -266,6 +274,7 @@
         private System.Windows.Forms.Button regularPointerToggle;
         private System.Windows.Forms.Label toolsLabel;
         private System.Windows.Forms.Button brushPointerToggle;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
     }
 }
 
