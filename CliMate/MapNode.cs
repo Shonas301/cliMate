@@ -1,0 +1,17 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace CliMate
+{
+    class MapNode
+    {
+        private Grid gridOut;
+        private MapNode output;
+        private MapNode[] inputs;
+
+
+    }
+}
