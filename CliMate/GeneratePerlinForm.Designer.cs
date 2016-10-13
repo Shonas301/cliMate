@@ -169,6 +169,7 @@
             this.generateButton.TabIndex = 9;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
+            this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
             // 
             // GeneratePerlinForm
             // 
