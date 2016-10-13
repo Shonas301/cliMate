@@ -52,5 +52,11 @@ namespace CliMate
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
         }
+
+        private void heightmapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Canvas c = new Canvas();
+            c.ShowDialog();
+        }
     }
 }
