@@ -105,6 +105,14 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="img\favicon.ico" />
+    <Content Include="img\pointerButtonImage%28edit%29.png" />
+    <Content Include="img\pointerButtonImage%28origin%29.png" />
+    <Content Include="img\Splash.jpg" />
+    <Content Include="img\stylusButtonImage%28Edit%29.png" />
+    <Content Include="img\stylusButtonImage%28Origin%29.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
