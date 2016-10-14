@@ -114,7 +114,7 @@ namespace CliMate
 
         private void noteButton_Click(object sender, EventArgs e)
         {
-            Note note = new glo
+
         }
     }
 }
