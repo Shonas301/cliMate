@@ -97,6 +97,18 @@ namespace CliMate
             generatePerlinForm.ShowDialog();
             UpdateDisplay();
         }
+
+        private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Canvas c = new Canvas();
+            c.ShowDialog();
+            UpdateDisplay();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }
 
