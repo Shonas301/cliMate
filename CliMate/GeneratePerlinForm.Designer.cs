@@ -28,118 +28,80 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GeneratePerlinForm));
             this.widthBox = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.heightLabel = new System.Windows.Forms.Label();
+            this.widthLabel = new System.Windows.Forms.Label();
+            this.xLabel = new System.Windows.Forms.Label();
             this.heightBox = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.seedBox = new System.Windows.Forms.TextBox();
             this.previewBox = new System.Windows.Forms.PictureBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.OKButton = new System.Windows.Forms.Button();
             this.cancelButton = new System.Windows.Forms.Button();
             this.generateButton = new System.Windows.Forms.Button();
-            this.panel1.SuspendLayout();
+            this.dimensionGroupBox = new System.Windows.Forms.GroupBox();
+            this.seedGroupBox = new System.Windows.Forms.GroupBox();
+            this.previewGroupBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
+            this.dimensionGroupBox.SuspendLayout();
+            this.seedGroupBox.SuspendLayout();
+            this.previewGroupBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // widthBox
             // 
-            this.widthBox.Location = new System.Drawing.Point(3, 6);
+            this.widthBox.Location = new System.Drawing.Point(9, 21);
             this.widthBox.Name = "widthBox";
-            this.widthBox.Size = new System.Drawing.Size(58, 20);
+            this.widthBox.Size = new System.Drawing.Size(100, 20);
             this.widthBox.TabIndex = 0;
             // 
-            // label1
+            // heightLabel
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(61, 13);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Dimensions";
+            this.heightLabel.AutoSize = true;
+            this.heightLabel.Location = new System.Drawing.Point(146, 45);
+            this.heightLabel.Name = "heightLabel";
+            this.heightLabel.Size = new System.Drawing.Size(36, 13);
+            this.heightLabel.TabIndex = 4;
+            this.heightLabel.Text = "height";
             // 
-            // panel1
+            // widthLabel
             // 
-            this.panel1.Controls.Add(this.label4);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.heightBox);
-            this.panel1.Controls.Add(this.widthBox);
-            this.panel1.Location = new System.Drawing.Point(12, 24);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(148, 57);
-            this.panel1.TabIndex = 2;
+            this.widthLabel.Location = new System.Drawing.Point(8, 45);
+            this.widthLabel.Name = "widthLabel";
+            this.widthLabel.Size = new System.Drawing.Size(32, 13);
+            this.widthLabel.TabIndex = 3;
+            this.widthLabel.Text = "width";
+            // 
+            // xLabel
+            // 
+            this.xLabel.AutoSize = true;
+            this.xLabel.Location = new System.Drawing.Point(122, 24);
+            this.xLabel.Name = "xLabel";
+            this.xLabel.Size = new System.Drawing.Size(12, 13);
+            this.xLabel.TabIndex = 2;
+            this.xLabel.Text = "x";
             // 
             // heightBox
             // 
-            this.heightBox.Location = new System.Drawing.Point(85, 6);
+            this.heightBox.Location = new System.Drawing.Point(147, 21);
             this.heightBox.Name = "heightBox";
-            this.heightBox.Size = new System.Drawing.Size(58, 20);
+            this.heightBox.Size = new System.Drawing.Size(100, 20);
             this.heightBox.TabIndex = 1;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(67, 6);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(12, 13);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "x";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 30);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "width";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(82, 30);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "height";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(163, 11);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(30, 13);
-            this.label5.TabIndex = 3;
-            this.label5.Text = "seed";
             // 
             // seedBox
             // 
-            this.seedBox.Location = new System.Drawing.Point(166, 27);
+            this.seedBox.Location = new System.Drawing.Point(9, 19);
             this.seedBox.Name = "seedBox";
-            this.seedBox.Size = new System.Drawing.Size(100, 20);
-            this.seedBox.TabIndex = 4;
+            this.seedBox.Size = new System.Drawing.Size(238, 20);
+            this.seedBox.TabIndex = 2;
             // 
             // previewBox
             // 
-            this.previewBox.Location = new System.Drawing.Point(12, 166);
+            this.previewBox.Location = new System.Drawing.Point(10, 19);
             this.previewBox.Name = "previewBox";
             this.previewBox.Size = new System.Drawing.Size(148, 140);
             this.previewBox.TabIndex = 5;
             this.previewBox.TabStop = false;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(44, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "preview";
             // 
             // OKButton
             // 
@@ -147,7 +109,7 @@
             this.OKButton.Location = new System.Drawing.Point(12, 348);
             this.OKButton.Name = "OKButton";
             this.OKButton.Size = new System.Drawing.Size(75, 23);
-            this.OKButton.TabIndex = 7;
+            this.OKButton.TabIndex = 4;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
             this.OKButton.Click += new System.EventHandler(this.OKButton_Click);
@@ -157,60 +119,93 @@
             this.cancelButton.Location = new System.Drawing.Point(194, 348);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
-            this.cancelButton.TabIndex = 8;
+            this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
             this.cancelButton.Click += new System.EventHandler(this.cancelButton_Click);
             // 
             // generateButton
             // 
-            this.generateButton.Location = new System.Drawing.Point(12, 88);
+            this.generateButton.Location = new System.Drawing.Point(101, 144);
             this.generateButton.Name = "generateButton";
             this.generateButton.Size = new System.Drawing.Size(75, 23);
-            this.generateButton.TabIndex = 9;
+            this.generateButton.TabIndex = 3;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
             this.generateButton.Click += new System.EventHandler(this.generateButton_Click);
+            // 
+            // dimensionGroupBox
+            // 
+            this.dimensionGroupBox.Controls.Add(this.heightBox);
+            this.dimensionGroupBox.Controls.Add(this.widthBox);
+            this.dimensionGroupBox.Controls.Add(this.heightLabel);
+            this.dimensionGroupBox.Controls.Add(this.widthLabel);
+            this.dimensionGroupBox.Controls.Add(this.xLabel);
+            this.dimensionGroupBox.Location = new System.Drawing.Point(12, 8);
+            this.dimensionGroupBox.Name = "dimensionGroupBox";
+            this.dimensionGroupBox.Size = new System.Drawing.Size(257, 68);
+            this.dimensionGroupBox.TabIndex = 10;
+            this.dimensionGroupBox.TabStop = false;
+            this.dimensionGroupBox.Text = "Dimensions";
+            // 
+            // seedGroupBox
+            // 
+            this.seedGroupBox.Controls.Add(this.seedBox);
+            this.seedGroupBox.Location = new System.Drawing.Point(12, 82);
+            this.seedGroupBox.Name = "seedGroupBox";
+            this.seedGroupBox.Size = new System.Drawing.Size(257, 54);
+            this.seedGroupBox.TabIndex = 11;
+            this.seedGroupBox.TabStop = false;
+            this.seedGroupBox.Text = "Seed";
+            // 
+            // previewGroupBox
+            // 
+            this.previewGroupBox.Controls.Add(this.previewBox);
+            this.previewGroupBox.Location = new System.Drawing.Point(12, 171);
+            this.previewGroupBox.Name = "previewGroupBox";
+            this.previewGroupBox.Size = new System.Drawing.Size(257, 171);
+            this.previewGroupBox.TabIndex = 12;
+            this.previewGroupBox.TabStop = false;
+            this.previewGroupBox.Text = "Preview";
             // 
             // GeneratePerlinForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(284, 383);
+            this.Controls.Add(this.previewGroupBox);
+            this.Controls.Add(this.seedGroupBox);
+            this.Controls.Add(this.dimensionGroupBox);
             this.Controls.Add(this.generateButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.OKButton);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.previewBox);
-            this.Controls.Add(this.seedBox);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneratePerlinForm";
             this.Text = "GeneratePerlinForm";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
+            this.dimensionGroupBox.ResumeLayout(false);
+            this.dimensionGroupBox.PerformLayout();
+            this.seedGroupBox.ResumeLayout(false);
+            this.seedGroupBox.PerformLayout();
+            this.previewGroupBox.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.TextBox widthBox;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label heightLabel;
+        private System.Windows.Forms.Label widthLabel;
+        private System.Windows.Forms.Label xLabel;
         private System.Windows.Forms.TextBox heightBox;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox seedBox;
         private System.Windows.Forms.PictureBox previewBox;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button OKButton;
         private System.Windows.Forms.Button cancelButton;
         private System.Windows.Forms.Button generateButton;
+        private System.Windows.Forms.GroupBox dimensionGroupBox;
+        private System.Windows.Forms.GroupBox seedGroupBox;
+        private System.Windows.Forms.GroupBox previewGroupBox;
     }
 }
