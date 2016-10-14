@@ -12,7 +12,7 @@ namespace CliMate
 {
     public partial class Canvas : Form
     {
-        private Heightmap workingMap = new Heightmap(100,100);
+        private Heightmap workingMap = new Heightmap(300,300);
 
         public Canvas()
         {
@@ -26,7 +26,7 @@ namespace CliMate
 
         private void refresh_timer_Tick(object sender, EventArgs e)
         {
-
+            //DONT PUT ANYTHING HERE
         }
 
         private void Picbox_MouseMove(object sender, System.Windows.Forms.MouseEventArgs e)
