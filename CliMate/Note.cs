@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.IO;
+using System.Linq;
 
 public class Note
 {
@@ -8,12 +9,16 @@ public class Note
     public int y { get; set; }
     public ArrayList notes { get; set; }
     public string map { get; set; }
+    public string mapString { get; private set; }
 
 	public Note(string map)
 	{
         this.map = map;
         this.notes = new ArrayList();
-        string mapString = map + ".txt";
+        string fullmap = map.TrimEnd(Path.DirectorySeparatorChar);
+        mapString = fullmap.Split(Path.DirectorySeparatorChar).Last();
+        mapString = Path.GetFileNameWithoutExtension(mapString) + ".txt";
+        System.Diagnostics.Debug.Print(mapString);
         if (File.Exists(mapString))
         {
             using(StreamReader rd = File.OpenText(mapString))
@@ -33,7 +38,9 @@ public class Note
         this.y = y;
         this.map = map;
         this.notes = new ArrayList();
-        string mapString = map + ".txt";
+        string fullmap = map.TrimEnd(Path.DirectorySeparatorChar);
+        mapString = fullmap.Split(Path.DirectorySeparatorChar).Last();
+        mapString = Path.GetFileNameWithoutExtension(mapString) + ".txt";
         if (File.Exists(mapString))
         {
             using(StreamReader rd = File.OpenText(mapString))
@@ -49,10 +56,8 @@ public class Note
     
     public void saveNote()
     {
-        string mapString = map + ".txt";
         if (!File.Exists(mapString))
         {
-            File.CreateText(mapString);
         }
         else
         {
