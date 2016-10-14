@@ -88,7 +88,8 @@ namespace CliMate
         }
         private void UpdateDisplay()
         {
-            openTKPanel.BackgroundImage = currentOpenProject.heightOverlay.ToBitmap();
+            Image img = currentOpenProject.heightOverlay.ToBitmap();
+            openTKPanel.BackgroundImage = img;
 
         }
 
