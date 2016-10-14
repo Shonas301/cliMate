@@ -58,6 +58,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Canvas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Canvas.Designer.cs" />
     <Compile Include="ClimateOverlay.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="GeoDisplayIco.cs" />
@@ -66,6 +70,12 @@
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GeneratePerlinForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GeneratePerlinForm.Designer.cs">
+      <DependentUpon>GeneratePerlinForm.cs</DependentUpon>
     </Compile>
     <Compile Include="GridDisply.cs" />
     <Compile Include="Heightmap.cs" />
@@ -90,8 +100,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TempOverlay.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="Canvas.resx" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GeneratePerlinForm.resx">
+      <DependentUpon>GeneratePerlinForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerlinTestForm.resx">
       <DependentUpon>PerlinTestForm.cs</DependentUpon>

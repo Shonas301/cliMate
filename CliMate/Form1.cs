@@ -15,6 +15,8 @@ namespace CliMate
     {
         public static Project currentOpenProject = new Project();
 
+        private Form generatePerlinForm = new GeneratePerlinForm();
+
         public Form1()
         {
             InitializeComponent();
@@ -63,6 +65,7 @@ namespace CliMate
 
                 //sends filepath to height Overlay
                 currentOpenProject.heightOverlay.convertFromImage(fileName);
+                UpdateDisplay();
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
         }
@@ -85,8 +88,27 @@ namespace CliMate
         }
         private void UpdateDisplay()
         {
-            openTKPanel.BackgroundImage = currentOpenProject.heightOverlay.ToBitmap();
+            Image img = currentOpenProject.heightOverlay.ToBitmap();
+            openTKPanel.BackgroundImage = img;
 
+        }
+
+        private void generateNewMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            generatePerlinForm.ShowDialog();
+            UpdateDisplay();
+        }
+
+        private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Canvas c = new Canvas();
+            c.ShowDialog();
+            UpdateDisplay();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
