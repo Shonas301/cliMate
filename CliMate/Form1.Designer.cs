@@ -288,6 +288,7 @@
             this.noteButton.Size = new System.Drawing.Size(50, 50);
             this.noteButton.TabIndex = 3;
             this.noteButton.UseVisualStyleBackColor = false;
+            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
             // 
             // Form1
             // 

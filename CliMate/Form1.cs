@@ -111,6 +111,11 @@ namespace CliMate
         {
             this.Close();
         }
+
+        private void noteButton_Click(object sender, EventArgs e)
+        {
+            Note note = new glo
+        }
     }
 }
 

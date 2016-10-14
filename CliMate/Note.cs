@@ -9,8 +9,22 @@ public class Note
     public ArrayList notes { get; set; }
     public string map { get; set; }
 
-	public Note()
+	public Note(string map)
 	{
+        this.map = map;
+        this.notes = new ArrayList();
+        string mapString = map + ".txt";
+        if (File.Exists(mapString))
+        {
+            using(StreamReader rd = File.OpenText(mapString))
+            {
+                string s = "";
+                while ((s = rd.ReadLine()) != null)
+                {
+                    notes.Add(s);
+                }
+            }
+        }
 	}
 
     public Note(int x, int y,  string map)
@@ -63,5 +77,10 @@ public class Note
         {
             System.Diagnostics.Debug.WriteLine("Note: " + s);
         }
+    }
+
+    public bool isNotesEmpty()
+    {
+        return notes.Count > 0;        
     }
 }

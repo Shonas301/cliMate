@@ -10,6 +10,7 @@ public class Project
     private String filePath;
     private int frequency; //unclear about what this does
     private List<Overlay> mapData = new List<Overlay>();
+    public Note notes { get; set; }
 
     //Built-in overlays
     public HeightOverlay heightOverlay { get; private set; }
