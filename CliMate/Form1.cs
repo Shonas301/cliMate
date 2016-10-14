@@ -84,6 +84,7 @@ namespace CliMate
                 fileName = file.ReadLine();
                 currentOpenProject.heightOverlay.convertFromImage(fileName);
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
+                UpdateDisplay();
             }
         }
         private void UpdateDisplay()
