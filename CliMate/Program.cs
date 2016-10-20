@@ -16,7 +16,9 @@ namespace CliMate
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Screen.run();
+            OpenTK.GameWindow window = new OpenTK.GameWindow(640,480);
+            GridDisplayEquiRect disp = new GridDisplayEquiRect(3, window);
+            window.Run();
             Application.Run(new Form1());
             
         }

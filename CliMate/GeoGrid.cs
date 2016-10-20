@@ -119,27 +119,21 @@ namespace CliMate
             }
         }
         
+        //Returns color at the specified parallelogram (see diagram above), row and column of given parallelogram
         public Color getColor(int parallel,  int row, int column)
         {
             return grid[parallel][row][column].getColor();
         }
-
+        //Returns tile at coordinates
         public Tile getTile(int parallel, int row, int col)
         {
             return grid[parallel][row][col];
         }
-
+        //Returns the resoultion of the grid
         public int getFrequency()
         {
             return frequency;
         }
 
-        /*public Bitmap sendDisplay(int width, int height, int mode)
-        {
-            if (mode==TRIANGULAR)
-            {
-
-            }
-        }*/
     }
 }

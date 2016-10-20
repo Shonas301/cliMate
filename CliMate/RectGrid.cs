@@ -9,6 +9,9 @@ namespace CliMate
     class RectGrid
     {
         Tile[][] grid;
+        //Yeah, you can make this whatever size you want, but this should always be projectWidth/Height
+        //I just found it weird to have a project as a parameter. Project settings? Huh...
+        //Maybe we should leave it as is anyway. Flexibility and all that jazz.
         public RectGrid(int xres, int yres)
         {
             for (int i = 0; i < yres; i++)
