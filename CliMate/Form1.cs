@@ -66,8 +66,8 @@ namespace CliMate
                 File.WriteAllText(sourceDir, fileName);
 
                 //sends filepath to height Overlay
-                currentOpenProject.FileName = fileName;
-                currentOpenProject.heightOverlay.convertFromImage(fileName);
+                //currentOpenProject.FileName = fileName;
+                //currentOpenProject.heightOverlay.convertFromImage(fileName);
                 UpdateDisplay();
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
@@ -85,17 +85,17 @@ namespace CliMate
                 string fileName;
                 System.IO.StreamReader file = new System.IO.StreamReader(recent);
                 fileName = file.ReadLine();
-                currentOpenProject.FileName = fileName;
-                currentOpenProject.heightOverlay.convertFromImage(fileName);
+                //currentOpenProject.FileName = fileName;
+                //currentOpenProject.heightOverlay.convertFromImage(fileName);
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
                 UpdateDisplay();
             }
         }
         private void UpdateDisplay()
         {
-            Image img = currentOpenProject.heightOverlay.ToBitmap();
+            //Image img = currentOpenProject.heightOverlay.ToBitmap();
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            openTKPanel.BackgroundImage = img;
+            //openTKPanel.BackgroundImage = img;
 
         }
 
@@ -125,13 +125,15 @@ namespace CliMate
 
         private void noteButton_Click(object sender, EventArgs e)
         {
-            if(currentOpenProject.notes == null)
+            /*if(currentOpenProject.notes == null)
             {
                 MessageBox.Show("Sorry no project loaded yet!", "Error");
                 return;
             }
             NoteForm nF = new NoteForm(currentOpenProject.notes);
             nF.ShowDialog();
+            */
+            //TODO
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)

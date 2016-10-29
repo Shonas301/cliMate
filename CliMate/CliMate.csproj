@@ -62,7 +62,6 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Canvas.Designer.cs" />
-    <Compile Include="ClimateOverlay.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="GeoDisplayIco.cs" />
     <Compile Include="Form1.cs">
@@ -77,7 +76,6 @@
     <Compile Include="GeneratePerlinForm.Designer.cs">
       <DependentUpon>GeneratePerlinForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GridDisply.cs" />
     <Compile Include="Heightmap.cs" />
     <Compile Include="HeightOverlay.cs" />
     <Compile Include="IcoVertex.cs" />
@@ -108,7 +106,6 @@
     </Compile>
     <Compile Include="GeoGrid.cs" />
     <Compile Include="GridDisplayEquiRect.cs" />
-    <Compile Include="MapProject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Project.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

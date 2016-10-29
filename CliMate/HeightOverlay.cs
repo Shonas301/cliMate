@@ -2,7 +2,7 @@
 using CliMate;
 using System.Drawing;
 
-public class HeightOverlay : Overlay
+public class HeightOverlay //: Overlay
 {
     //private PlateOverlay[] plates;    //Why do we need this?
     private bool tectonic;
@@ -32,10 +32,10 @@ public class HeightOverlay : Overlay
         */
     }
 
-    public void tectonicSim(PlateOverlay[] plates)
+    /*public void tectonicSim(PlateOverlay[] plates)
     {
         //TODO
-    }
+    }*/
 
     public void convertFromImage(String filepath)
     {

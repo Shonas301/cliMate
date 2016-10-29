@@ -55,7 +55,8 @@ namespace CliMate
 
         private void OK_Button_Click(object sender, EventArgs e)
         {
-            Form1.currentOpenProject.heightOverlay.contents = workingMap;
+            //TODO
+            //Form1.currentOpenProject.heightOverlay.contents = workingMap;
             this.Close();
         }
 
