@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Climate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -38,6 +39,7 @@ namespace CliMate
         {
             //button for getting file
             //Opens file navigation window to select an image 
+
             OpenFileDialog imageSelector = new OpenFileDialog();
             imageSelector.Filter = "Image Files(*.bmp,*.png ,*.jpg) | *.bmp; *png; *.jpg";
             imageSelector.Title = "Select an Image File";
@@ -105,9 +107,15 @@ namespace CliMate
 
         private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Canvas c = new Canvas();
-            c.ShowDialog();
-            UpdateDisplay();
+            //Canvas c = new Canvas();
+            //c.ShowDialog();
+            //UpdateDisplay();
+
+
+            //TODO get new project parameters, how they want to generate, etc
+            //override "currentOpenProject" with the new parameters (if they want them)
+            
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,6 +132,12 @@ namespace CliMate
             }
             NoteForm nF = new NoteForm(currentOpenProject.notes);
             nF.ShowDialog();
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open dialog with new project parameters
+            //override "Current open project"
         }
     }
 }

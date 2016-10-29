@@ -2,98 +2,39 @@
 using System.IO;
 
 using System.Collections.Generic;
+using CliMate;
 
-public class Project
+namespace Climate
 {
-
-
-    private String filePath;
-    private string fileName;
-    public string FileName
+    public class Project
     {
-        get { return fileName; }
-        set
+        private String filePath;
+        private int projectWidth;
+        private int projectHeight;
+        //The frequency (resolution) of the geodesic grid.
+        private int geoFrequency;
+        private NodeMap map { get; set; }
+
+        public Project()
         {
-            fileName = value;
-            if (notes == null)
-            {
-                notes = new Note(fileName);
-                System.Diagnostics.Debug.Print("Note made");
-            }
-        }
-    }
-    private int frequency; //unclear about what this does
-    private List<Overlay> mapData = new List<Overlay>();
-    public Note notes { get; set; }
-
-    //Built-in overlays
-    public HeightOverlay heightOverlay { get; private set; }
-    public MoistureOverlay moistureOverlay { get; private set; }
-    public TempOverlay tempOverlay { get; private set; }
-
-    /*
-    public Project()
-    {
-        this.filePath = Path.GetFullPath(@"mydir");
-        this.frequency = 10; //random value?
-        this.mapData = new Overlay[10];  
-    }*/
-
-    public Project(String filePath = null, int frequency = 10)
-    {
-        //Frequency is defaulted to a random value.
-        //Default filePath to Path.GetFullPath
-        if (filePath == null)
-        {
-            filePath = Path.GetFullPath(@"mydir");
+            //Default values for project resoultion
+            this.projectWidth = 640;
+            this.projectHeight = 480;
+            this.geoFrequency = 4;
+            map = new NodeMap();
         }
 
-        this.filePath = filePath;
-        this.frequency = frequency;
+        public Project(int width, int height, int frequency)
+        {
+            this.projectWidth = width;
+            this.projectHeight = height;
+            this.geoFrequency = frequency;
+            map = new NodeMap();
+        }
 
-        //Initialize the built-in overlays
-        heightOverlay = new HeightOverlay();
-        moistureOverlay = new MoistureOverlay();
-        tempOverlay = new TempOverlay();
+        //ALL grids are going to need access to this. Changing these MIGHT be tricky seeing as we'd have to recalculate all the way down the node tree.
+        public int getProjectWidth() { return projectWidth; }
+        public int getProjectHeight() { return projectHeight; }
 
-        //Add all built-in overlays
-        addOverlay(heightOverlay);
-        addOverlay(moistureOverlay);
-        addOverlay(tempOverlay);
     }
-
-    public String getFilePath()
-    {
-        return this.filePath;
-    }
-
-    public void setFilePath(String filePath)
-    {
-        this.filePath = filePath;
-    }
-
-    public int getFrequency()
-    {
-        return this.frequency;
-    }
-
-    public void setFrequency(int frequency)
-    {
-        this.frequency = frequency;
-    }
-
-    public Overlay[] getOverlays()
-    {
-        return mapData.ToArray();
-    }
-
-    public void addOverlay(Overlay overlay)
-    {
-        //Adds an overlay to the project
-        mapData.Add(overlay);
-    }
-    
-    public void save() {}
-
-    public void load() {}
 }
