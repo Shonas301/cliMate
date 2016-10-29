@@ -13,6 +13,8 @@ namespace CliMate
         //What we export when the user decides to export will be whatever is in the node "output" 
         private Node output;
         List<Node> Nodes;
+        public int outHeight { get; set; }
+        public int outWidth { get; set; }
 
         public NodeMap()
         {

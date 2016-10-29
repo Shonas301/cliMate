@@ -10,7 +10,7 @@ namespace Climate
         //start of the chain type deal
         public InputNode(NodeMap map) : base()
         {
-            outGrid = new RectGrid(map.getOutWidth(), map.getOutHeight());
+            outGrid = new RectGrid(map.outHeight, map.outWidth);
         }
 
         //you are not allowed to set kiddos. bad. no kiddos
