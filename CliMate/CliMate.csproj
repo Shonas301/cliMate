@@ -82,6 +82,12 @@
     <Compile Include="HeightOverlay.cs" />
     <Compile Include="IcoVertex.cs" />
     <Compile Include="MoistureOverlay.cs" />
+    <Compile Include="NodeInterface.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NodeInterface.Designer.cs">
+      <DependentUpon>NodeInterface.cs</DependentUpon>
+    </Compile>
     <Compile Include="Overlay.cs" />
     <Compile Include="PerlinNoise.cs" />
     <Compile Include="PerlinTestForm.cs">
@@ -106,6 +112,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GeneratePerlinForm.resx">
       <DependentUpon>GeneratePerlinForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NodeInterface.resx">
+      <DependentUpon>NodeInterface.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PerlinTestForm.resx">
       <DependentUpon>PerlinTestForm.cs</DependentUpon>

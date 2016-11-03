@@ -17,6 +17,8 @@ namespace CliMate
 
         private Form generatePerlinForm = new GeneratePerlinForm();
 
+        private Form nodeInterfaceForm = new NodeInterface();
+
         public Form1()
         {
             InitializeComponent();
@@ -109,6 +111,12 @@ namespace CliMate
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void nodeMapToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            nodeInterfaceForm.ShowDialog();
+            UpdateDisplay();
         }
     }
 }
