@@ -13,7 +13,7 @@ namespace CliMate
 {
     public partial class Canvas : Form
     {
-        private const int DEFAULT_SIZE = 600;
+        private const int DEFAULT_SIZE = 200;
 
         private Heightmap image = new Heightmap(DEFAULT_SIZE, DEFAULT_SIZE);
         private Brush currentBrush = new SquareBrush();
@@ -23,6 +23,11 @@ namespace CliMate
         public Canvas()
         {
             InitializeComponent();
+        }
+
+        private void Canvas_Load(object sender, EventArgs e)
+        {
+            tempPicBox.Image = new Bitmap(image.width, image.height);
         }
 
         private void OnGameTick(MouseState mouse)
@@ -35,28 +40,52 @@ namespace CliMate
             //Controls
             if (mouse.leftButton)
             {
-                currentBrush.Apply(image, mouse.x, mouse.y, 100, deltaTime);
+                Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
+
+                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, 100, deltaTime);
+
+                tempPicBox.Image = picboxBitmap;
             }
 
             //Update teh display
-            UpdateDisplay();
+            //UpdateDisplay();
         }
 
         private void UpdateDisplay()
         {
-            //TODO: Update the display
+            //TODO: Do this more efficiently.
             tempPicBox.Image = image.ToBitmap();
         }
 
         private void tickTimer_Tick(object sender, EventArgs e)
         {
-            //TODO: Get real mouse data
-            MouseState ms = new MouseState(Cursor.Position.X, Cursor.Position.Y, true, false, false);
-
-            ms.leftButton = (MouseButtons == MouseButtons.Left);
+            //Get the mouse data
+            MouseState ms = GetMouseState();
 
             //Call game tick
             OnGameTick(ms);
+        }
+
+        private MouseState GetMouseState()
+        {
+            //Figures out the current mouse state.
+            MouseState mouse = new MouseState(0, 0, false, false, false);
+
+            //Mouse buttons
+            mouse.leftButton = (MouseButtons == MouseButtons.Left);
+            mouse.rightButton = (MouseButtons == MouseButtons.Right);
+            mouse.middleButton = (MouseButtons == MouseButtons.Middle);
+
+            //--Finding mouse position in the image's space--
+
+            //Find the position relative to picbox
+            Point unscaledPos = tempPicBox.PointToClient(Cursor.Position);
+
+            //TODO: Scale the position with the image properly
+            mouse.x = unscaledPos.X;
+            mouse.y = unscaledPos.Y;
+
+            return mouse;
         }
     }
 
@@ -81,13 +110,13 @@ namespace CliMate
 
     public abstract class Brush
     {
-        public abstract void Apply(Heightmap target, int x, int y, double size, double deltaTime);
+        public abstract void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double deltaTime);
     }
 
     public class SquareBrush : Brush
     {
         private double speed = 200;
-        public override void Apply(Heightmap target, int x, int y, double size, double deltaTime)
+        public override void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double deltaTime)
         {
             //Make a square around the coordinates
             int startX = (int)((double)x - size / 2);
@@ -97,11 +126,11 @@ namespace CliMate
             int endY = (int)((double)y + size / 2);
 
             //Make sure the corners of the square are in bounds
-            startX = CapBounds(startX, 0, target.width);
-            endX = CapBounds(endX, 0, target.width);
+            startX = CapBounds(startX, 0, targetHeightmap.width);
+            endX = CapBounds(endX, 0, targetHeightmap.width);
 
-            startY = CapBounds(startY, 0, target.height);
-            endY = CapBounds(endY, 0, target.height);
+            startY = CapBounds(startY, 0, targetHeightmap.height);
+            endY = CapBounds(endY, 0, targetHeightmap.height);
 
             //Iterate through the square, applying the logic to it.
             for (x = startX; x < endX; x++)
@@ -109,7 +138,7 @@ namespace CliMate
                 for (y = startY; y < endY; y++)
                 {
                     //Change the height at this position
-                    double val = target.GetValue(x, y);
+                    double val = targetHeightmap.GetValue(x, y);
                     val += speed * deltaTime;
 
                     //Ensure the value stays within the limits
@@ -119,7 +148,8 @@ namespace CliMate
                     }
 
                     //Apply the height change
-                    target.SetValue(x, y, val);
+                    targetHeightmap.SetValue(x, y, val);
+                    targetBitmap.SetPixel(x, y, Heightmap.ValueToColor(val));
                 }
             }
         }

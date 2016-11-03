@@ -56,6 +56,7 @@
             this.Controls.Add(this.tempPicBox);
             this.Name = "Canvas";
             this.Text = "Canvas";
+            this.Load += new System.EventHandler(this.Canvas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).EndInit();
             this.ResumeLayout(false);
 
