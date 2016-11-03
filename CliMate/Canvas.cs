@@ -13,9 +13,9 @@ namespace CliMate
 {
     public partial class Canvas : Form
     {
-        private const int DEFAULT_SIZE = 200;
+        private const int DEFAULT_SIZE = 600;
 
-        private Heightmap image = new Heightmap(DEFAULT_SIZE, DEFAULT_SIZE);
+        private Heightmap image;
         private Brush currentBrush = new SquareBrush();
 
         private long prevTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
@@ -27,7 +27,16 @@ namespace CliMate
 
         private void Canvas_Load(object sender, EventArgs e)
         {
+            //Get the image dimensions
+            WidthHeightDialog dialog = new WidthHeightDialog();
+            dialog.ShowDialog();
+
+            //Create the image and picbox
+            image = new Heightmap(dialog.width, dialog.height);
             tempPicBox.Image = new Bitmap(image.width, image.height);
+
+            //Enable the timer
+            tickTimer.Enabled = true;
         }
 
         private void OnGameTick(MouseState mouse)
@@ -47,8 +56,6 @@ namespace CliMate
                 tempPicBox.Image = picboxBitmap;
             }
 
-            //Update teh display
-            //UpdateDisplay();
         }
 
         private void UpdateDisplay()
