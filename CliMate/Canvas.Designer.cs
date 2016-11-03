@@ -56,14 +56,15 @@
             this.drawingPanel.Controls.Add(this.tempPicBox);
             this.drawingPanel.Location = new System.Drawing.Point(12, 12);
             this.drawingPanel.Name = "drawingPanel";
-            this.drawingPanel.Size = new System.Drawing.Size(608, 472);
+            this.drawingPanel.Size = new System.Drawing.Size(689, 592);
             this.drawingPanel.TabIndex = 1;
             // 
             // toolboxPanel
             // 
+            this.toolboxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.toolboxPanel.Location = new System.Drawing.Point(707, 15);
             this.toolboxPanel.Name = "toolboxPanel";
-            this.toolboxPanel.Size = new System.Drawing.Size(132, 100);
+            this.toolboxPanel.Size = new System.Drawing.Size(132, 589);
             this.toolboxPanel.TabIndex = 2;
             // 
             // Canvas
