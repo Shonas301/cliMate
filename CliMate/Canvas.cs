@@ -12,23 +12,46 @@ namespace CliMate
 {
     public partial class Canvas : Form
     {
-        private const int DEFAULT_SIZE = 100;
+        private const int DEFAULT_SIZE = 600;
 
         private Heightmap image = new Heightmap(DEFAULT_SIZE, DEFAULT_SIZE);
+        private Brush currentBrush = new SquareBrush();
+
+        private long prevTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
 
         public Canvas()
         {
             InitializeComponent();
         }
 
-        private void OnGameTick(MouseState mouse, double deltaTime)
+        private void OnGameTick(MouseState mouse)
         {
-            //
+            //Compute the delta time
+            long currTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
+            long deltaTimeMs = currTime - prevTime;
+            double deltaTime = (double)deltaTimeMs / 1000;
+
+            //Controls
+            if (mouse.leftButton)
+            {
+                currentBrush.Apply(image, mouse.x, mouse.y, 100, deltaTime);
+            }
+
+            //Update teh display
+            UpdateDisplay();
         }
 
         private void UpdateDisplay()
         {
             //TODO: Update the display
+            tempPicBox.Image = image.ToBitmap();
+        }
+
+        private void tickTimer_Tick(object sender, EventArgs e)
+        {
+            //TODO: Get real mouse data
+            MouseState mouse = new MouseState(0, 0, true, false, false);
+            OnGameTick(mouse);
         }
     }
 
