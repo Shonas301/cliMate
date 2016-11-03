@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Input;
 
 namespace CliMate
 {
@@ -50,8 +51,12 @@ namespace CliMate
         private void tickTimer_Tick(object sender, EventArgs e)
         {
             //TODO: Get real mouse data
-            MouseState mouse = new MouseState(0, 0, true, false, false);
-            OnGameTick(mouse);
+            MouseState ms = new MouseState(Cursor.Position.X, Cursor.Position.Y, true, false, false);
+
+            ms.leftButton = (MouseButtons == MouseButtons.Left);
+
+            //Call game tick
+            OnGameTick(ms);
         }
     }
 
@@ -81,7 +86,7 @@ namespace CliMate
 
     public class SquareBrush : Brush
     {
-        private double speed = 10;
+        private double speed = 200;
         public override void Apply(Heightmap target, int x, int y, double size, double deltaTime)
         {
             //Make a square around the coordinates
