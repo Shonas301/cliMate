@@ -10,9 +10,9 @@ namespace CliMate
     class MapNode
     {
         private Grid gridOut;
-        private MapNode output;
-        private MapNode[] inputs;
-        private int nInputs;
+        public MapNode output;
+        public MapNode[] inputs;
+        public int nInputs;
         private int nodeType;
         private Point topLeft;
         private int nodeW;

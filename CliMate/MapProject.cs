@@ -47,5 +47,29 @@ namespace CliMate
                 return null;
             }
         }
+
+        public MapNode GetNodeAtPoint(System.Drawing.Point point)
+        {
+            for (int i = 0; i < this.GetSize(); i++)
+            {
+                MapNode mn = this.GetNodeAt(i);
+                try
+                {
+                    int x1 = mn.GetTopLeft().X;
+                    int x2 = mn.GetTopLeft().X + mn.GetWidth();
+                    int y1 = mn.GetTopLeft().Y;
+                    int y2 = mn.GetTopLeft().Y + mn.GetHeight();
+                    if ((point.X >= x1) && (point.X <= x2) && (point.Y >= y1) && (point.Y <= y2))
+                    {
+                        return mn;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("ERROR: NULL NODES");
+                }
+            }
+            return new MapNode(-1, new System.Drawing.Point(-1, -1), -1, -1);
+        }
     }
 }

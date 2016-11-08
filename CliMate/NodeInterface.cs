@@ -15,6 +15,7 @@ namespace CliMate
         private int selectedNode = -1;
         private MapProject map = new MapProject();
         private Boolean midConnector = false;
+        private MapNode midNode;
         private Point midConnection;
 
         public NodeInterface()
@@ -76,17 +77,25 @@ namespace CliMate
             //MessageBox.Show("" + selectedNode + " @ " + point.ToString());
             if (selectedNode == 0)
             {
-                if (PointIsInNode(point))
+                if (PointIsInNode(point).X != -1 && PointIsInNode(point).Y != -1)
                 {
+                    Point topLeft = PointIsInNode(point);
                     if (midConnector)
                     {
                         midConnector = false;
+                        MapNode connection = map.GetNodeAtPoint(topLeft);
+                        // THIS IS WHERE THE CONNECTION TAKES PLACE \/
+                        connection.inputs[connection.nInputs] = midNode;
+                        connection.nInputs++;
+                        midNode.output = connection;
+                        // THIS IS WHERE THE CONNECTION TAKES PLACE /\
                         panel1.CreateGraphics().DrawLine(new Pen(Color.FromArgb(255, 0, 0, 0)), midConnection, point);
                     }
                     else
                     {
                         midConnector = true;
                         midConnection = point;
+                        midNode = map.GetNodeAtPoint(topLeft);
                     }
                 }
                 else
@@ -94,7 +103,7 @@ namespace CliMate
                     MessageBox.Show("Error: You must select a node");
                 }
             }
-            if (PointIsInNode(point))
+            if (PointIsInNode(point).X != -1 && PointIsInNode(point).Y != -1)
             {
                 return;
             }
@@ -116,7 +125,7 @@ namespace CliMate
             }
         }
 
-        public bool PointIsInNode(Point point)
+        public Point PointIsInNode(Point point)
         {
             for (int i = 0; i < map.GetSize(); i++)
             {
@@ -129,7 +138,7 @@ namespace CliMate
                     int y2 = mn.GetTopLeft().Y + mn.GetHeight();
                     if ((point.X >= x1) && (point.X <= x2) && (point.Y >= y1) && (point.Y <= y2))
                     {
-                        return true;
+                        return mn.GetTopLeft();
                     }
                 }
                 catch (Exception ex)
@@ -137,7 +146,7 @@ namespace CliMate
                     MessageBox.Show("ERROR: NULL NODES");
                 }
             }
-            return false;
+            return new Point(-1, -1);
         }
     }
 }
