@@ -8,8 +8,23 @@ public class Project
 
 
     private String filePath;
+    private string fileName;
+    public string FileName
+    {
+        get { return fileName; }
+        set
+        {
+            fileName = value;
+            if (notes == null)
+            {
+                notes = new Note(fileName);
+                System.Diagnostics.Debug.Print("Note made");
+            }
+        }
+    }
     private int frequency; //unclear about what this does
     private List<Overlay> mapData = new List<Overlay>();
+    public Note notes { get; set; }
 
     //Built-in overlays
     public HeightOverlay heightOverlay { get; private set; }

@@ -56,6 +56,7 @@
             this.regularPointerToggle = new System.Windows.Forms.Button();
             this.openTKPanel = new System.Windows.Forms.Panel();
             this.nodeMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.noteButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
             this.SuspendLayout();
@@ -227,6 +228,7 @@
             // 
             this.toolPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.toolPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.toolPanel.Controls.Add(this.noteButton);
             this.toolPanel.Controls.Add(this.toolsLabel);
             this.toolPanel.Controls.Add(this.brushPointerToggle);
             this.toolPanel.Controls.Add(this.regularPointerToggle);
@@ -283,6 +285,18 @@
             this.nodeMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.nodeMapToolStripMenuItem.Text = "Node Map";
             this.nodeMapToolStripMenuItem.Click += new System.EventHandler(this.nodeMapToolStripMenuItem_Click);
+            // noteButton
+            // 
+            this.noteButton.BackColor = System.Drawing.Color.DarkGray;
+            this.noteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noteButton.ForeColor = System.Drawing.Color.Gray;
+            this.noteButton.Image = ((System.Drawing.Image)(resources.GetObject("noteButton.Image")));
+            this.noteButton.Location = new System.Drawing.Point(10, 90);
+            this.noteButton.Name = "noteButton";
+            this.noteButton.Size = new System.Drawing.Size(50, 50);
+            this.noteButton.TabIndex = 3;
+            this.noteButton.UseVisualStyleBackColor = false;
+            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
             // 
             // Form1
             // 
@@ -337,6 +351,7 @@
         private System.Windows.Forms.ToolStripMenuItem augmentExistingMapToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem heightmapToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nodeMapToolStripMenuItem;
+        private System.Windows.Forms.Button noteButton;
     }
 }
 
