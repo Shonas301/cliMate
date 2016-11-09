@@ -79,6 +79,7 @@
     <Compile Include="GeneratePerlinForm.Designer.cs">
       <DependentUpon>GeneratePerlinForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="GridDisplayEquiRect.cs" />
     <Compile Include="GridDisply.cs" />
     <Compile Include="Heightmap.cs" />
     <Compile Include="HeightOverlay.cs" />
@@ -107,7 +108,6 @@
     </Compile>
     <Compile Include="PlateOverlay.cs" />
     <Compile Include="GeoGrid.cs" />
-    <Compile Include="GridDisplayEquiRect.cs" />
     <Compile Include="MapNode.cs" />
     <Compile Include="MapProject.cs" />
     <Compile Include="Program.cs" />
