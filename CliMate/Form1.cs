@@ -139,8 +139,8 @@ namespace CliMate
 
         private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Canvas c = new Canvas();
-            //c.ShowDialog();
+            Canvas c = new Canvas();
+            c.ShowDialog();
             //UpdateDisplay();
 
 
