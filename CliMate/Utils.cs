@@ -22,6 +22,7 @@ namespace CliMate
         {
             //Returns the linear interpolation(tween) between a and b at time t.
             //t is meant be between 0 and 1 inclusive
+            //safeguarding
 
             double alpha = Lerp((double)a.A, (double)b.A, t);
             double red = Lerp((double)a.R, (double)b.R, t);

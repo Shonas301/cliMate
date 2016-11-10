@@ -24,20 +24,28 @@ namespace CliMate
 
         public PerlinNoise(int seed, int octave, double freq, double lac, double pers)
         {
-            perlinGen.Seed = seed;
-            perlinGen.OctaveCount = octave;
+            //set all values to what is passed in and if it is 0 set to a default
+            if (seed <= 0)
+                perlinGen.Seed = seed;
+            else
+                perlinGen.Seed = 1;
 
-            if (freq == 0)
+            if (octave <= 0)
+                perlinGen.OctaveCount = 1;
+            else
+                perlinGen.OctaveCount = octave;
+
+            if (freq <= 0)
                 perlinGen.Frequency = .1;
             else
                 perlinGen.Frequency = freq;
 
-            if (lac == 0)
+            if (lac <= 0)
                 perlinGen.Lacunarity = 1.0;
             else
                 perlinGen.Lacunarity = lac;
 
-            if (pers == 0)
+            if (pers <= 0)
                 perlinGen.Persistence = 1.0;
             else
                 perlinGen.Persistence = pers;
