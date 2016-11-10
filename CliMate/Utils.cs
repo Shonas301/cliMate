@@ -30,5 +30,22 @@ namespace CliMate
 
             return Color.FromArgb((int)alpha, (int)red, (int)green, (int)blue);
         }
+
+        public static int CapBounds(int num, int min, int max)
+        {
+            //Ensures num is inside the given inclusive bounds
+
+            if (num < min)
+            {
+                num = min;
+            }
+
+            if (num > max)
+            {
+                num = max;
+            }
+
+            return num;
+        }
     }
 }

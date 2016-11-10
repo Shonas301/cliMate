@@ -133,11 +133,11 @@ namespace CliMate
             int endY = (int)((double)y + size / 2);
 
             //Make sure the corners of the square are in bounds
-            startX = CapBounds(startX, 0, targetHeightmap.width);
-            endX = CapBounds(endX, 0, targetHeightmap.width);
+            startX = Utils.CapBounds(startX, 0, targetHeightmap.width);
+            endX = Utils.CapBounds(endX, 0, targetHeightmap.width);
 
-            startY = CapBounds(startY, 0, targetHeightmap.height);
-            endY = CapBounds(endY, 0, targetHeightmap.height);
+            startY = Utils.CapBounds(startY, 0, targetHeightmap.height);
+            endY = Utils.CapBounds(endY, 0, targetHeightmap.height);
 
             //Iterate through the square, applying the logic to it.
             for (x = startX; x < endX; x++)
@@ -160,22 +160,6 @@ namespace CliMate
                 }
             }
         }
-
-        private int CapBounds(int num, int min, int max)
-        {
-            //Ensures num is inside the given inclusive bounds
-
-            if (num < min)
-            {
-                num = min;
-            }
-
-            if (num > max)
-            {
-                num = max;
-            }
-
-            return num;
-        }
+  
     }
 }
