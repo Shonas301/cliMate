@@ -14,14 +14,36 @@ namespace CliMate
         public const double SCALE_FACTOR = 2;     //Height is divided by this magic number to keep it below 1.0
 
         public int seed { get { return perlinGen.Seed; } }
+        public double frequency { get { return perlinGen.Frequency; } }
+        public double lacunarity { get { return perlinGen.Lacunarity; } }
+        public int octaveCount { get { return perlinGen.OctaveCount; } }
+        public double persistence { get { return perlinGen.Persistence; } }
 
         private Perlin perlinGen = new Perlin();
 
-        public PerlinNoise(int seed)
+
+        public PerlinNoise(int seed, int octave, double freq, double lac, double pers)
         {
             perlinGen.Seed = seed;
-            perlinGen.Frequency = 0.1;
+            perlinGen.OctaveCount = octave;
+
+            if (freq == 0)
+                perlinGen.Frequency = .1;
+            else
+                perlinGen.Frequency = freq;
+
+            if (lac == 0)
+                perlinGen.Lacunarity = 1.0;
+            else
+                perlinGen.Lacunarity = lac;
+
+            if (pers == 0)
+                perlinGen.Persistence = 1.0;
+            else
+                perlinGen.Persistence = pers;
         }
+
+
 
         public double SearchMaxValue(double searchSpace, double increment)
         {
