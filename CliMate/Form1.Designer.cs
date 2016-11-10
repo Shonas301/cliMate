@@ -43,6 +43,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.climatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nodeMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createBiomesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.heightmapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,14 +52,17 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPanel = new System.Windows.Forms.Panel();
+            this.noteButton = new System.Windows.Forms.Button();
             this.toolsLabel = new System.Windows.Forms.Label();
             this.brushPointerToggle = new System.Windows.Forms.Button();
             this.regularPointerToggle = new System.Windows.Forms.Button();
-            this.openTKPanel = new System.Windows.Forms.Panel();
-            this.nodeMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noteButton = new System.Windows.Forms.Button();
+            this.openTKPanel = new System.Windows.Forms.PictureBox();
+            this.outerPanel = new System.Windows.Forms.Panel();
+            this.disableEnableToolbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.openTKPanel)).BeginInit();
+            this.outerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -156,7 +160,8 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.temperatureToolStripMenuItem,
             this.climatesToolStripMenuItem,
-            this.nodeMapToolStripMenuItem});
+            this.nodeMapToolStripMenuItem,
+            this.disableEnableToolbarToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -164,14 +169,21 @@
             // temperatureToolStripMenuItem
             // 
             this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.temperatureToolStripMenuItem.Text = "Height Map";
             // 
             // climatesToolStripMenuItem
             // 
             this.climatesToolStripMenuItem.Name = "climatesToolStripMenuItem";
-            this.climatesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.climatesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.climatesToolStripMenuItem.Text = "Climates";
+            // 
+            // nodeMapToolStripMenuItem
+            // 
+            this.nodeMapToolStripMenuItem.Name = "nodeMapToolStripMenuItem";
+            this.nodeMapToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.nodeMapToolStripMenuItem.Text = "Node Map";
+            this.nodeMapToolStripMenuItem.Click += new System.EventHandler(this.nodeMapToolStripMenuItem_Click);
             // 
             // generateToolStripMenuItem
             // 
@@ -237,6 +249,19 @@
             this.toolPanel.Size = new System.Drawing.Size(130, 576);
             this.toolPanel.TabIndex = 1;
             // 
+            // noteButton
+            // 
+            this.noteButton.BackColor = System.Drawing.Color.DarkGray;
+            this.noteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noteButton.ForeColor = System.Drawing.Color.Gray;
+            this.noteButton.Image = ((System.Drawing.Image)(resources.GetObject("noteButton.Image")));
+            this.noteButton.Location = new System.Drawing.Point(10, 90);
+            this.noteButton.Name = "noteButton";
+            this.noteButton.Size = new System.Drawing.Size(50, 50);
+            this.noteButton.TabIndex = 3;
+            this.noteButton.UseVisualStyleBackColor = false;
+            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
+            // 
             // toolsLabel
             // 
             this.toolsLabel.AutoSize = true;
@@ -274,49 +299,50 @@
             // 
             // openTKPanel
             // 
-            this.openTKPanel.Location = new System.Drawing.Point(130, 24);
+            this.openTKPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("openTKPanel.BackgroundImage")));
+            this.openTKPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.openTKPanel.Location = new System.Drawing.Point(3, 0);
             this.openTKPanel.Name = "openTKPanel";
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
             this.openTKPanel.TabIndex = 2;
+            this.openTKPanel.TabStop = false;
+            this.openTKPanel.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.openTKPanel_MouseWheel);
             // 
-            // nodeMapToolStripMenuItem
+            // outerPanel
             // 
-            this.nodeMapToolStripMenuItem.Name = "nodeMapToolStripMenuItem";
-            this.nodeMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nodeMapToolStripMenuItem.Text = "Node Map";
-            this.nodeMapToolStripMenuItem.Click += new System.EventHandler(this.nodeMapToolStripMenuItem_Click);
-            // noteButton
+            this.outerPanel.AutoScroll = true;
+            this.outerPanel.Controls.Add(this.openTKPanel);
+            this.outerPanel.Location = new System.Drawing.Point(127, 24);
+            this.outerPanel.Name = "outerPanel";
+            this.outerPanel.Size = new System.Drawing.Size(1073, 576);
+            this.outerPanel.TabIndex = 3;
             // 
-            this.noteButton.BackColor = System.Drawing.Color.DarkGray;
-            this.noteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noteButton.ForeColor = System.Drawing.Color.Gray;
-            this.noteButton.Image = ((System.Drawing.Image)(resources.GetObject("noteButton.Image")));
-            this.noteButton.Location = new System.Drawing.Point(10, 90);
-            this.noteButton.Name = "noteButton";
-            this.noteButton.Size = new System.Drawing.Size(50, 50);
-            this.noteButton.TabIndex = 3;
-            this.noteButton.UseVisualStyleBackColor = false;
-            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
+            // disableEnableToolbarToolStripMenuItem
+            // 
+            this.disableEnableToolbarToolStripMenuItem.Name = "disableEnableToolbarToolStripMenuItem";
+            this.disableEnableToolbarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.disableEnableToolbarToolStripMenuItem.Text = "Disable/Enable Toolbar";
+            this.disableEnableToolbarToolStripMenuItem.Click += new System.EventHandler(this.disableEnableToolbarToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 600);
-            this.Controls.Add(this.openTKPanel);
             this.Controls.Add(this.toolPanel);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.outerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "CliMate";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolPanel.ResumeLayout(false);
             this.toolPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.openTKPanel)).EndInit();
+            this.outerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -340,7 +366,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Panel toolPanel;
-        private System.Windows.Forms.Panel openTKPanel;
         private System.Windows.Forms.Button regularPointerToggle;
         private System.Windows.Forms.Label toolsLabel;
         private System.Windows.Forms.Button brushPointerToggle;
@@ -352,6 +377,9 @@
         private System.Windows.Forms.ToolStripMenuItem heightmapToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nodeMapToolStripMenuItem;
         private System.Windows.Forms.Button noteButton;
+        private System.Windows.Forms.PictureBox openTKPanel;
+        private System.Windows.Forms.Panel outerPanel;
+        private System.Windows.Forms.ToolStripMenuItem disableEnableToolbarToolStripMenuItem;
     }
 }
 

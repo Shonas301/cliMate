@@ -30,6 +30,11 @@ namespace CliMate
             int width;
             int height;
             int seed;
+            int octave;
+            double persistence;
+            double frequency;
+            double lacunarity;
+
 
             //Catch any errors with the textboxes
             try
@@ -37,21 +42,26 @@ namespace CliMate
                 width = int.Parse(widthBox.Text);
                 height = int.Parse(heightBox.Text);
                 seed = int.Parse(seedBox.Text);
+                octave = int.Parse(OctBox.Text);
+                Double.TryParse(PersBox.Text, out persistence);
+                Double.TryParse(LacBox.Text, out lacunarity);
+                Double.TryParse(FreqBox.Text, out frequency);
+
             }
             catch (FormatException err)
             {
-                MessageBox.Show("ERROR: width, height, and seed must all be integers.");
+                MessageBox.Show("ERROR: width, height, seed, and octave count must all be integers.\r\nPersistence, lacunarity, and frequency are doubles");
                 return;
             }
             catch (OverflowException err)
             {
-                MessageBox.Show("ERROR: either width, height, or seed are too long.");
+                MessageBox.Show("ERROR: One of your values is too long.");
                 return;
             }
 
             //Generate the preview map
             previewMap = new Heightmap(width, height);
-            PerlinNoise noiseGen = new PerlinNoise(seed);
+            PerlinNoise noiseGen = new PerlinNoise(seed, octave, frequency, lacunarity, persistence);
             
             for (int x = 0; x < width; x++)
             {

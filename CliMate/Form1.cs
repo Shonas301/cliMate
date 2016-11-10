@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -20,10 +21,33 @@ namespace CliMate
 
         private Form nodeInterfaceForm = new NodeInterface();
 
+
+        //records the previous location for the picturebox
+        int pic_previousX;
+        int pic_previousY;
+
+        //records the previous location for the panel
+        int pan_previousX;
+        int pan_previousY;
+
+        //original width and height of the picturebox
+        int orW;
+        int orH;
+
+        //width and height for the picture when toolbar is disabled
+        int disW;
+        int disH;
+
+        private double ZOOMFACTOR = 1.25; 
+        private int MINMAX = 3;
+
         public Form1()
         {
             InitializeComponent();
             InitializeOpenFileDialog();
+            orW = openTKPanel.Width;
+            orH = openTKPanel.Height;
+            Console.WriteLine(orW + " " + orH);
         }
 
         private void InitializeOpenFileDialog()
@@ -35,6 +59,9 @@ namespace CliMate
         {
             PerlinTestForm perlinForm = new PerlinTestForm();
             perlinForm.Show();
+            //puts picturebox inside the panel so you can scroll
+            outerPanel.Controls.Add(openTKPanel);
+            openTKPanel.SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -69,6 +96,7 @@ namespace CliMate
 
                 //sends filepath to height Overlay
 
+                //TODO
                 currentOpenProject.AddImageFileNode(fileName);
                 //currentOpenProject.heightOverlay.convertFromImage(fileName);
                 UpdateDisplay();
@@ -96,6 +124,7 @@ namespace CliMate
         }
         private void UpdateDisplay()
         {
+
             Image img = currentOpenProject.GetLastNode().ToBitmap();
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
             openTKPanel.BackgroundImage = img;
@@ -130,8 +159,8 @@ namespace CliMate
         {
             nodeInterfaceForm.ShowDialog();
             UpdateDisplay();
-		}
-		
+        }
+
         private void noteButton_Click(object sender, EventArgs e)
         {
             /*if(currentOpenProject.notes == null)
@@ -142,13 +171,92 @@ namespace CliMate
             NoteForm nF = new NoteForm(currentOpenProject.notes);
             nF.ShowDialog();
             */
-            //TODO
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //Open dialog with new project parameters
             //override "Current open project"
+        }
+
+        //zooms in picture
+
+        //taken from https://social.msdn.microsoft.com/Forums/windows/en-US/50ea6adc-52cf-491a-bb99-729ac83475ce/mousewheel-zoom?forum=winforms
+        private void ZoomIn()
+        {
+            if ((openTKPanel.Width < (MINMAX * outerPanel.Width)) &&
+                (openTKPanel.Height < (MINMAX * outerPanel.Height)))
+            {
+                openTKPanel.Width = Convert.ToInt32(openTKPanel.Width * ZOOMFACTOR);
+                openTKPanel.Height = Convert.ToInt32(openTKPanel.Height * ZOOMFACTOR);
+                openTKPanel.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
+        //zooms out picture
+        //taken from https://social.msdn.microsoft.com/Forums/windows/en-US/50ea6adc-52cf-491a-bb99-729ac83475ce/mousewheel-zoom?forum=winforms
+        private void ZoomOut()
+        {
+            if ((openTKPanel.Width > (outerPanel.Width / MINMAX)) &&
+                (openTKPanel.Height > (outerPanel.Height / MINMAX)))
+            {
+                openTKPanel.SizeMode = PictureBoxSizeMode.StretchImage;
+                openTKPanel.Width = Convert.ToInt32(openTKPanel.Width / ZOOMFACTOR);
+                openTKPanel.Height = Convert.ToInt32(openTKPanel.Height / ZOOMFACTOR);
+            }
+        }
+
+        //calls the necessary method when you scroll with the mousewheel
+        //taken from https://social.msdn.microsoft.com/Forums/windows/en-US/50ea6adc-52cf-491a-bb99-729ac83475ce/mousewheel-zoom?forum=winforms
+        void openTKPanel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta < 0)
+            {
+                ZoomIn();
+            }
+            else
+            {
+                ZoomOut();
+            }
+        }
+
+        private void disableEnableToolbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (toolPanel.Visible & openTKPanel.Width == orW & openTKPanel.Height == orH)
+            {
+                //makes toolbar invisible
+                toolPanel.Visible = false;
+
+                //records original locations
+                pan_previousX = outerPanel.Location.X;
+                pan_previousY = outerPanel.Location.Y;
+                pic_previousX = openTKPanel.Location.X;
+                pic_previousY = openTKPanel.Location.Y;
+                
+                //changes sizes of the picturebox and panel
+                outerPanel.Width = outerPanel.Width + toolPanel.Width;
+                openTKPanel.Width = openTKPanel.Width + toolPanel.Width;
+                this.outerPanel.Location = new Point(this.toolPanel.Location.X, this.outerPanel.Location.Y);
+                this.openTKPanel.Location = new Point(this.toolPanel.Location.X, this.openTKPanel.Location.Y);
+               
+                //records the height and width of the new picturebox
+                disW = openTKPanel.Width;
+                disH = openTKPanel.Height;
+            }
+            //checks to see the zoom is 0
+            else if (toolPanel.Visible == false & openTKPanel.Width == disW & openTKPanel.Height == disH)
+            {
+                //resizes the picturebox and panel to its original size
+                outerPanel.Width = outerPanel.Width - toolPanel.Width;
+                openTKPanel.Width = openTKPanel.Width - toolPanel.Width;
+
+                //sets it back to the original location
+                this.outerPanel.Location = new Point(pan_previousX, pan_previousY);
+                this.openTKPanel.Location = new Point(pic_previousX, pic_previousY);
+
+                //makes toolbar visible again
+                toolPanel.Visible = true;
+            }
         }
     }
 }

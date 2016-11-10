@@ -24,27 +24,27 @@ namespace CliMate
             InitializeComponent();
         }
 
-        private void generateButton_Click(object sender, EventArgs e)
-        {
+       private void generateButton_Click(object sender, EventArgs e)
+    {
             //Set up the generator
-            PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
+            //PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
 
             //Generate a heightmap
-            map = new Heightmap(100, 100);
+      //      map = new Heightmap(100, 100);
 
-            for (int x = 0; x < map.width; x++)
-            {
-                for (int y = 0; y < map.height; y++)
-                {
-                    double height = generator.GetValue(x, y) * Heightmap.MAX_HEIGHT;
+     //       for (int x = 0; x < map.width; x++)
+    //        {
+    //            for (int y = 0; y < map.height; y++)
+     //           {
+               //     double height = generator.GetValue(x, y) * Heightmap.MAX_HEIGHT;
                     //Console.WriteLine(height);
-                    map.SetValue(x, y, height);
-                }
-            }
+               //     map.SetValue(x, y, height);
+      //          }
+        //    }
 
             //Display the bitmap
-            picBox.Image = map.ToBitmap();
-        }
+       //     picBox.Image = map.ToBitmap();
+       }
 
         private void PerlinTestForm_Load(object sender, EventArgs e)
         {
@@ -54,8 +54,8 @@ namespace CliMate
         {
             //Find the highest value of perlin noise
 
-            PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
-            MessageBox.Show("" + generator.SearchMaxValue(999999, 0.1));
+         //   PerlinNoise generator = new PerlinNoise((int)(seedBox.Value));
+         //   MessageBox.Show("" + generator.SearchMaxValue(999999, 0.1));
         }
 
         private void button2_Click(object sender, EventArgs e)
