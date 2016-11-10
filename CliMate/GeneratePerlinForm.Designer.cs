@@ -43,12 +43,12 @@
             this.seedGroupBox = new System.Windows.Forms.GroupBox();
             this.previewGroupBox = new System.Windows.Forms.GroupBox();
             this.FrequencyGroupBox = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.FreqBox = new System.Windows.Forms.TextBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.LacBox = new System.Windows.Forms.TextBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.OctBox = new System.Windows.Forms.TextBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.PersBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).BeginInit();
             this.dimensionGroupBox.SuspendLayout();
@@ -190,6 +190,13 @@
             this.FrequencyGroupBox.TabStop = false;
             this.FrequencyGroupBox.Text = "Frequency";
             // 
+            // FreqBox
+            // 
+            this.FreqBox.Location = new System.Drawing.Point(10, 19);
+            this.FreqBox.Name = "FreqBox";
+            this.FreqBox.Size = new System.Drawing.Size(77, 20);
+            this.FreqBox.TabIndex = 3;
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.LacBox);
@@ -199,6 +206,13 @@
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lacunarity";
+            // 
+            // LacBox
+            // 
+            this.LacBox.Location = new System.Drawing.Point(9, 19);
+            this.LacBox.Name = "LacBox";
+            this.LacBox.Size = new System.Drawing.Size(77, 20);
+            this.LacBox.TabIndex = 3;
             // 
             // groupBox2
             // 
@@ -210,6 +224,13 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Octave Count";
             // 
+            // OctBox
+            // 
+            this.OctBox.Location = new System.Drawing.Point(10, 19);
+            this.OctBox.Name = "OctBox";
+            this.OctBox.Size = new System.Drawing.Size(77, 20);
+            this.OctBox.TabIndex = 3;
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.PersBox);
@@ -219,27 +240,6 @@
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Persistance";
-            // 
-            // FreqBox
-            // 
-            this.FreqBox.Location = new System.Drawing.Point(10, 19);
-            this.FreqBox.Name = "FreqBox";
-            this.FreqBox.Size = new System.Drawing.Size(77, 20);
-            this.FreqBox.TabIndex = 3;
-            // 
-            // LacBox
-            // 
-            this.LacBox.Location = new System.Drawing.Point(9, 19);
-            this.LacBox.Name = "LacBox";
-            this.LacBox.Size = new System.Drawing.Size(77, 20);
-            this.LacBox.TabIndex = 3;
-            // 
-            // OctBox
-            // 
-            this.OctBox.Location = new System.Drawing.Point(10, 19);
-            this.OctBox.Name = "OctBox";
-            this.OctBox.Size = new System.Drawing.Size(77, 20);
-            this.OctBox.TabIndex = 3;
             // 
             // PersBox
             // 
@@ -265,7 +265,7 @@
             this.Controls.Add(this.OKButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GeneratePerlinForm";
-            this.Text = "GeneratePerlinForm";
+            this.Text = "Generate Terrain";
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
             this.dimensionGroupBox.ResumeLayout(false);
             this.dimensionGroupBox.PerformLayout();
