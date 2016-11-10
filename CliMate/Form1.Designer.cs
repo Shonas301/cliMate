@@ -306,6 +306,7 @@
             // 
             // outerPanel
             // 
+            this.outerPanel.AutoScroll = true;
             this.outerPanel.Controls.Add(this.openTKPanel);
             this.outerPanel.Location = new System.Drawing.Point(127, 24);
             this.outerPanel.Name = "outerPanel";

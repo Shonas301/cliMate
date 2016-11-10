@@ -42,6 +42,8 @@ namespace CliMate
         {
             PerlinTestForm perlinForm = new PerlinTestForm();
             perlinForm.Show();
+            outerPanel.Controls.Add(openTKPanel);
+            openTKPanel.SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
