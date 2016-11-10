@@ -22,10 +22,21 @@ namespace CliMate
 
         Image img;
 
+        //records the previous location for the picturebox
         int pic_previousX;
         int pic_previousY;
+
+        //records the previous location for the panel
         int pan_previousX;
         int pan_previousY;
+
+        //original width and height of the picturebox
+        int orW;
+        int orH;
+
+        //width and height for the picture when toolbar is disabled
+        int disW;
+        int disH;
 
         private double ZOOMFACTOR = 1.25; 
         private int MINMAX = 3;
@@ -34,6 +45,9 @@ namespace CliMate
         {
             InitializeComponent();
             InitializeOpenFileDialog();
+            orW = openTKPanel.Width;
+            orH = openTKPanel.Height;
+            Console.WriteLine(orW + " " + orH);
         }
 
         private void InitializeOpenFileDialog()
@@ -191,25 +205,39 @@ namespace CliMate
 
         private void disableEnableToolbarToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (toolPanel.Visible)
+            if (toolPanel.Visible & openTKPanel.Width == orW & openTKPanel.Height == orH)
             {
+                //makes toolbar invisible
                 toolPanel.Visible = false;
+
+                //records original locations
                 pan_previousX = outerPanel.Location.X;
                 pan_previousY = outerPanel.Location.Y;
                 pic_previousX = openTKPanel.Location.X;
                 pic_previousY = openTKPanel.Location.Y;
+                
+                //changes sizes of the picturebox and panel
                 outerPanel.Width = outerPanel.Width + toolPanel.Width;
                 openTKPanel.Width = openTKPanel.Width + toolPanel.Width;
                 this.outerPanel.Location = new Point(this.toolPanel.Location.X, this.outerPanel.Location.Y);
                 this.openTKPanel.Location = new Point(this.toolPanel.Location.X, this.openTKPanel.Location.Y);
+               
+                //records the height and width of the new picturebox
+                disW = openTKPanel.Width;
+                disH = openTKPanel.Height;
             }
-            else
+            //checks to see the zoom is 0
+            else if (toolPanel.Visible == false & openTKPanel.Width == disW & openTKPanel.Height == disH)
             {
-
+                //resizes the picturebox and panel to its original size
                 outerPanel.Width = outerPanel.Width - toolPanel.Width;
                 openTKPanel.Width = openTKPanel.Width - toolPanel.Width;
+
+                //sets it back to the original location
                 this.outerPanel.Location = new Point(pan_previousX, pan_previousY);
                 this.openTKPanel.Location = new Point(pic_previousX, pic_previousY);
+
+                //makes toolbar visible again
                 toolPanel.Visible = true;
             }
         }
