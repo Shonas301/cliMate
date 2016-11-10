@@ -36,7 +36,7 @@ namespace CliMate
             grid[x][y].setColor(value);
         }
 
-        //TODO integrate toBitmap
+        //TODO integrate toBitmap elsewherex`
         /*
         public Bitmap ToBitmap()
         {
