@@ -313,9 +313,13 @@ namespace CliMate
                         continue;
                     }
 
+                    //Make it so the speed decreases as it gets further from the center
+                    double distPercent = squaredDist / (radius * radius);
+                    double scaledSpeed = Utils.Lerp(speed, 0, distPercent);
+
                     //Change the height at this position
                     double val = targetHeightmap.GetValue(x, y);
-                    val += speed * deltaTime;
+                    val += scaledSpeed * deltaTime;
 
                     //Ensure the value stays within the limits
                     if (Math.Abs(val) > Heightmap.MAX_HEIGHT)
