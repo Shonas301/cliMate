@@ -42,6 +42,7 @@ namespace CliMate
         {
             PerlinTestForm perlinForm = new PerlinTestForm();
             perlinForm.Show();
+            //puts picturebox inside the panel so you can scroll
             outerPanel.Controls.Add(openTKPanel);
             openTKPanel.SizeMode = PictureBoxSizeMode.AutoSize;
         }
@@ -143,22 +144,8 @@ namespace CliMate
             NoteForm nF = new NoteForm(currentOpenProject.notes);
             nF.ShowDialog();
         }
-
-     //   private void openTKPanel_MouseDown(object sender, MouseEventArgs e)
-     //   {
-            
-     //   }
-
-    //    void openTKPanel_MouseUp(object sender, MouseEventArgs e)
-     //   {
-            
-    //    }
-
-   //     void openTKPanel_MouseMove(object sender, MouseEventArgs e)
-     //   {
-   
-       // }
     
+        //zooms in picture
         private void ZoomIn()
         {
             if ((openTKPanel.Width < (MINMAX * outerPanel.Width)) &&
@@ -170,7 +157,7 @@ namespace CliMate
             }
         }
 
-
+        //zooms out picture
         private void ZoomOut()
         {
             if ((openTKPanel.Width > (outerPanel.Width / MINMAX)) &&
@@ -182,7 +169,7 @@ namespace CliMate
             }
         }
 
-
+        //calls the necessary method when you scroll with the mousewheel
         void openTKPanel_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta < 0)
@@ -194,11 +181,6 @@ namespace CliMate
                 ZoomOut();
             }
         }
-
-     //   private void openTKPanel_Paint(object sender, PaintEventArgs e)
-     //   {
- 
-     //   }
     }
 }
 
