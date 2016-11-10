@@ -20,8 +20,7 @@ namespace CliMate
         private long prevTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
 
         //Brushes
-        private Brush squareBrush = new SquareBrush();
-        private Brush circleBrush = new CircleBrush();
+        private Dictionary<RadioButton, Brush> brushButtonMap = new Dictionary<RadioButton, Brush>();
 
         //Brush settings
         private double brushSize = DEFAULT_SIZE;
@@ -33,54 +32,6 @@ namespace CliMate
         {
             InitializeComponent();
         }
-
-
-        //Events
-        private void Canvas_Load(object sender, EventArgs e)
-        {
-            //Get the image dimensions
-            WidthHeightDialog dialog = new WidthHeightDialog();
-            dialog.ShowDialog();
-
-            //Create the image and picbox
-            image = new Heightmap(dialog.width, dialog.height);
-            tempPicBox.Image = image.ToBitmap();
-
-            //Enable the timer
-            tickTimer.Enabled = true;
-
-            //Default to circle brush
-            currentBrush = circleBrush;
-        }
-
-        private void tickTimer_Tick(object sender, EventArgs e)
-        {
-            //Get the mouse data
-            MouseState ms = GetMouseState();
-
-            //Call game tick
-            OnGameTick(ms);
-        }
-
-        private void OnGameTick(MouseState mouse)
-        {
-            //Compute the delta time
-            long currTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
-            long deltaTimeMs = currTime - prevTime;
-            double deltaTime = (double)deltaTimeMs / 1000;
-
-            //Controls
-            if (mouse.leftButton)
-            {
-                Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
-
-                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, brushSize, brushSpeed, deltaTime);
-
-                tempPicBox.Image = picboxBitmap;
-            }
-
-        }
-
 
         //Misc functions
         private void UpdateDisplay()
@@ -115,6 +66,84 @@ namespace CliMate
         {
             //Update the brush size
             brushSize = (double)brushSizeBox.Value;
+        }
+
+        private RadioButton AddBrushType(string name, Brush brush)
+        {
+            //Creates the radio button for the brush
+
+            //Create the button
+            RadioButton button = new RadioButton();
+            button.Text = name;
+
+            //Add it to the system
+            brushButtonMap.Add(button, brush);
+            brushTypePanel.Controls.Add(button);
+            button.CheckedChanged += brushTypeRadioButton_CheckedChanged;
+
+            //Return the button
+            return button;
+        }
+
+
+        //Events
+        private void Canvas_Load(object sender, EventArgs e)
+        {
+            //Get the image dimensions
+            WidthHeightDialog dialog = new WidthHeightDialog();
+            dialog.ShowDialog();
+
+            //Create the image and picbox
+            image = new Heightmap(dialog.width, dialog.height);
+            tempPicBox.Image = image.ToBitmap();
+
+            //Enable the timer
+            tickTimer.Enabled = true;
+
+            //Add all brush types
+            RadioButton defaultButton = AddBrushType("Circle", new CircleBrush());
+            defaultButton.Checked = true;
+
+            AddBrushType("Square", new SquareBrush());
+        }
+
+        private void tickTimer_Tick(object sender, EventArgs e)
+        {
+            //Get the mouse data
+            MouseState ms = GetMouseState();
+
+            //Call game tick
+            OnGameTick(ms);
+        }
+
+        private void OnGameTick(MouseState mouse)
+        {
+            //Compute the delta time
+            long currTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
+            long deltaTimeMs = currTime - prevTime;
+            double deltaTime = (double)deltaTimeMs / 1000;
+
+            //Controls
+            if (mouse.leftButton)
+            {
+                Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
+
+                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, brushSize, brushSpeed, deltaTime);
+
+                tempPicBox.Image = picboxBitmap;
+            }
+
+        }
+
+        private void brushTypeRadioButton_CheckedChanged(object sender, EventArgs e)
+        {
+            //Switch brush type
+            RadioButton button = (RadioButton)sender;
+
+            if (button.Checked)
+            {
+                currentBrush = brushButtonMap[button];
+            }
         }
     }
 

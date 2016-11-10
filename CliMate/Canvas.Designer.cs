@@ -35,6 +35,8 @@
             this.toolboxPanel = new System.Windows.Forms.Panel();
             this.brushSizeBox = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.brushTypePanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).BeginInit();
             this.drawingPanel.SuspendLayout();
             this.toolboxPanel.SuspendLayout();
@@ -66,6 +68,8 @@
             // toolboxPanel
             // 
             this.toolboxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.toolboxPanel.Controls.Add(this.brushTypePanel);
+            this.toolboxPanel.Controls.Add(this.label2);
             this.toolboxPanel.Controls.Add(this.label1);
             this.toolboxPanel.Controls.Add(this.brushSizeBox);
             this.toolboxPanel.Location = new System.Drawing.Point(707, 15);
@@ -89,6 +93,22 @@
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Brush size";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 144);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Brush type";
+            // 
+            // brushTypePanel
+            // 
+            this.brushTypePanel.Location = new System.Drawing.Point(8, 164);
+            this.brushTypePanel.Name = "brushTypePanel";
+            this.brushTypePanel.Size = new System.Drawing.Size(117, 190);
+            this.brushTypePanel.TabIndex = 4;
             // 
             // Canvas
             // 
@@ -117,5 +137,7 @@
         private System.Windows.Forms.Panel toolboxPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown brushSizeBox;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.FlowLayoutPanel brushTypePanel;
     }
 }
