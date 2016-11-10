@@ -33,8 +33,12 @@
             this.tickTimer = new System.Windows.Forms.Timer(this.components);
             this.drawingPanel = new System.Windows.Forms.Panel();
             this.toolboxPanel = new System.Windows.Forms.Panel();
+            this.brushSizeBox = new System.Windows.Forms.NumericUpDown();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).BeginInit();
             this.drawingPanel.SuspendLayout();
+            this.toolboxPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.brushSizeBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tempPicBox
@@ -62,10 +66,29 @@
             // toolboxPanel
             // 
             this.toolboxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.toolboxPanel.Controls.Add(this.label1);
+            this.toolboxPanel.Controls.Add(this.brushSizeBox);
             this.toolboxPanel.Location = new System.Drawing.Point(707, 15);
             this.toolboxPanel.Name = "toolboxPanel";
             this.toolboxPanel.Size = new System.Drawing.Size(132, 589);
             this.toolboxPanel.TabIndex = 2;
+            // 
+            // brushSizeBox
+            // 
+            this.brushSizeBox.Location = new System.Drawing.Point(5, 42);
+            this.brushSizeBox.Name = "brushSizeBox";
+            this.brushSizeBox.Size = new System.Drawing.Size(120, 22);
+            this.brushSizeBox.TabIndex = 1;
+            this.brushSizeBox.ValueChanged += new System.EventHandler(this.brushSizeBox_ValueChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(5, 19);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(74, 17);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Brush size";
             // 
             // Canvas
             // 
@@ -79,6 +102,9 @@
             this.Load += new System.EventHandler(this.Canvas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).EndInit();
             this.drawingPanel.ResumeLayout(false);
+            this.toolboxPanel.ResumeLayout(false);
+            this.toolboxPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.brushSizeBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -89,5 +115,7 @@
         private System.Windows.Forms.Timer tickTimer;
         private System.Windows.Forms.Panel drawingPanel;
         private System.Windows.Forms.Panel toolboxPanel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.NumericUpDown brushSizeBox;
     }
 }

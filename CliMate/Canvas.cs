@@ -110,6 +110,12 @@ namespace CliMate
 
             return mouse;
         }
+
+        private void brushSizeBox_ValueChanged(object sender, EventArgs e)
+        {
+            //Update the brush size
+            brushSize = (double)brushSizeBox.Value;
+        }
     }
 
 
