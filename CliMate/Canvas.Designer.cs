@@ -83,7 +83,6 @@
             this.brushSizeBox.Name = "brushSizeBox";
             this.brushSizeBox.Size = new System.Drawing.Size(120, 22);
             this.brushSizeBox.TabIndex = 1;
-            this.brushSizeBox.ValueChanged += new System.EventHandler(this.brushSizeBox_ValueChanged);
             // 
             // label1
             // 

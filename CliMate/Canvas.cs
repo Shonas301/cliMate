@@ -23,8 +23,17 @@ namespace CliMate
         private Dictionary<RadioButton, Brush> brushButtonMap = new Dictionary<RadioButton, Brush>();
 
         //Brush settings
-        private double brushSize = DEFAULT_SIZE;
-        private double brushSpeed = DEFAULT_SPEED;
+        private double brushSize
+        {
+            get { return (double)brushSizeBox.Value; }
+            set { brushSizeBox.Value = (decimal)value; }
+        }
+        private double brushSpeed
+        {
+            get; set;
+        }
+
+
         private Brush currentBrush = null;
 
         //Constructors
@@ -62,12 +71,6 @@ namespace CliMate
             return mouse;
         }
 
-        private void brushSizeBox_ValueChanged(object sender, EventArgs e)
-        {
-            //Update the brush size
-            brushSize = (double)brushSizeBox.Value;
-        }
-
         private RadioButton AddBrushType(string name, Brush brush)
         {
             //Creates the radio button for the brush
@@ -99,6 +102,10 @@ namespace CliMate
 
             //Enable the timer
             tickTimer.Enabled = true;
+
+            //Set default brush params
+            brushSize = DEFAULT_SIZE;
+            brushSpeed = DEFAULT_SPEED;
 
             //Add all brush types
             RadioButton defaultButton = AddBrushType("Circle", new CircleBrush());
