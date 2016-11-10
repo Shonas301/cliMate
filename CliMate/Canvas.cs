@@ -14,6 +14,7 @@ namespace CliMate
     public partial class Canvas : Form
     {
         private const int DEFAULT_SIZE = 10;    //Default brush size
+        private const double DEFAULT_SPEED = 200;   //Default brush speed
 
         private Heightmap image;
         private long prevTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
@@ -21,8 +22,11 @@ namespace CliMate
         //Brushes
         private Brush squareBrush = new SquareBrush();
         private Brush circleBrush = new CircleBrush();
-        private Brush currentBrush = null;
 
+        //Brush settings
+        private double brushSize = DEFAULT_SIZE;
+        private double brushSpeed = DEFAULT_SPEED;
+        private Brush currentBrush = null;
 
         //Constructors
         public Canvas()
@@ -70,7 +74,7 @@ namespace CliMate
             {
                 Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
 
-                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, DEFAULT_SIZE, deltaTime);
+                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, brushSize, brushSpeed, deltaTime);
 
                 tempPicBox.Image = picboxBitmap;
             }
@@ -133,13 +137,12 @@ namespace CliMate
 
     public abstract class Brush
     {
-        public abstract void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double deltaTime);
+        public abstract void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double speed, double deltaTime);
     }
 
     public class SquareBrush : Brush
     {
-        private double speed = 200;
-        public override void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double deltaTime)
+        public override void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double speed, double deltaTime)
         {
             //Make a square around the coordinates
             int startX = (int)((double)x - size / 2);
@@ -181,9 +184,7 @@ namespace CliMate
 
     public class CircleBrush : Brush
     {
-        private double speed = 200;
-
-        public override void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double deltaTime)
+        public override void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double speed, double deltaTime)
         {
             double radius = size;
 
