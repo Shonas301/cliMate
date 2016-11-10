@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace CliMate
 {
-    class ImageFileNode : InputNode
+    public class ImageFileNode : InputNode
     {
-        public String FileName;
         public Bitmap image;
+        public Heightmap heightmap;
 
         public ImageFileNode(NodeMap map, String fileName) : base(map)
         {
-            OpenFileDialog imageSelector = new OpenFileDialog();
+            /*OpenFileDialog imageSelector = new OpenFileDialog();
             imageSelector.Filter = "Image Files(*.bmp,*.png ,*.jpg) | *.bmp; *png; *.jpg";
             imageSelector.Title = "Select an Image File";
             string sourceDir = @"remberence.txt";
@@ -35,7 +35,6 @@ namespace CliMate
             if (imageSelector.ShowDialog() == DialogResult.OK)
             {
                 fileName = imageSelector.FileName;
-                //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
                 if (File.Exists(sourceDir))
                 {
                     File.Delete(sourceDir);
@@ -48,12 +47,17 @@ namespace CliMate
                 
                 //Actual code to garnering the image
                 //Greyscale it
-                image = new Bitmap(fileName);
-
-                //UpdateDisplay();
-                //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
+                
             }
             //TODO add "open/open recent" code;
+            */
+            image = new Bitmap(fileName);
+            heightmap = new Heightmap(image);
+
+        }
+
+        new public Bitmap ToBitmap() {
+            return heightmap.ToBitmap();
         }
 
         public override void doOperation()

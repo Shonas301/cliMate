@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CliMate
 {
-    class RectGrid
+    public class RectGrid
     {
         public const double MAX_HEIGHT = 100;   //Goes both positive and negative.  TODO: Enforce this limit somehow.
 

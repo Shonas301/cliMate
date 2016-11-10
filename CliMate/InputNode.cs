@@ -3,7 +3,7 @@ using System;
 
 namespace Climate
 {
-    abstract class InputNode : Node
+    public abstract class InputNode : Node
     {
         //Parent class for generation things
         //subclass of normal nodes

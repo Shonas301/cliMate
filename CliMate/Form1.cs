@@ -66,7 +66,8 @@ namespace CliMate
                 File.WriteAllText(sourceDir, fileName);
 
                 //sends filepath to height Overlay
-                //currentOpenProject.FileName = fileName;
+
+                currentOpenProject.AddImageFileNode(fileName);
                 //currentOpenProject.heightOverlay.convertFromImage(fileName);
                 UpdateDisplay();
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
@@ -93,9 +94,9 @@ namespace CliMate
         }
         private void UpdateDisplay()
         {
-            //Image img = currentOpenProject.heightOverlay.ToBitmap();
+            Image img = currentOpenProject.GetLastNode().ToBitmap();
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
-            //openTKPanel.BackgroundImage = img;
+            openTKPanel.BackgroundImage = img;
 
         }
 

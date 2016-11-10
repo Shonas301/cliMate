@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CliMate
 {
-    abstract class Node
+    public abstract class Node
     {
         //I know it's bass ackwards, but the way we've been taught tree traversal led me to think it'd be best to consider output the root
         protected RectGrid outGrid;
@@ -29,6 +30,8 @@ namespace CliMate
         public virtual void setOutputNode(Node pops) { parent = pops; }
 
         public virtual void setInputNode(Node kiddo) { children[0] = kiddo; }
+        
+        public Bitmap ToBitmap() { return null; }
 
         public RectGrid getOutputGrid() { return outGrid; }
     }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CliMate
 {
-    class NodeMap
+    public class NodeMap
     {
         //This will store a Graph of nodes
         //I say "graph" and not "tree" because we should allow for free-floating nodes and sub-trees
@@ -25,6 +25,14 @@ namespace CliMate
         public void AddNode(Node n)
         {
             Nodes.Add(n);
+        }
+        public Node GetNode(int n)
+        {
+            return Nodes.ElementAt(n);
+        }
+        public Node GetLastNode()
+        {
+            return Nodes.Last();
         }
     }
 }
