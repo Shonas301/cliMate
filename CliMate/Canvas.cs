@@ -102,6 +102,12 @@ namespace CliMate
             return AddRadioButtonOption<Brush>(name, brush, brushButtonMap, brushTypePanel, brushTypeRadioButton_CheckedChanged);
         }
 
+        private RadioButton AddToolType(string name, ToolType type)
+        {
+            //Creates a radio button for the tool
+            return AddRadioButtonOption<ToolType>(name, type, toolButtonMap, toolLayoutPanel, toolTypeRadioButton_CheckedChanged);
+        }
+
 
         //Events
         private void Canvas_Load(object sender, EventArgs e)
@@ -129,6 +135,10 @@ namespace CliMate
             defaultButton.Checked = true;
 
             AddBrushType("Square", new SquareBrush());
+
+            //Add all tool types
+            AddToolType("Paint Brush", ToolType.paintBrush);
+            AddToolType("Eraser", ToolType.eraser);
         }
 
         private void tickTimer_Tick(object sender, EventArgs e)
@@ -170,10 +180,17 @@ namespace CliMate
             }
         }
 
-        private void paintbrushButton_CheckedChanged(object sender, EventArgs e)
+        private void toolTypeRadioButton_CheckedChanged(object sender, EventArgs e)
         {
+            //Switch tools
+            RadioButton button = (RadioButton)sender;
 
+            if (button.Checked)
+            {
+                currentTool = toolButtonMap[button];
+            }
         }
+
     }
 
 

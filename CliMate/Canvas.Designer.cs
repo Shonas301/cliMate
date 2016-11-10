@@ -42,8 +42,7 @@
             this.toolboxPanel = new System.Windows.Forms.Panel();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.paintbrushButton = new System.Windows.Forms.RadioButton();
-            this.eraserButton = new System.Windows.Forms.RadioButton();
+            this.toolLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).BeginInit();
             this.drawingPanel.SuspendLayout();
             this.brushSettingsPanel.SuspendLayout();
@@ -140,8 +139,7 @@
             // toolboxPanel
             // 
             this.toolboxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.toolboxPanel.Controls.Add(this.eraserButton);
-            this.toolboxPanel.Controls.Add(this.paintbrushButton);
+            this.toolboxPanel.Controls.Add(this.toolLayoutPanel);
             this.toolboxPanel.Controls.Add(this.label5);
             this.toolboxPanel.Location = new System.Drawing.Point(854, 15);
             this.toolboxPanel.Name = "toolboxPanel";
@@ -166,28 +164,12 @@
             this.label5.TabIndex = 0;
             this.label5.Text = "Toolbox";
             // 
-            // paintbrushButton
+            // toolLayoutPanel
             // 
-            this.paintbrushButton.AutoSize = true;
-            this.paintbrushButton.Checked = true;
-            this.paintbrushButton.Location = new System.Drawing.Point(3, 39);
-            this.paintbrushButton.Name = "paintbrushButton";
-            this.paintbrushButton.Size = new System.Drawing.Size(102, 21);
-            this.paintbrushButton.TabIndex = 1;
-            this.paintbrushButton.TabStop = true;
-            this.paintbrushButton.Text = "Paint Brush";
-            this.paintbrushButton.UseVisualStyleBackColor = true;
-            this.paintbrushButton.CheckedChanged += new System.EventHandler(this.paintbrushButton_CheckedChanged);
-            // 
-            // eraserButton
-            // 
-            this.eraserButton.AutoSize = true;
-            this.eraserButton.Location = new System.Drawing.Point(3, 66);
-            this.eraserButton.Name = "eraserButton";
-            this.eraserButton.Size = new System.Drawing.Size(71, 21);
-            this.eraserButton.TabIndex = 2;
-            this.eraserButton.Text = "Eraser";
-            this.eraserButton.UseVisualStyleBackColor = true;
+            this.toolLayoutPanel.Location = new System.Drawing.Point(4, 30);
+            this.toolLayoutPanel.Name = "toolLayoutPanel";
+            this.toolLayoutPanel.Size = new System.Drawing.Size(121, 235);
+            this.toolLayoutPanel.TabIndex = 1;
             // 
             // Canvas
             // 
@@ -227,7 +209,6 @@
         private System.Windows.Forms.Panel toolboxPanel;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RadioButton eraserButton;
-        private System.Windows.Forms.RadioButton paintbrushButton;
+        private System.Windows.Forms.FlowLayoutPanel toolLayoutPanel;
     }
 }
