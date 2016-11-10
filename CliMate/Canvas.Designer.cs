@@ -43,6 +43,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.toolLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.confirmButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).BeginInit();
             this.drawingPanel.SuspendLayout();
             this.brushSettingsPanel.SuspendLayout();
@@ -171,11 +172,22 @@
             this.toolLayoutPanel.Size = new System.Drawing.Size(121, 235);
             this.toolLayoutPanel.TabIndex = 1;
             // 
+            // confirmButton
+            // 
+            this.confirmButton.Location = new System.Drawing.Point(12, 611);
+            this.confirmButton.Name = "confirmButton";
+            this.confirmButton.Size = new System.Drawing.Size(179, 59);
+            this.confirmButton.TabIndex = 8;
+            this.confirmButton.Text = "Confirm";
+            this.confirmButton.UseVisualStyleBackColor = true;
+            this.confirmButton.Click += new System.EventHandler(this.confirmButton_Click);
+            // 
             // Canvas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1021, 616);
+            this.ClientSize = new System.Drawing.Size(1021, 682);
+            this.Controls.Add(this.confirmButton);
             this.Controls.Add(this.toolboxPanel);
             this.Controls.Add(this.brushSettingsPanel);
             this.Controls.Add(this.drawingPanel);
@@ -210,5 +222,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.FlowLayoutPanel toolLayoutPanel;
+        private System.Windows.Forms.Button confirmButton;
     }
 }

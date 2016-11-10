@@ -205,6 +205,11 @@ namespace CliMate
             }
         }
 
+        private void confirmButton_Click(object sender, EventArgs e)
+        {
+            Form1.currentOpenProject.heightOverlay.contents = image;
+            this.Close();
+        }
     }
 
 
