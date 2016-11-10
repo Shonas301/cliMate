@@ -32,18 +32,24 @@
             this.tempPicBox = new System.Windows.Forms.PictureBox();
             this.tickTimer = new System.Windows.Forms.Timer(this.components);
             this.drawingPanel = new System.Windows.Forms.Panel();
-            this.toolboxPanel = new System.Windows.Forms.Panel();
+            this.brushSettingsPanel = new System.Windows.Forms.Panel();
             this.brushTypePanel = new System.Windows.Forms.FlowLayoutPanel();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.brushSizeBox = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.brushSpeedBox = new System.Windows.Forms.NumericUpDown();
+            this.toolboxPanel = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.paintbrushButton = new System.Windows.Forms.RadioButton();
+            this.eraserButton = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).BeginInit();
             this.drawingPanel.SuspendLayout();
-            this.toolboxPanel.SuspendLayout();
+            this.brushSettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brushSizeBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.brushSpeedBox)).BeginInit();
+            this.toolboxPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // tempPicBox
@@ -68,23 +74,24 @@
             this.drawingPanel.Size = new System.Drawing.Size(689, 592);
             this.drawingPanel.TabIndex = 1;
             // 
-            // toolboxPanel
+            // brushSettingsPanel
             // 
-            this.toolboxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.toolboxPanel.Controls.Add(this.label3);
-            this.toolboxPanel.Controls.Add(this.brushSpeedBox);
-            this.toolboxPanel.Controls.Add(this.brushTypePanel);
-            this.toolboxPanel.Controls.Add(this.label2);
-            this.toolboxPanel.Controls.Add(this.label1);
-            this.toolboxPanel.Controls.Add(this.brushSizeBox);
-            this.toolboxPanel.Location = new System.Drawing.Point(707, 15);
-            this.toolboxPanel.Name = "toolboxPanel";
-            this.toolboxPanel.Size = new System.Drawing.Size(132, 589);
-            this.toolboxPanel.TabIndex = 2;
+            this.brushSettingsPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.brushSettingsPanel.Controls.Add(this.label4);
+            this.brushSettingsPanel.Controls.Add(this.label3);
+            this.brushSettingsPanel.Controls.Add(this.brushSpeedBox);
+            this.brushSettingsPanel.Controls.Add(this.brushTypePanel);
+            this.brushSettingsPanel.Controls.Add(this.label2);
+            this.brushSettingsPanel.Controls.Add(this.label1);
+            this.brushSettingsPanel.Controls.Add(this.brushSizeBox);
+            this.brushSettingsPanel.Location = new System.Drawing.Point(707, 15);
+            this.brushSettingsPanel.Name = "brushSettingsPanel";
+            this.brushSettingsPanel.Size = new System.Drawing.Size(132, 589);
+            this.brushSettingsPanel.TabIndex = 2;
             // 
             // brushTypePanel
             // 
-            this.brushTypePanel.Location = new System.Drawing.Point(8, 212);
+            this.brushTypePanel.Location = new System.Drawing.Point(6, 236);
             this.brushTypePanel.Name = "brushTypePanel";
             this.brushTypePanel.Size = new System.Drawing.Size(117, 190);
             this.brushTypePanel.TabIndex = 4;
@@ -92,16 +99,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 192);
+            this.label2.Location = new System.Drawing.Point(3, 216);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.Size = new System.Drawing.Size(90, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Brush type";
+            this.label2.Text = "Brush Shape";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(5, 19);
+            this.label1.Location = new System.Drawing.Point(3, 43);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(74, 17);
             this.label1.TabIndex = 2;
@@ -109,7 +116,7 @@
             // 
             // brushSizeBox
             // 
-            this.brushSizeBox.Location = new System.Drawing.Point(5, 42);
+            this.brushSizeBox.Location = new System.Drawing.Point(3, 66);
             this.brushSizeBox.Name = "brushSizeBox";
             this.brushSizeBox.Size = new System.Drawing.Size(120, 22);
             this.brushSizeBox.TabIndex = 1;
@@ -117,7 +124,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(7, 78);
+            this.label3.Location = new System.Drawing.Point(5, 102);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(88, 17);
             this.label3.TabIndex = 6;
@@ -125,27 +132,82 @@
             // 
             // brushSpeedBox
             // 
-            this.brushSpeedBox.Location = new System.Drawing.Point(7, 101);
+            this.brushSpeedBox.Location = new System.Drawing.Point(5, 125);
             this.brushSpeedBox.Name = "brushSpeedBox";
             this.brushSpeedBox.Size = new System.Drawing.Size(120, 22);
             this.brushSpeedBox.TabIndex = 5;
+            // 
+            // toolboxPanel
+            // 
+            this.toolboxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.toolboxPanel.Controls.Add(this.eraserButton);
+            this.toolboxPanel.Controls.Add(this.paintbrushButton);
+            this.toolboxPanel.Controls.Add(this.label5);
+            this.toolboxPanel.Location = new System.Drawing.Point(854, 15);
+            this.toolboxPanel.Name = "toolboxPanel";
+            this.toolboxPanel.Size = new System.Drawing.Size(132, 589);
+            this.toolboxPanel.TabIndex = 7;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Brush Settings";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, -2);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(58, 17);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Toolbox";
+            // 
+            // paintbrushButton
+            // 
+            this.paintbrushButton.AutoSize = true;
+            this.paintbrushButton.Checked = true;
+            this.paintbrushButton.Location = new System.Drawing.Point(3, 39);
+            this.paintbrushButton.Name = "paintbrushButton";
+            this.paintbrushButton.Size = new System.Drawing.Size(102, 21);
+            this.paintbrushButton.TabIndex = 1;
+            this.paintbrushButton.TabStop = true;
+            this.paintbrushButton.Text = "Paint Brush";
+            this.paintbrushButton.UseVisualStyleBackColor = true;
+            this.paintbrushButton.CheckedChanged += new System.EventHandler(this.paintbrushButton_CheckedChanged);
+            // 
+            // eraserButton
+            // 
+            this.eraserButton.AutoSize = true;
+            this.eraserButton.Location = new System.Drawing.Point(3, 66);
+            this.eraserButton.Name = "eraserButton";
+            this.eraserButton.Size = new System.Drawing.Size(71, 21);
+            this.eraserButton.TabIndex = 2;
+            this.eraserButton.Text = "Eraser";
+            this.eraserButton.UseVisualStyleBackColor = true;
             // 
             // Canvas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(851, 616);
+            this.ClientSize = new System.Drawing.Size(1021, 616);
             this.Controls.Add(this.toolboxPanel);
+            this.Controls.Add(this.brushSettingsPanel);
             this.Controls.Add(this.drawingPanel);
             this.Name = "Canvas";
             this.Text = "Canvas";
             this.Load += new System.EventHandler(this.Canvas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).EndInit();
             this.drawingPanel.ResumeLayout(false);
-            this.toolboxPanel.ResumeLayout(false);
-            this.toolboxPanel.PerformLayout();
+            this.brushSettingsPanel.ResumeLayout(false);
+            this.brushSettingsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brushSizeBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.brushSpeedBox)).EndInit();
+            this.toolboxPanel.ResumeLayout(false);
+            this.toolboxPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -155,12 +217,17 @@
         private System.Windows.Forms.PictureBox tempPicBox;
         private System.Windows.Forms.Timer tickTimer;
         private System.Windows.Forms.Panel drawingPanel;
-        private System.Windows.Forms.Panel toolboxPanel;
+        private System.Windows.Forms.Panel brushSettingsPanel;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NumericUpDown brushSizeBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel brushTypePanel;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown brushSpeedBox;
+        private System.Windows.Forms.Panel toolboxPanel;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.RadioButton eraserButton;
+        private System.Windows.Forms.RadioButton paintbrushButton;
     }
 }

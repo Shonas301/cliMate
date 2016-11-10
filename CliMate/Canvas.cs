@@ -13,7 +13,7 @@ namespace CliMate
 {
     public partial class Canvas : Form
     {
-        private const int DEFAULT_SIZE = 10;    //Default brush size
+        private const int DEFAULT_SIZE = 10;        //Default brush size
 
         private const double DEFAULT_SPEED = 200;   //Default brush speed
         private const double MIN_BRUSH_SPEED = -500;
@@ -25,7 +25,6 @@ namespace CliMate
         //Brushes
         private Dictionary<RadioButton, Brush> brushButtonMap = new Dictionary<RadioButton, Brush>();
 
-        //Brush settings
         private double brushSize
         {
             get { return (double)brushSizeBox.Value; }
@@ -37,8 +36,13 @@ namespace CliMate
             set { brushSpeedBox.Value = (decimal)value; }
         }
 
-
         private Brush currentBrush = null;
+
+        //Tools
+        private enum ToolType { paintBrush, eraser };
+        private Dictionary<RadioButton, ToolType> toolButtonMap = new Dictionary<RadioButton, ToolType>();
+        private ToolType currentTool = ToolType.paintBrush;
+
 
         //Constructors
         public Canvas()
@@ -75,21 +79,27 @@ namespace CliMate
             return mouse;
         }
 
-        private RadioButton AddBrushType(string name, Brush brush)
+        private RadioButton AddRadioButtonOption<T>(string name, T option, Dictionary<RadioButton, T> dictionary, FlowLayoutPanel panel, EventHandler handler)
         {
-            //Creates the radio button for the brush
+            //Creates a radio button for the given option and adds it to the given dictionary/panel
 
             //Create the button
             RadioButton button = new RadioButton();
             button.Text = name;
 
             //Add it to the system
-            brushButtonMap.Add(button, brush);
-            brushTypePanel.Controls.Add(button);
-            button.CheckedChanged += brushTypeRadioButton_CheckedChanged;
+            dictionary.Add(button, option);
+            panel.Controls.Add(button);
+            button.CheckedChanged += handler;
 
             //Return the button
             return button;
+        }
+
+        private RadioButton AddBrushType(string name, Brush brush)
+        {
+            //Creates the radio button for the brush
+            return AddRadioButtonOption<Brush>(name, brush, brushButtonMap, brushTypePanel, brushTypeRadioButton_CheckedChanged);
         }
 
 
@@ -158,6 +168,11 @@ namespace CliMate
             {
                 currentBrush = brushButtonMap[button];
             }
+        }
+
+        private void paintbrushButton_CheckedChanged(object sender, EventArgs e)
+        {
+
         }
     }
 
