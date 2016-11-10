@@ -43,6 +43,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.climatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nodeMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createBiomesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.heightmapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,12 +52,13 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPanel = new System.Windows.Forms.Panel();
+            this.noteButton = new System.Windows.Forms.Button();
             this.toolsLabel = new System.Windows.Forms.Label();
             this.brushPointerToggle = new System.Windows.Forms.Button();
             this.regularPointerToggle = new System.Windows.Forms.Button();
             this.openTKPanel = new System.Windows.Forms.Panel();
-            this.nodeMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noteButton = new System.Windows.Forms.Button();
+            this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
             this.SuspendLayout();
@@ -94,7 +96,7 @@
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.heightmapToolStripMenuItem1});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // heightmapToolStripMenuItem1
@@ -107,40 +109,41 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // openRecentToolStripMenuItem
             // 
             this.openRecentToolStripMenuItem.Name = "openRecentToolStripMenuItem";
-            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openRecentToolStripMenuItem.Text = "Open Recent";
             this.openRecentToolStripMenuItem.Click += new System.EventHandler(this.openRecentToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferencesToolStripMenuItem});
+            this.preferencesToolStripMenuItem,
+            this.filtersToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -148,7 +151,7 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // viewToolStripMenuItem
@@ -173,6 +176,13 @@
             this.climatesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.climatesToolStripMenuItem.Text = "Climates";
             // 
+            // nodeMapToolStripMenuItem
+            // 
+            this.nodeMapToolStripMenuItem.Name = "nodeMapToolStripMenuItem";
+            this.nodeMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.nodeMapToolStripMenuItem.Text = "Node Map";
+            this.nodeMapToolStripMenuItem.Click += new System.EventHandler(this.nodeMapToolStripMenuItem_Click);
+            // 
             // generateToolStripMenuItem
             // 
             this.generateToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -185,7 +195,7 @@
             // createBiomesToolStripMenuItem
             // 
             this.createBiomesToolStripMenuItem.Name = "createBiomesToolStripMenuItem";
-            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createBiomesToolStripMenuItem.Text = "Create Biomes";
             // 
             // heightmapToolStripMenuItem
@@ -194,7 +204,7 @@
             this.generateNewMapToolStripMenuItem,
             this.augmentExistingMapToolStripMenuItem});
             this.heightmapToolStripMenuItem.Name = "heightmapToolStripMenuItem";
-            this.heightmapToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.heightmapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.heightmapToolStripMenuItem.Text = "Heightmap";
             // 
             // generateNewMapToolStripMenuItem
@@ -236,6 +246,19 @@
             this.toolPanel.Name = "toolPanel";
             this.toolPanel.Size = new System.Drawing.Size(130, 576);
             this.toolPanel.TabIndex = 1;
+            // 
+            // noteButton
+            // 
+            this.noteButton.BackColor = System.Drawing.Color.DarkGray;
+            this.noteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noteButton.ForeColor = System.Drawing.Color.Gray;
+            this.noteButton.Image = ((System.Drawing.Image)(resources.GetObject("noteButton.Image")));
+            this.noteButton.Location = new System.Drawing.Point(10, 90);
+            this.noteButton.Name = "noteButton";
+            this.noteButton.Size = new System.Drawing.Size(50, 50);
+            this.noteButton.TabIndex = 3;
+            this.noteButton.UseVisualStyleBackColor = false;
+            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
             // 
             // toolsLabel
             // 
@@ -279,24 +302,20 @@
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
             this.openTKPanel.TabIndex = 2;
             // 
-            // nodeMapToolStripMenuItem
+            // filtersToolStripMenuItem
             // 
-            this.nodeMapToolStripMenuItem.Name = "nodeMapToolStripMenuItem";
-            this.nodeMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nodeMapToolStripMenuItem.Text = "Node Map";
-            this.nodeMapToolStripMenuItem.Click += new System.EventHandler(this.nodeMapToolStripMenuItem_Click);
-            // noteButton
+            this.filtersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.erosionToolStripMenuItem});
+            this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
+            this.filtersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filtersToolStripMenuItem.Text = "Filters";
             // 
-            this.noteButton.BackColor = System.Drawing.Color.DarkGray;
-            this.noteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noteButton.ForeColor = System.Drawing.Color.Gray;
-            this.noteButton.Image = ((System.Drawing.Image)(resources.GetObject("noteButton.Image")));
-            this.noteButton.Location = new System.Drawing.Point(10, 90);
-            this.noteButton.Name = "noteButton";
-            this.noteButton.Size = new System.Drawing.Size(50, 50);
-            this.noteButton.TabIndex = 3;
-            this.noteButton.UseVisualStyleBackColor = false;
-            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
+            // erosionToolStripMenuItem
+            // 
+            this.erosionToolStripMenuItem.Name = "erosionToolStripMenuItem";
+            this.erosionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.erosionToolStripMenuItem.Text = "Erosion";
+            this.erosionToolStripMenuItem.Click += new System.EventHandler(this.erosionToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -352,6 +371,8 @@
         private System.Windows.Forms.ToolStripMenuItem heightmapToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nodeMapToolStripMenuItem;
         private System.Windows.Forms.Button noteButton;
+        private System.Windows.Forms.ToolStripMenuItem filtersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erosionToolStripMenuItem;
     }
 }
 

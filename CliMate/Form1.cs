@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Climate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -132,6 +133,12 @@ namespace CliMate
             }
             NoteForm nF = new NoteForm(currentOpenProject.notes);
             nF.ShowDialog();
+        }
+
+        private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ErosionForm ef = new ErosionForm();
+            ef.ShowDialog();
         }
     }
 }
