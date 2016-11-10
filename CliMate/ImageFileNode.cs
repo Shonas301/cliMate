@@ -17,40 +17,6 @@ namespace CliMate
 
         public ImageFileNode(NodeMap map, String fileName) : base(map)
         {
-            /*OpenFileDialog imageSelector = new OpenFileDialog();
-            imageSelector.Filter = "Image Files(*.bmp,*.png ,*.jpg) | *.bmp; *png; *.jpg";
-            imageSelector.Title = "Select an Image File";
-            string sourceDir = @"remberence.txt";
-            //sets the starting point
-            if (File.Exists(sourceDir))
-            {
-                imageSelector.InitialDirectory = sourceDir;
-            }
-            else
-            {
-                imageSelector.InitialDirectory = @"C:\";
-            }
-
-            //press the OK button
-            if (imageSelector.ShowDialog() == DialogResult.OK)
-            {
-                fileName = imageSelector.FileName;
-                if (File.Exists(sourceDir))
-                {
-                    File.Delete(sourceDir);
-                }
-                File.WriteAllText(sourceDir, fileName);
-
-                //sends filepath to height Overlay
-                //currentOpenProject.FileName = fileName;
-                //currentOpenProject.heightOverlay.convertFromImage(fileName);
-                
-                //Actual code to garnering the image
-                //Greyscale it
-                
-            }
-            //TODO add "open/open recent" code;
-            */
             image = new Bitmap(fileName);
             heightmap = new Heightmap(image);
 

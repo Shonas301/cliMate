@@ -34,5 +34,9 @@ namespace CliMate
         {
             return Nodes.Last();
         }
+
+        public int GetNum() {
+            return Nodes.Count;
+        }
     }
 }
