@@ -58,6 +58,7 @@
             this.regularPointerToggle = new System.Windows.Forms.Button();
             this.openTKPanel = new System.Windows.Forms.PictureBox();
             this.outerPanel = new System.Windows.Forms.Panel();
+            this.disableEnableToolbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.openTKPanel)).BeginInit();
@@ -159,7 +160,8 @@
             this.viewToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.temperatureToolStripMenuItem,
             this.climatesToolStripMenuItem,
-            this.nodeMapToolStripMenuItem});
+            this.nodeMapToolStripMenuItem,
+            this.disableEnableToolbarToolStripMenuItem});
             this.viewToolStripMenuItem.Name = "viewToolStripMenuItem";
             this.viewToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
             this.viewToolStripMenuItem.Text = "View";
@@ -315,6 +317,13 @@
             this.outerPanel.Size = new System.Drawing.Size(1073, 576);
             this.outerPanel.TabIndex = 3;
             // 
+            // disableEnableToolbarToolStripMenuItem
+            // 
+            this.disableEnableToolbarToolStripMenuItem.Name = "disableEnableToolbarToolStripMenuItem";
+            this.disableEnableToolbarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.disableEnableToolbarToolStripMenuItem.Text = "Disable/Enable Toolbar";
+            this.disableEnableToolbarToolStripMenuItem.Click += new System.EventHandler(this.disableEnableToolbarToolStripMenuItem_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -370,6 +379,7 @@
         private System.Windows.Forms.Button noteButton;
         private System.Windows.Forms.PictureBox openTKPanel;
         private System.Windows.Forms.Panel outerPanel;
+        private System.Windows.Forms.ToolStripMenuItem disableEnableToolbarToolStripMenuItem;
     }
 }
 

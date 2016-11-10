@@ -22,7 +22,10 @@ namespace CliMate
 
         Image img;
 
-        bool mousepressed = false;
+        int pic_previousX;
+        int pic_previousY;
+        int pan_previousX;
+        int pan_previousY;
 
         private double ZOOMFACTOR = 1.25; 
         private int MINMAX = 3;
@@ -146,6 +149,7 @@ namespace CliMate
         }
 
         //zooms in picture
+
         //taken from https://social.msdn.microsoft.com/Forums/windows/en-US/50ea6adc-52cf-491a-bb99-729ac83475ce/mousewheel-zoom?forum=winforms
         private void ZoomIn()
         {
@@ -182,6 +186,31 @@ namespace CliMate
             else
             {
                 ZoomOut();
+            }
+        }
+
+        private void disableEnableToolbarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (toolPanel.Visible)
+            {
+                toolPanel.Visible = false;
+                pan_previousX = outerPanel.Location.X;
+                pan_previousY = outerPanel.Location.Y;
+                pic_previousX = openTKPanel.Location.X;
+                pic_previousY = openTKPanel.Location.Y;
+                outerPanel.Width = outerPanel.Width + toolPanel.Width;
+                openTKPanel.Width = openTKPanel.Width + toolPanel.Width;
+                this.outerPanel.Location = new Point(this.toolPanel.Location.X, this.outerPanel.Location.Y);
+                this.openTKPanel.Location = new Point(this.toolPanel.Location.X, this.openTKPanel.Location.Y);
+            }
+            else
+            {
+
+                outerPanel.Width = outerPanel.Width - toolPanel.Width;
+                openTKPanel.Width = openTKPanel.Width - toolPanel.Width;
+                this.outerPanel.Location = new Point(pan_previousX, pan_previousY);
+                this.openTKPanel.Location = new Point(pic_previousX, pic_previousY);
+                toolPanel.Visible = true;
             }
         }
     }
