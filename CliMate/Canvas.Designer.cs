@@ -33,14 +33,17 @@
             this.tickTimer = new System.Windows.Forms.Timer(this.components);
             this.drawingPanel = new System.Windows.Forms.Panel();
             this.toolboxPanel = new System.Windows.Forms.Panel();
-            this.brushSizeBox = new System.Windows.Forms.NumericUpDown();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.brushTypePanel = new System.Windows.Forms.FlowLayoutPanel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.brushSizeBox = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
+            this.brushSpeedBox = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.tempPicBox)).BeginInit();
             this.drawingPanel.SuspendLayout();
             this.toolboxPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brushSizeBox)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brushSpeedBox)).BeginInit();
             this.SuspendLayout();
             // 
             // tempPicBox
@@ -68,6 +71,8 @@
             // toolboxPanel
             // 
             this.toolboxPanel.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.toolboxPanel.Controls.Add(this.label3);
+            this.toolboxPanel.Controls.Add(this.brushSpeedBox);
             this.toolboxPanel.Controls.Add(this.brushTypePanel);
             this.toolboxPanel.Controls.Add(this.label2);
             this.toolboxPanel.Controls.Add(this.label1);
@@ -77,12 +82,21 @@
             this.toolboxPanel.Size = new System.Drawing.Size(132, 589);
             this.toolboxPanel.TabIndex = 2;
             // 
-            // brushSizeBox
+            // brushTypePanel
             // 
-            this.brushSizeBox.Location = new System.Drawing.Point(5, 42);
-            this.brushSizeBox.Name = "brushSizeBox";
-            this.brushSizeBox.Size = new System.Drawing.Size(120, 22);
-            this.brushSizeBox.TabIndex = 1;
+            this.brushTypePanel.Location = new System.Drawing.Point(8, 212);
+            this.brushTypePanel.Name = "brushTypePanel";
+            this.brushTypePanel.Size = new System.Drawing.Size(117, 190);
+            this.brushTypePanel.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(5, 192);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(76, 17);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Brush type";
             // 
             // label1
             // 
@@ -93,21 +107,28 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Brush size";
             // 
-            // label2
+            // brushSizeBox
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 144);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 17);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Brush type";
+            this.brushSizeBox.Location = new System.Drawing.Point(5, 42);
+            this.brushSizeBox.Name = "brushSizeBox";
+            this.brushSizeBox.Size = new System.Drawing.Size(120, 22);
+            this.brushSizeBox.TabIndex = 1;
             // 
-            // brushTypePanel
+            // label3
             // 
-            this.brushTypePanel.Location = new System.Drawing.Point(8, 164);
-            this.brushTypePanel.Name = "brushTypePanel";
-            this.brushTypePanel.Size = new System.Drawing.Size(117, 190);
-            this.brushTypePanel.TabIndex = 4;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(7, 78);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(88, 17);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Brush speed";
+            // 
+            // brushSpeedBox
+            // 
+            this.brushSpeedBox.Location = new System.Drawing.Point(7, 101);
+            this.brushSpeedBox.Name = "brushSpeedBox";
+            this.brushSpeedBox.Size = new System.Drawing.Size(120, 22);
+            this.brushSpeedBox.TabIndex = 5;
             // 
             // Canvas
             // 
@@ -124,6 +145,7 @@
             this.toolboxPanel.ResumeLayout(false);
             this.toolboxPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.brushSizeBox)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brushSpeedBox)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -138,5 +160,7 @@
         private System.Windows.Forms.NumericUpDown brushSizeBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.FlowLayoutPanel brushTypePanel;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.NumericUpDown brushSpeedBox;
     }
 }

@@ -14,7 +14,10 @@ namespace CliMate
     public partial class Canvas : Form
     {
         private const int DEFAULT_SIZE = 10;    //Default brush size
+
         private const double DEFAULT_SPEED = 200;   //Default brush speed
+        private const double MIN_BRUSH_SPEED = -500;
+        private const double MAX_BRUSH_SPEED = 500;
 
         private Heightmap image;
         private long prevTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
@@ -30,7 +33,8 @@ namespace CliMate
         }
         private double brushSpeed
         {
-            get; set;
+            get { return (double)brushSpeedBox.Value; }
+            set { brushSpeedBox.Value = (decimal)value; }
         }
 
 
@@ -104,6 +108,9 @@ namespace CliMate
             tickTimer.Enabled = true;
 
             //Set default brush params
+            brushSpeedBox.Minimum = (decimal)MIN_BRUSH_SPEED;
+            brushSpeedBox.Maximum = (decimal)MAX_BRUSH_SPEED;
+
             brushSize = DEFAULT_SIZE;
             brushSpeed = DEFAULT_SPEED;
 
