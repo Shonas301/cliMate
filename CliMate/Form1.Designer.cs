@@ -297,6 +297,8 @@
             // 
             // openTKPanel
             // 
+            this.openTKPanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("openTKPanel.BackgroundImage")));
+            this.openTKPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.openTKPanel.Location = new System.Drawing.Point(3, 0);
             this.openTKPanel.Name = "openTKPanel";
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
