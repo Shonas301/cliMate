@@ -43,6 +43,7 @@
             this.viewToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.temperatureToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.climatesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nodeMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.generateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createBiomesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.heightmapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,12 +52,11 @@
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolPanel = new System.Windows.Forms.Panel();
+            this.noteButton = new System.Windows.Forms.Button();
             this.toolsLabel = new System.Windows.Forms.Label();
             this.brushPointerToggle = new System.Windows.Forms.Button();
             this.regularPointerToggle = new System.Windows.Forms.Button();
             this.openTKPanel = new System.Windows.Forms.Panel();
-            this.nodeMapToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.noteButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
             this.SuspendLayout();
@@ -164,14 +164,21 @@
             // temperatureToolStripMenuItem
             // 
             this.temperatureToolStripMenuItem.Name = "temperatureToolStripMenuItem";
-            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.temperatureToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.temperatureToolStripMenuItem.Text = "Height Map";
             // 
             // climatesToolStripMenuItem
             // 
             this.climatesToolStripMenuItem.Name = "climatesToolStripMenuItem";
-            this.climatesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.climatesToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
             this.climatesToolStripMenuItem.Text = "Climates";
+            // 
+            // nodeMapToolStripMenuItem
+            // 
+            this.nodeMapToolStripMenuItem.Name = "nodeMapToolStripMenuItem";
+            this.nodeMapToolStripMenuItem.Size = new System.Drawing.Size(137, 22);
+            this.nodeMapToolStripMenuItem.Text = "Node Map";
+            this.nodeMapToolStripMenuItem.Click += new System.EventHandler(this.nodeMapToolStripMenuItem_Click);
             // 
             // generateToolStripMenuItem
             // 
@@ -237,6 +244,19 @@
             this.toolPanel.Size = new System.Drawing.Size(130, 576);
             this.toolPanel.TabIndex = 1;
             // 
+            // noteButton
+            // 
+            this.noteButton.BackColor = System.Drawing.Color.DarkGray;
+            this.noteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.noteButton.ForeColor = System.Drawing.Color.Gray;
+            this.noteButton.Image = ((System.Drawing.Image)(resources.GetObject("noteButton.Image")));
+            this.noteButton.Location = new System.Drawing.Point(10, 90);
+            this.noteButton.Name = "noteButton";
+            this.noteButton.Size = new System.Drawing.Size(50, 50);
+            this.noteButton.TabIndex = 3;
+            this.noteButton.UseVisualStyleBackColor = false;
+            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
+            // 
             // toolsLabel
             // 
             this.toolsLabel.AutoSize = true;
@@ -279,25 +299,6 @@
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
             this.openTKPanel.TabIndex = 2;
             // 
-            // nodeMapToolStripMenuItem
-            // 
-            this.nodeMapToolStripMenuItem.Name = "nodeMapToolStripMenuItem";
-            this.nodeMapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.nodeMapToolStripMenuItem.Text = "Node Map";
-            this.nodeMapToolStripMenuItem.Click += new System.EventHandler(this.nodeMapToolStripMenuItem_Click);
-            // noteButton
-            // 
-            this.noteButton.BackColor = System.Drawing.Color.DarkGray;
-            this.noteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.noteButton.ForeColor = System.Drawing.Color.Gray;
-            this.noteButton.Image = ((System.Drawing.Image)(resources.GetObject("noteButton.Image")));
-            this.noteButton.Location = new System.Drawing.Point(10, 90);
-            this.noteButton.Name = "noteButton";
-            this.noteButton.Size = new System.Drawing.Size(50, 50);
-            this.noteButton.TabIndex = 3;
-            this.noteButton.UseVisualStyleBackColor = false;
-            this.noteButton.Click += new System.EventHandler(this.noteButton_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -309,8 +310,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "Form1";
             this.Text = "CliMate";
             this.menuStrip1.ResumeLayout(false);
