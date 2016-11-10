@@ -13,7 +13,7 @@ namespace CliMate
     public partial class NodeInterface : Form
     {
         private int selectedNode = -1;
-        private MapProject map = new MapProject();
+        MapProject map = new MapProject();
         private Boolean midConnector = false;
         private MapNode midNode;
         private Point midConnection;

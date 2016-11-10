@@ -41,7 +41,8 @@ namespace CliMate
             try
             {
                 return (MapNode)nodes[index];
-            } catch (Exception e)
+            }
+            catch (Exception e)
             {
                 MessageBox.Show("" + index + " " + nodes.Capacity);
                 return null;

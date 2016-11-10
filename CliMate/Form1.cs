@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Climate;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,6 @@ namespace CliMate
 
         private Form nodeInterfaceForm = new NodeInterface();
 
-        Image img;
 
         //records the previous location for the picturebox
         int pic_previousX;
@@ -68,6 +68,7 @@ namespace CliMate
         {
             //button for getting file
             //Opens file navigation window to select an image 
+
             OpenFileDialog imageSelector = new OpenFileDialog();
             imageSelector.Filter = "Image Files(*.bmp,*.png ,*.jpg) | *.bmp; *png; *.jpg";
             imageSelector.Title = "Select an Image File";
@@ -94,8 +95,10 @@ namespace CliMate
                 File.WriteAllText(sourceDir, fileName);
 
                 //sends filepath to height Overlay
-                currentOpenProject.FileName = fileName;
-                currentOpenProject.heightOverlay.convertFromImage(fileName);
+
+                //TODO
+                currentOpenProject.AddImageFileNode(fileName);
+                //currentOpenProject.heightOverlay.convertFromImage(fileName);
                 UpdateDisplay();
                 //System.Diagnostics.Debug.Write("\r\n this line ran: currentOpenProject.heightOverlay.convertFromImage(fileName); \rn");
             }
@@ -113,15 +116,16 @@ namespace CliMate
                 string fileName;
                 System.IO.StreamReader file = new System.IO.StreamReader(recent);
                 fileName = file.ReadLine();
-                currentOpenProject.FileName = fileName;
-                currentOpenProject.heightOverlay.convertFromImage(fileName);
+                //currentOpenProject.FileName = fileName;
+                //currentOpenProject.heightOverlay.convertFromImage(fileName);
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
                 UpdateDisplay();
             }
         }
         private void UpdateDisplay()
         {
-            img = currentOpenProject.heightOverlay.ToBitmap();
+
+            Image img = currentOpenProject.GetLastNode().ToBitmap();
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
             openTKPanel.BackgroundImage = img;
 
@@ -135,9 +139,15 @@ namespace CliMate
 
         private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Canvas c = new Canvas();
-            c.ShowDialog();
-            UpdateDisplay();
+            //Canvas c = new Canvas();
+            //c.ShowDialog();
+            //UpdateDisplay();
+
+
+            //TODO get new project parameters, how they want to generate, etc
+            //override "currentOpenProject" with the new parameters (if they want them)
+            
+
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -153,13 +163,20 @@ namespace CliMate
 
         private void noteButton_Click(object sender, EventArgs e)
         {
-            if (currentOpenProject.notes == null)
+            /*if(currentOpenProject.notes == null)
             {
                 MessageBox.Show("Sorry no project loaded yet!", "Error");
                 return;
             }
             NoteForm nF = new NoteForm(currentOpenProject.notes);
             nF.ShowDialog();
+            */
+        }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open dialog with new project parameters
+            //override "Current open project"
         }
 
         //zooms in picture

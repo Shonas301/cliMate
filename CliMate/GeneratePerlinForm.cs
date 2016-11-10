@@ -82,7 +82,7 @@ namespace CliMate
         private void OKButton_Click(object sender, EventArgs e)
         {
             //Update the project's heightmap
-            Form1.currentOpenProject.heightOverlay.contents = previewMap;
+            //Form1.currentOpenProject.heightOverlay.contents = previewMap;
             this.Close();
         }
     }
