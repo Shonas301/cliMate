@@ -56,9 +56,12 @@
             this.toolsLabel = new System.Windows.Forms.Label();
             this.brushPointerToggle = new System.Windows.Forms.Button();
             this.regularPointerToggle = new System.Windows.Forms.Button();
-            this.openTKPanel = new System.Windows.Forms.Panel();
+            this.openTKPanel = new System.Windows.Forms.PictureBox();
+            this.outerPanel = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.openTKPanel)).BeginInit();
+            this.outerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -294,19 +297,29 @@
             // 
             // openTKPanel
             // 
-            this.openTKPanel.Location = new System.Drawing.Point(130, 24);
+            this.openTKPanel.Location = new System.Drawing.Point(3, 0);
             this.openTKPanel.Name = "openTKPanel";
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
             this.openTKPanel.TabIndex = 2;
+            this.openTKPanel.TabStop = false;
+            this.openTKPanel.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.openTKPanel_MouseWheel);
+            // 
+            // outerPanel
+            // 
+            this.outerPanel.Controls.Add(this.openTKPanel);
+            this.outerPanel.Location = new System.Drawing.Point(127, 24);
+            this.outerPanel.Name = "outerPanel";
+            this.outerPanel.Size = new System.Drawing.Size(1073, 576);
+            this.outerPanel.TabIndex = 3;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1200, 600);
-            this.Controls.Add(this.openTKPanel);
             this.Controls.Add(this.toolPanel);
             this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.outerPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
@@ -316,6 +329,8 @@
             this.menuStrip1.PerformLayout();
             this.toolPanel.ResumeLayout(false);
             this.toolPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.openTKPanel)).EndInit();
+            this.outerPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,7 +354,6 @@
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.Panel toolPanel;
-        private System.Windows.Forms.Panel openTKPanel;
         private System.Windows.Forms.Button regularPointerToggle;
         private System.Windows.Forms.Label toolsLabel;
         private System.Windows.Forms.Button brushPointerToggle;
@@ -351,6 +365,8 @@
         private System.Windows.Forms.ToolStripMenuItem heightmapToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem nodeMapToolStripMenuItem;
         private System.Windows.Forms.Button noteButton;
+        private System.Windows.Forms.PictureBox openTKPanel;
+        private System.Windows.Forms.Panel outerPanel;
     }
 }
 

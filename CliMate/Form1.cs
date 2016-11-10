@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -18,6 +19,13 @@ namespace CliMate
         private Form generatePerlinForm = new GeneratePerlinForm();
 
         private Form nodeInterfaceForm = new NodeInterface();
+
+        Image img;
+
+        bool mousepressed = false;
+
+        private double ZOOMFACTOR = 1.25; 
+        private int MINMAX = 3;
 
         public Form1()
         {
@@ -93,7 +101,7 @@ namespace CliMate
         }
         private void UpdateDisplay()
         {
-            Image img = currentOpenProject.heightOverlay.ToBitmap();
+            img = currentOpenProject.heightOverlay.ToBitmap();
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
             openTKPanel.BackgroundImage = img;
 
@@ -121,11 +129,11 @@ namespace CliMate
         {
             nodeInterfaceForm.ShowDialog();
             UpdateDisplay();
-		}
-		
+        }
+
         private void noteButton_Click(object sender, EventArgs e)
         {
-            if(currentOpenProject.notes == null)
+            if (currentOpenProject.notes == null)
             {
                 MessageBox.Show("Sorry no project loaded yet!", "Error");
                 return;
@@ -133,6 +141,62 @@ namespace CliMate
             NoteForm nF = new NoteForm(currentOpenProject.notes);
             nF.ShowDialog();
         }
+
+     //   private void openTKPanel_MouseDown(object sender, MouseEventArgs e)
+     //   {
+            
+     //   }
+
+    //    void openTKPanel_MouseUp(object sender, MouseEventArgs e)
+     //   {
+            
+    //    }
+
+   //     void openTKPanel_MouseMove(object sender, MouseEventArgs e)
+     //   {
+   
+       // }
+    
+        private void ZoomIn()
+        {
+            if ((openTKPanel.Width < (MINMAX * outerPanel.Width)) &&
+                (openTKPanel.Height < (MINMAX * outerPanel.Height)))
+            {
+                openTKPanel.Width = Convert.ToInt32(openTKPanel.Width * ZOOMFACTOR);
+                openTKPanel.Height = Convert.ToInt32(openTKPanel.Height * ZOOMFACTOR);
+                openTKPanel.SizeMode = PictureBoxSizeMode.StretchImage;
+            }
+        }
+
+
+        private void ZoomOut()
+        {
+            if ((openTKPanel.Width > (outerPanel.Width / MINMAX)) &&
+                (openTKPanel.Height > (outerPanel.Height / MINMAX)))
+            {
+                openTKPanel.SizeMode = PictureBoxSizeMode.StretchImage;
+                openTKPanel.Width = Convert.ToInt32(openTKPanel.Width / ZOOMFACTOR);
+                openTKPanel.Height = Convert.ToInt32(openTKPanel.Height / ZOOMFACTOR);
+            }
+        }
+
+
+        void openTKPanel_MouseWheel(object sender, MouseEventArgs e)
+        {
+            if (e.Delta < 0)
+            {
+                ZoomIn();
+            }
+            else
+            {
+                ZoomOut();
+            }
+        }
+
+     //   private void openTKPanel_Paint(object sender, PaintEventArgs e)
+     //   {
+ 
+     //   }
     }
 }
 
