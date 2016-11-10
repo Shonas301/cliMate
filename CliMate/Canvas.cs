@@ -16,7 +16,7 @@ namespace CliMate
         private const int DEFAULT_SIZE = 10;        //Default brush size
 
         private const double DEFAULT_SPEED = 200;   //Default brush speed
-        private const double MIN_BRUSH_SPEED = -500;
+        private const double MIN_BRUSH_SPEED = 0;
         private const double MAX_BRUSH_SPEED = 500;
 
         private Heightmap image;
@@ -39,9 +39,9 @@ namespace CliMate
         private Brush currentBrush = null;
 
         //Tools
-        private enum ToolType { paintBrush, eraser };
-        private Dictionary<RadioButton, ToolType> toolButtonMap = new Dictionary<RadioButton, ToolType>();
-        private ToolType currentTool = ToolType.paintBrush;
+        private delegate void ToolMethod(long currTime, long deltaTimeMs, double deltaTime, MouseState mouse);
+        private Dictionary<RadioButton, ToolMethod> toolButtonMap = new Dictionary<RadioButton, ToolMethod>();
+        private ToolMethod currentTool = null;
 
 
         //Constructors
@@ -102,10 +102,34 @@ namespace CliMate
             return AddRadioButtonOption<Brush>(name, brush, brushButtonMap, brushTypePanel, brushTypeRadioButton_CheckedChanged);
         }
 
-        private RadioButton AddToolType(string name, ToolType type)
+        private RadioButton AddTool(string name, ToolMethod type)
         {
             //Creates a radio button for the tool
-            return AddRadioButtonOption<ToolType>(name, type, toolButtonMap, toolLayoutPanel, toolTypeRadioButton_CheckedChanged);
+            return AddRadioButtonOption<ToolMethod>(name, type, toolButtonMap, toolLayoutPanel, toolTypeRadioButton_CheckedChanged);
+        }
+
+
+        //Tool methods
+        private void PaintBrushTool(long currTime, long deltaTimeMs, double deltaTime, MouseState mouse)
+        {
+            //Paint with left-click
+            if (mouse.leftButton)
+            {
+                Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
+                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, brushSize, brushSpeed, deltaTime);
+                tempPicBox.Image = picboxBitmap;
+            }
+        }
+
+        private void EraserTool(long currTime, long deltaTimeMs, double deltaTime, MouseState mouse)
+        {
+            //Erase with left-click
+            if (mouse.leftButton)
+            {
+                Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
+                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, brushSize, brushSpeed * -1, deltaTime);
+                tempPicBox.Image = picboxBitmap;
+            }
         }
 
 
@@ -131,14 +155,13 @@ namespace CliMate
             brushSpeed = DEFAULT_SPEED;
 
             //Add all brush types
-            RadioButton defaultButton = AddBrushType("Circle", new CircleBrush());
-            defaultButton.Checked = true;
+            AddBrushType("Circle", new CircleBrush()).Checked = true;
 
             AddBrushType("Square", new SquareBrush());
 
-            //Add all tool types
-            AddToolType("Paint Brush", ToolType.paintBrush);
-            AddToolType("Eraser", ToolType.eraser);
+            //Add all tools
+            AddTool("Paint Brush", PaintBrushTool).Checked = true;
+            AddTool("Eraser", EraserTool);
         }
 
         private void tickTimer_Tick(object sender, EventArgs e)
@@ -157,16 +180,7 @@ namespace CliMate
             long deltaTimeMs = currTime - prevTime;
             double deltaTime = (double)deltaTimeMs / 1000;
 
-            //Controls
-            if (mouse.leftButton)
-            {
-                Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
-
-                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, brushSize, brushSpeed, deltaTime);
-
-                tempPicBox.Image = picboxBitmap;
-            }
-
+            currentTool(currTime, deltaTimeMs, deltaTime, mouse);
         }
 
         private void brushTypeRadioButton_CheckedChanged(object sender, EventArgs e)
