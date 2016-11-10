@@ -21,7 +21,7 @@ namespace CliMate
 
         private void Canvas_Load(object sender, EventArgs e)
         {
-            pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Picbox_MouseMove);
+//            pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Picbox_MouseMove);
         }
 
         private void refresh_timer_Tick(object sender, EventArgs e)
@@ -44,7 +44,7 @@ namespace CliMate
                 workingMap.SetValue(x, y, 100);
 
                 //Update the picture box
-                pictureBox1.Image = workingMap.ToBitmap();
+ //               pictureBox1.Image = workingMap.ToBitmap();
             }
         }
 
