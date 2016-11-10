@@ -13,18 +13,25 @@ namespace CliMate
 {
     public partial class Canvas : Form
     {
-        private const int DEFAULT_SIZE = 600;
+        private const int DEFAULT_SIZE = 10;    //Default brush size
 
         private Heightmap image;
-        private Brush currentBrush = new SquareBrush();
-
         private long prevTime = DateTime.Now.Ticks / TimeSpan.TicksPerSecond;
 
+        //Brushes
+        private Brush squareBrush = new SquareBrush();
+        private Brush circleBrush = new CircleBrush();
+        private Brush currentBrush = null;
+
+
+        //Constructors
         public Canvas()
         {
             InitializeComponent();
         }
 
+
+        //Events
         private void Canvas_Load(object sender, EventArgs e)
         {
             //Get the image dimensions
@@ -33,10 +40,22 @@ namespace CliMate
 
             //Create the image and picbox
             image = new Heightmap(dialog.width, dialog.height);
-            tempPicBox.Image = new Bitmap(image.width, image.height);
+            tempPicBox.Image = image.ToBitmap();
 
             //Enable the timer
             tickTimer.Enabled = true;
+
+            //Default to circle brush
+            currentBrush = circleBrush;
+        }
+
+        private void tickTimer_Tick(object sender, EventArgs e)
+        {
+            //Get the mouse data
+            MouseState ms = GetMouseState();
+
+            //Call game tick
+            OnGameTick(ms);
         }
 
         private void OnGameTick(MouseState mouse)
@@ -51,26 +70,19 @@ namespace CliMate
             {
                 Bitmap picboxBitmap = new Bitmap(tempPicBox.Image);
 
-                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, 100, deltaTime);
+                currentBrush.Apply(image, picboxBitmap, mouse.x, mouse.y, DEFAULT_SIZE, deltaTime);
 
                 tempPicBox.Image = picboxBitmap;
             }
 
         }
 
+
+        //Misc functions
         private void UpdateDisplay()
         {
             //TODO: Do this more efficiently.
             tempPicBox.Image = image.ToBitmap();
-        }
-
-        private void tickTimer_Tick(object sender, EventArgs e)
-        {
-            //Get the mouse data
-            MouseState ms = GetMouseState();
-
-            //Call game tick
-            OnGameTick(ms);
         }
 
         private MouseState GetMouseState()
@@ -96,6 +108,7 @@ namespace CliMate
         }
     }
 
+
     public class MouseState
     {
         public bool leftButton;
@@ -114,6 +127,9 @@ namespace CliMate
             this.middleButton = middleButton;
         }
     }
+
+
+    //Brush classes
 
     public abstract class Brush
     {
@@ -161,5 +177,62 @@ namespace CliMate
             }
         }
   
+    }
+
+    public class CircleBrush : Brush
+    {
+        private double speed = 200;
+
+        public override void Apply(Heightmap targetHeightmap, Bitmap targetBitmap, int x, int y, double size, double deltaTime)
+        {
+            double radius = size;
+
+            //Make a bounding box around the circle
+            int startX = (int)((double)x - size);
+            int endX = (int)((double)x + size);
+
+            int startY = (int)((double)y - size);
+            int endY = (int)((double)y + size);
+
+            //Make sure the corners are in bounds
+            startX = Utils.CapBounds(startX, 0, targetHeightmap.width);
+            endX = Utils.CapBounds(endX, 0, targetHeightmap.width);
+
+            startY = Utils.CapBounds(startY, 0, targetHeightmap.height);
+            endY = Utils.CapBounds(endY, 0, targetHeightmap.height);
+
+            //Loop through the bounding box, skipping any pixels that fall outside the circle
+
+            int centerX = x;
+            int centerY = y;    //Save x and y, since we're using those variable names in the loop
+
+            for (x = startX; x < endX; x++)
+            {
+                for (y = startY; y < endY; y++)
+                {
+                    //Skip this pixel if it's not within the radius
+                    double squaredDist = (x - centerX) * (x - centerX) + (y - centerY) * (y - centerY);
+                    if (squaredDist > radius * radius)
+                    {
+                        continue;
+                    }
+
+                    //Change the height at this position
+                    double val = targetHeightmap.GetValue(x, y);
+                    val += speed * deltaTime;
+
+                    //Ensure the value stays within the limits
+                    if (Math.Abs(val) > Heightmap.MAX_HEIGHT)
+                    {
+                        val = Math.Sign(val) * Heightmap.MAX_HEIGHT;
+                    }
+
+                    //Apply the height change
+                    targetHeightmap.SetValue(x, y, val);
+                    targetBitmap.SetPixel(x, y, Heightmap.ValueToColor(val));
+                }
+            }//End of double for loop
+
+        }//End of function
     }
 }
