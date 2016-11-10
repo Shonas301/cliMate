@@ -25,8 +25,20 @@ namespace CliMate
 
             double alpha = Lerp((double)a.A, (double)b.A, t);
             double red = Lerp((double)a.R, (double)b.R, t);
+            if (red > 255)
+                red = 255;
+            if (red < 0)
+                red = 0;
             double green = Lerp((double)a.G, (double)b.G, t);
+            if (green > 255)
+                green = 255;
+            if (green < 0)
+                green = 0;
             double blue = Lerp((double)a.B, (double)b.B, t);
+            if (blue > 255)
+                blue = 255;
+            if (blue < 0)
+                blue = 0;
 
             return Color.FromArgb((int)alpha, (int)red, (int)green, (int)blue);
         }
