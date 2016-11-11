@@ -6,6 +6,7 @@ using CliMate;
 
 namespace Climate
 {
+    [Serializable]
     public class Project
     {
         private string filePath { get; set; }

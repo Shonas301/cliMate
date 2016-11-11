@@ -3,6 +3,7 @@ using System.Collections;
 using System.IO;
 using System.Linq;
 
+[Serializable]
 public class Note
 {
     public int x { get; set; }

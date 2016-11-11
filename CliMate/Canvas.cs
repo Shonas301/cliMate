@@ -24,7 +24,6 @@ namespace CliMate
 
         //Brushes
         private Dictionary<RadioButton, Brush> brushButtonMap = new Dictionary<RadioButton, Brush>();
-
         private double brushSize
         {
             get { return (double)brushSizeBox.Value; }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CliMate
 {
+    [Serializable]
     public class NodeMap
     {
         //This will store a Graph of nodes

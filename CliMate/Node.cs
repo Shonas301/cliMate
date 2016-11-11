@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace CliMate
 {
+    [Serializable]
     public abstract class Node
     {
         //I know it's bass ackwards, but the way we've been taught tree traversal led me to think it'd be best to consider output the root

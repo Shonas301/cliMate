@@ -8,6 +8,7 @@ using System.Drawing;
 
 namespace CliMate
 {
+    [Serializable]
     //I figure this'll be a superclass at some point if we want tiles to hang on to other data such as wind vectors or something.
     public class Tile
     {
