@@ -59,7 +59,7 @@
             this.openTKPanel = new System.Windows.Forms.PictureBox();
             this.outerPanel = new System.Windows.Forms.Panel();
             this.disableEnableToolbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.openTKPanel = new System.Windows.Forms.Panel();
+            this.openTKPanel = new System.Windows.Forms.PictureBox();
             this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
