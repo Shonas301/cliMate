@@ -22,6 +22,14 @@ namespace CliMate
 
         }
 
+        public ImageFileNode(NodeMap map, Heightmap heightmap) : base(map)
+        {
+            //Creates one from a pre-existing heightmap.
+
+            image = heightmap.ToBitmap();
+            this.heightmap = heightmap;
+        }
+
         public override Bitmap ToBitmap() {
             return heightmap.ToBitmap();
         }

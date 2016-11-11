@@ -51,6 +51,11 @@ namespace Climate
             map.AddNode(ifn);
         }
 
+        public void SetInputNode(InputNode node)
+        {
+            //Changes the input node
+            map.SetFirstNode(node);
+        }
 
         //ALL grids are going to need access to this. Changing these MIGHT be tricky seeing as we'd have to recalculate all the way down the node tree.
         public int getProjectWidth() { return projectWidth; }
