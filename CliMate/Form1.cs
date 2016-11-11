@@ -119,6 +119,7 @@ namespace CliMate
                 //currentOpenProject.FileName = fileName;
                 //currentOpenProject.heightOverlay.convertFromImage(fileName);
                 //System.Diagnostics.Debug.Write("\r\n" + fileName + "\r\n we did it \r\n");
+                currentOpenProject.AddImageFileNode(fileName);
                 UpdateDisplay();
             }
         }

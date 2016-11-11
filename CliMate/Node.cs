@@ -16,7 +16,7 @@ namespace CliMate
         protected Node[] children;
         protected bool enableMask;
 
-        public Node()
+        public Node(NodeMap map)
         {
             enableMask = false;
             //This is here to make sure that setInput can always be called

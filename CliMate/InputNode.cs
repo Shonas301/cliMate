@@ -8,7 +8,7 @@ namespace Climate
         //Parent class for generation things
         //subclass of normal nodes
         //start of the chain type deal
-        public InputNode(NodeMap map) : base()
+        public InputNode(NodeMap map) : base(map)
         {
             outGrid = new RectGrid(map.outHeight, map.outWidth);
         }

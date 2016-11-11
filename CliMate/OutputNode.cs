@@ -8,7 +8,7 @@ namespace CliMate
 {
     class OutputNode : Node
     {
-        public OutputNode(NodeMap map) : base()
+        public OutputNode(NodeMap map) : base(map)
         {
             this.parent = null;
             this.mask = null;
