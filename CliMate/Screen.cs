@@ -16,8 +16,6 @@ namespace CliMate
         public static void run()
         {
             GeoGrid grid = new GeoGrid(10);
-            grid.getTile(0, 0, 0).setColor(System.Drawing.Color.Red);
-            grid.getTile(0, 4, 0).setColor(System.Drawing.Color.Red);
 
             GameWindow window = new GameWindow(WIDTH, HEIGHT);
             GeoDisplayIco hexGrid = new GeoDisplayIco(window, grid);

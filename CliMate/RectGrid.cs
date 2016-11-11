@@ -7,51 +7,48 @@ using System.Threading.Tasks;
 
 namespace CliMate
 {
-    namespace CliMate
+    [Serializable]
+    public class RectGrid
     {
-        [Serializable]
-        public class RectGrid
+        Tile[][] grid;
+        private int width { get; }
+        private int height { get; }
+        //Yeah, you can make this whatever size you want, but this should always be projectWidth/Height
+        //I just found it weird to have a project as a parameter. Project settings? Huh...
+        //Maybe we should leave it as is anyway. Flexibility and all that jazz.
+        public RectGrid(int xres, int yres)
         {
-            Tile[][] grid;
-            private int width { get; }
-            private int height { get; }
-            //Yeah, you can make this whatever size you want, but this should always be projectWidth/Height
-            //I just found it weird to have a project as a parameter. Project settings? Huh...
-            //Maybe we should leave it as is anyway. Flexibility and all that jazz.
-            public RectGrid(int xres, int yres)
+            for (int x = 0; x < xres; x++)
             {
-                for (int x = 0; x < xres; x++)
+                grid[x] = new Tile[yres];
+                for (int y = 0; y < yres; y++)
                 {
-                    grid[x] = new Tile[yres];
-                    for (int y = 0; y < yres; y++)
-                    {
-                        grid[x][y] = new Tile(0);
-                    }
+                    grid[x][y] = new Tile(0);
                 }
-                this.width = xres;
-                this.height = yres;
             }
+            this.width = xres;
+            this.height = yres;
+        }
 
-            public void setTile(int x, int y, float val)
+        public void setTile(int x, int y, float val)
+        {
+            grid[x][y].Value = val;
+        }
+        public Tile getTile(int x, int y)
+        {
+            return grid[x][y];
+        }
+        public Bitmap gridToBitmap()
+        {
+            Bitmap img = new Bitmap(grid.Length, grid[0].Length);
+            for (int x = 0; x < grid.Length; x++)
             {
-                grid[x][y].Value = val;
-            }
-            public Tile getTile(int x, int y)
-            {
-                return grid[x][y];
-            }
-            public Bitmap gridToBitmap()
-            {
-                Bitmap img = new Bitmap(grid.Length, grid[0].Length);
-                for (int x = 0; x < grid.Length; x++)
+                for (int y = 0; y < grid[x].Length; y++)
                 {
-                    for (int y = 0; y < grid[x].Length; y++)
-                    {
-                        img.SetPixel(x, y, grid[x][y].getColor());
-                    }
+                    img.SetPixel(x, y, grid[x][y].getColor());
                 }
-                return img;
             }
+            return img;
         }
     }
 }
