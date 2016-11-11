@@ -36,12 +36,13 @@ namespace Climate
             map.AddNode(n);
         }
 
-        public Node GetInputNode(Node n)
+        public Node GetNode(int n)
         {
-            return map.GetNode(0);
+            return map.GetNode(n);
         }
 
         public Node GetLastNode() {
+            System.Diagnostics.Debug.Write(map.GetNum());
             return map.GetLastNode();
         }
 

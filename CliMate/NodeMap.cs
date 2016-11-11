@@ -18,9 +18,9 @@ namespace CliMate
 
         public NodeMap()
         {
-            output = new OutputNode(this);
+            //output = new OutputNode(this);
             Nodes = new List<Node>();
-            Nodes.Add(output);
+            //Nodes.Add(output);
         }
         public void AddNode(Node n)
         {
@@ -33,6 +33,10 @@ namespace CliMate
         public Node GetLastNode()
         {
             return Nodes.Last();
+        }
+
+        public int GetNum() {
+            return Nodes.Count;
         }
     }
 }

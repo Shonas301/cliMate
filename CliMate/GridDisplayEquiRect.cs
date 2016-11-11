@@ -53,7 +53,7 @@ namespace CliMate
                 //This method is documented and pretty quick.
                 //There's a link
                 //github.com/mono/opentk/blob/master/Source/OpenTK/Math/Vector3.cs
-                return Vector3.BaryCentric(t0,t1,t2, 1.0f / 3.0f, 1.0f / 3.0f);
+                return Vector3.BaryCentric(t0, t1, t2, 1.0f / 3.0f, 1.0f / 3.0f);
             }
 
         };
@@ -85,7 +85,8 @@ namespace CliMate
             public void project()
             {
                 proj = true;
-                for (int i = 0; i < 6; i++) {
+                for (int i = 0; i < 6; i++)
+                {
 
                     float offset = 0.25f;
                     if (points[i].X < 0)
@@ -93,19 +94,19 @@ namespace CliMate
                         offset = -0.25f;
                     }
                     float r = (float)Math.Sqrt(points[i].X * points[i].X + points[i].Y * points[i].Y + points[i].Z * points[i].Z);
-                    float phi = (float) Math.Acos(points[i].Z/r);
-                    float theta = (float)Math.Atan(points[i].Y/ points[i].X);
+                    float phi = (float)Math.Acos(points[i].Z / r);
+                    float theta = (float)Math.Atan(points[i].Y / points[i].X);
 
                     equiVec[i] = new Vector2();
                     equiVec[i].X = 2 * (theta / (2 * (float)Math.PI) + offset) + 0.5f;
-                    equiVec[i].Y = 2 * (phi / ((float)Math.PI)-0.5f);
+                    equiVec[i].Y = 2 * (phi / ((float)Math.PI) - 0.5f);
                     if (equiVec[i].X > 1.0f)
                     {
                         equiVec[i].X = equiVec[i].X - 2.0f;
                     }
 
                 }
-                if (equiVec[0].X>0.0f&&equiVec[4].X<0.0f|| equiVec[1].X > 0.0f && equiVec[3].X < 0.0f)
+                if (equiVec[0].X > 0.0f && equiVec[4].X < 0.0f || equiVec[1].X > 0.0f && equiVec[3].X < 0.0f)
                 {
                     isEdge = true;
                 }
@@ -173,13 +174,13 @@ namespace CliMate
                 ico[4 * i + 3] = new Triangle(t0, t1, t2);
 
                 icoEdge[4 * i] = Subdivide(ico[4 * i], numSubs);
-                icoEdge[4 * i+1] = Subdivide(ico[4 * i + 1], numSubs);
+                icoEdge[4 * i + 1] = Subdivide(ico[4 * i + 1], numSubs);
                 icoEdge[4 * i + 2] = Subdivide(ico[4 * i + 2], numSubs);
                 icoEdge[4 * i + 3] = Subdivide(ico[4 * i + 3], numSubs);
 
                 //Ignore index hell. It's not worth it. This assigns the neighbors of all the edges since subdivide only does a face at a time
                 //Optimization comes later if we need it. Considering that I can render a face in a few seconds, I don't think it'll be critical.
-                for(int j = 0; j < icoEdge[0].Length/3; j++)
+                for (int j = 0; j < icoEdge[0].Length / 3; j++)
                 {
                     int edgeSize = icoEdge[0].Length / 3;
 
@@ -229,7 +230,7 @@ namespace CliMate
 
             //Convert to hexagons
             hexList = HexConvert(icoEdge);
-            for(int i = 0; i<hexList.Length; i++)
+            for (int i = 0; i < hexList.Length; i++)
             {
                 hexList[i].project();
             }
@@ -240,7 +241,7 @@ namespace CliMate
             window.UpdateFrame += Window_UpdateFrame;
             window.RenderFrame += Window_RenderFrame;
             window.Closing += Window_Closing;
-            
+
 
 
         }
@@ -261,7 +262,7 @@ namespace CliMate
 
         private void Window_UpdateFrame(object sender, FrameEventArgs e)
         {
-            
+
         }
 
         private void Window_RenderFrame(object sender, FrameEventArgs e)
@@ -270,14 +271,14 @@ namespace CliMate
 
             Color c;
             int dex = Triangular((int)Math.Pow(2, numSubs)) - 1;
-            int dex2 = Triangular((int)Math.Pow(2, numSubs)-1);
+            int dex2 = Triangular((int)Math.Pow(2, numSubs) - 1);
             for (int i = 0; i < hexList.Length; i++)
             {
                 if (i == count)
                 {
                     c = Color.Red;
                 }
-                else if (hexList[i].tile==null)
+                else if (hexList[i].tile == null)
                 {
                     c = Color.Black;
                 }
@@ -289,7 +290,7 @@ namespace CliMate
                 {
                     drawProj(hexList[i], c);
                 }
-                
+
             }
             count++;
             if (count >= hexList.Length)
@@ -318,7 +319,7 @@ namespace CliMate
             Vector3 temp1 = new Vector3(p1.X, p1.Y, p1.Z);
             temp0.Normalize();
             temp1.Normalize();
-            float omega = (float) Math.Acos(Vector3.Dot(temp0,temp1));
+            float omega = (float)Math.Acos(Vector3.Dot(temp0, temp1));
             float scale0 = (float)(Math.Sin((1.0f - t) * omega) / Math.Sin(omega));
             float scale1 = (float)(Math.Sin(t * omega) / Math.Sin(omega));
             temp0.X = p0.X;
@@ -336,10 +337,10 @@ namespace CliMate
         private Triangle[] Subdivide(Triangle t, int sub)
         {
             //Split triangle
-            Vector3 p01 = Slerp(t.t0,t.t1, 0.5f);
+            Vector3 p01 = Slerp(t.t0, t.t1, 0.5f);
             Vector3 p12 = Slerp(t.t1, t.t2, 0.5f);
-            Vector3 p20 = Slerp(t.t2, t.t0,0.5f);
-            Triangle t0 = new Triangle(t.t0,p01,p20);
+            Vector3 p20 = Slerp(t.t2, t.t0, 0.5f);
+            Triangle t0 = new Triangle(t.t0, p01, p20);
             Triangle t1 = new Triangle(p01, t.t1, p12);
             Triangle t2 = new Triangle(p20, p12, t.t2);
             t = new Triangle(p12, p20, p01);
@@ -352,7 +353,7 @@ namespace CliMate
                 t0.neighbor0(t);
                 t1.neighbor1(t);
                 t2.neighbor2(t);
-                Triangle[] e = {t1, t2, t2, t0, t0, t1};
+                Triangle[] e = { t1, t2, t2, t0, t0, t1 };
                 return e;
             }
             else
@@ -367,10 +368,10 @@ namespace CliMate
                 int third = e.Length / 3;
 
                 //Assign neighbors
-                for (int i = 0; i<third; i++)
+                for (int i = 0; i < third; i++)
                 {
                     e[third - i - 1].neighbor0(e0[i]);
-                    e0[i].neighbor0(e[third - i - 1]) ;
+                    e0[i].neighbor0(e[third - i - 1]);
                     e[(2 * third) - i - 1].neighbor1(e1[third + i]);
                     e1[third + i].neighbor1(e[(2 * third) - i - 1]);
                     e[(3 * third) - i - 1].neighbor2(e2[(2 * third) + i]);
@@ -378,16 +379,16 @@ namespace CliMate
                 }
 
                 //return new edge list
-                Triangle[] next = new Triangle[6*third];
-                for(int i = 0; i<next.Length; i++)
+                Triangle[] next = new Triangle[6 * third];
+                for (int i = 0; i < next.Length; i++)
                 {
-                    if (i<third)
+                    if (i < third)
                     {
                         next[i] = e1[i];
                     }
                     else if (i >= third && i < (3 * third))
                     {
-                        next[i] = e2[i-third];
+                        next[i] = e2[i - third];
                     }
                     else if (i >= (3 * third) && i < (5 * third))
                     {
@@ -397,7 +398,7 @@ namespace CliMate
                     {
                         next[i] = e1[i - (3 * third)];
                     }
-                    
+
                 }
 
                 return next;
@@ -406,13 +407,13 @@ namespace CliMate
 
         Triangle[] GetFace(Triangle t)
         {
-            int size = (int)Math.Pow(4,numSubs);
+            int size = (int)Math.Pow(4, numSubs);
             Triangle[] face = new Triangle[size];
             int index = 0;
             face[index++] = t;
             Triangle next = t.n1;
             Triangle branch;
-            
+
             while (next != null)
             {
                 face[index++] = next;
@@ -431,12 +432,12 @@ namespace CliMate
             }
             return face;
         }
-        
-        private Hexagon[] HexConvert (Triangle[][] faces)
+
+        private Hexagon[] HexConvert(Triangle[][] faces)
         {
             int faceLen = faces[0].Length / 3;
             int edgeLen = (int)Math.Pow(2, numSubs) - 1;
-            int tri = (edgeLen-1) * (edgeLen) / 2;
+            int tri = (edgeLen - 1) * (edgeLen) / 2;
             int hexnum = 30 * edgeLen + 20 * tri;
             Hexagon[] sphere = new Hexagon[hexnum];
             Pentagon[] verts = new Pentagon[12];
@@ -452,7 +453,7 @@ namespace CliMate
                     faces[3][2 * faceLen].n1.n1.mid(),
                     faces[3][2 * faceLen].n1.n1.n1.mid(),
                     faces[3][2 * faceLen].n1.n1.n1.n1.mid());
-            for (int i = 1; i < 18; i+=3)
+            for (int i = 1; i < 18; i += 3)
             {
                 verts[dex++] = new Pentagon(faces[i][0].mid(),
                     faces[i][0].n1.mid(),
@@ -466,15 +467,16 @@ namespace CliMate
                     faces[i][0].n1.n1.n1.mid(),
                     faces[i][0].n1.n1.n1.n1.mid());
             }
-            for (int i = 0; i<20; i++)
+            for (int i = 0; i < 20; i++)
             {
                 if (i % 2 == 0)
                 {
                     Triangle anchor = faces[i][2 * faceLen];
-                    for (int j = 0; j < edgeLen; j++) {
+                    for (int j = 0; j < edgeLen; j++)
+                    {
                         int rowLen = edgeLen + 1 - j;
                         Triangle cursor = anchor;
-                        
+
                         for (int k = 0; k < rowLen; k++)
                         {
                             if (k == 0 && i % 4 == 0)
@@ -541,10 +543,10 @@ namespace CliMate
         void drawTriangle(Triangle t, Color c)
         {
             GL.Begin(BeginMode.Polygon);
-                GL.Color3(c);
-                GL.Vertex3(t.t0.X, t.t0.Y, t.t0.Z);
-                GL.Vertex3(t.t1.X, t.t1.Y, t.t1.Z);
-                GL.Vertex3(t.t2.X, t.t2.Y, t.t2.Z);
+            GL.Color3(c);
+            GL.Vertex3(t.t0.X, t.t0.Y, t.t0.Z);
+            GL.Vertex3(t.t1.X, t.t1.Y, t.t1.Z);
+            GL.Vertex3(t.t2.X, t.t2.Y, t.t2.Z);
             GL.End();
         }
 
@@ -626,14 +628,14 @@ namespace CliMate
             System.Console.WriteLine("HexLen: " + hexList.Length);
             System.Console.WriteLine("Even: " + even);
             System.Console.WriteLine("Odd: " + odd);
-            for (int par = 0; par<10; par++)
+            for (int par = 0; par < 10; par++)
             {
                 int start = (par % 2) * edgeLen;
-                for (int col = 1; col<edgeLen; col++)
+                for (int col = 1; col < edgeLen; col++)
                 {
                     for (int row = 0; row <= edgeLen - col; row++)
                     {
-                        hexList[hexDex++].tile = g.getTile(par/2,row,col+start);
+                        hexList[hexDex++].tile = g.getTile(par / 2, row, col + start);
                         //hexDex++;
                     }
                 }
@@ -642,7 +644,7 @@ namespace CliMate
                     int iter = 0;
                     for (int col = edgeLen; col > row; col--)
                     {
-                        hexList[hexDex++].tile = g.getTile(par/2, row + iter, col + start);
+                        hexList[hexDex++].tile = g.getTile(par / 2, row + iter, col + start);
                         iter++;
                     }
                 }
