@@ -42,10 +42,13 @@ namespace CliMate
         private Dictionary<RadioButton, ToolMethod> toolButtonMap = new Dictionary<RadioButton, ToolMethod>();
         private ToolMethod currentTool = null;
 
+        //leveraging canvas to make masks, is for mask if forMask = true;
+        private bool forMask;
 
         //Constructors
-        public Canvas()
+        public Canvas(bool forMask)
         {
+            this.forMask = forMask;
             InitializeComponent();
         }
 
@@ -207,7 +210,31 @@ namespace CliMate
         private void confirmButton_Click(object sender, EventArgs e)
         {
             //Set the image to the project's main input
-            Form1.currentOpenProject.SetFirstHeightmap(image);
+            if (!forMask)
+            {
+                Form1.currentOpenProject.SetFirstHeightmap(image);
+            }
+            else
+            {
+                Form1.currentOpenProject.CreateMask(image.width, image.height);
+                int[,] mask = Form1.currentOpenProject.GetMask();
+                Bitmap bit = image.ToBitmap();
+                for (int i = 0; i < bit.Width; i++)
+                {
+                    for(int j = 0; j < bit.Height; j++)
+                    {
+                        Color pixel = bit.GetPixel(i, j);
+                        if (pixel == Heightmap.ValueToColor(0))
+                        {
+                            mask[i, j] = 0;
+                        }
+                        else
+                        {
+                            mask[i, j] = 1;
+                        }
+                    }
+                }
+            }
             this.Close();
         }
 

@@ -12,8 +12,10 @@ namespace Climate
         private string filePath { get; set; }
         private int projectWidth;
         private int projectHeight;
+        public List<Note> notes;
         //The frequency (resolution) of the geodesic grid.
         private int geoFrequency;
+        private int[,] mask;
         private NodeMap map { get; set; }
 
         public Project()
@@ -82,6 +84,26 @@ namespace Climate
             }
 
             fileStream.Close();
+        }
+
+        public void CreateMask(int x, int y)
+        {
+            this.mask = new int[x, y];
+        }
+
+        public int[,] GetMask()
+        {
+            return this.mask;
+        }
+        
+        public void setMask(int[,] mask)
+        {
+            this.mask = mask;
+        }
+
+        public Boolean hasMask()
+        {
+            return !(mask == null);
         }
 
         //ALL grids are going to need access to this. Changing these MIGHT be tricky seeing as we'd have to recalculate all the way down the node tree.

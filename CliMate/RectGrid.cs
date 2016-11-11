@@ -9,7 +9,7 @@ namespace CliMate
     [Serializable]
     public class RectGrid
     {
-        Tile[][] grid;
+        public Tile[][] grid;
         public RectGrid(int xres, int yres)
         {
             for (int i = 0; i < yres; i++)

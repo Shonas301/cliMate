@@ -8,6 +8,7 @@ public class Note
 {
     public int x { get; set; }
     public int y { get; set; }
+    public string text;
     public ArrayList notes { get; set; }
     public string map { get; set; }
     public string mapString { get; private set; }
@@ -53,6 +54,12 @@ public class Note
                 }
             }
         }
+    }
+
+    public Note(int x, int y)
+    {
+        this.x = x;
+        this.y = y;
     }
     
     public void saveNote()

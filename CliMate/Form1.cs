@@ -23,6 +23,7 @@ namespace CliMate
         private Form nodeInterfaceForm = new NodeInterface();
 
 
+        bool allowNotes;
         //records the previous location for the picturebox
         int pic_previousX;
         int pic_previousY;
@@ -39,6 +40,7 @@ namespace CliMate
         int disW;
         int disH;
 
+        List<TextBox> notes;
         private double ZOOMFACTOR = 1.25; 
         private int MINMAX = 3;
 
@@ -48,6 +50,7 @@ namespace CliMate
             InitializeOpenFileDialog();
             orW = openTKPanel.Width;
             orH = openTKPanel.Height;
+            notes = new List<TextBox>();
         }
 
         private void InitializeOpenFileDialog()
@@ -168,7 +171,7 @@ namespace CliMate
 
         private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Canvas c = new Canvas();
+            Canvas c = new Canvas(false);
             c.ShowDialog();
             UpdateDisplay();
 
@@ -192,14 +195,36 @@ namespace CliMate
 
         private void noteButton_Click(object sender, EventArgs e)
         {
-            /*if(currentOpenProject.notes == null)
+            if (currentOpenProject.notes == null)
             {
-                MessageBox.Show("Sorry no project loaded yet!", "Error");
+                allowNotes = true;
                 return;
             }
-            NoteForm nF = new NoteForm(currentOpenProject.notes);
-            nF.ShowDialog();
-            */
+            if(allowNotes)
+            {
+                currentOpenProject.notes = new List<Note>();
+                foreach(TextBox t in notes)
+                {
+                    Point loc = t.Location;
+                    Note n = new Note(loc.X, loc.Y);
+                    n.text = t.Text;
+                    t.Dispose();
+                    currentOpenProject.notes.Add(n);
+                }
+                notes.Clear();
+                allowNotes = false;
+            }
+            else { 
+                foreach (Note n in currentOpenProject.notes)
+                {
+                    TextBox txt = new TextBox();
+                    txt.Location = new Point(n.x,n.y);
+                    txt.Text = n.text;
+                    openTKPanel.Controls.Add(txt);
+                    notes.Add(txt);
+                }
+                allowNotes = true;
+            }
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
@@ -312,6 +337,31 @@ namespace CliMate
         {
             ErosionForm ef = new ErosionForm();
             ef.ShowDialog();
+        }
+
+        private void maskToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Canvas masker = new Canvas(true);
+            masker.ShowDialog();
+            return;
+        }
+
+        private void openTKPanel_DoubleClick(object sender, EventArgs e)
+        {
+            if(!allowNotes)
+            {
+                return;
+            }
+            if(currentOpenProject.notes == null)
+            {
+                currentOpenProject.notes = new List<Note>();
+            }
+            TextBox t = new TextBox();
+            MouseEventArgs em = (MouseEventArgs)e;
+            t.Location =  em.Location;
+            t.Width = 120;
+            notes.Add(t);
+            openTKPanel.Controls.Add(t);
         }
     }
 }
