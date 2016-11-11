@@ -1,6 +1,6 @@
 ﻿using System;
 using System.IO;
-
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 using CliMate;
 
@@ -64,6 +64,24 @@ namespace Climate
         {
             //Changes the input node
             map.SetFirstNode(node);
+        }
+
+        public void SaveToFile(string fileName)
+        {
+            BinaryFormatter saver = new BinaryFormatter();
+            FileStream fileStream = new FileStream(fileName, FileMode.Create);
+
+            try
+            {
+                saver.Serialize(fileStream, this);
+            }
+            catch (System.Runtime.Serialization.SerializationException e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+
+            fileStream.Close();
         }
 
         //ALL grids are going to need access to this. Changing these MIGHT be tricky seeing as we'd have to recalculate all the way down the node tree.

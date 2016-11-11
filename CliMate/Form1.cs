@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CliMate
 {
@@ -284,6 +285,26 @@ namespace CliMate
                 //makes toolbar visible again
                 toolPanel.Visible = true;
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Save the current open project
+            string testFile = "testFile.climate";
+            currentOpenProject.SaveToFile(testFile);
+        }
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open project
+            string testFile = "testFile.climate";
+            FileStream fileStream = new FileStream(testFile, FileMode.Open);
+
+            BinaryFormatter reader = new BinaryFormatter();
+            currentOpenProject = (Project)reader.Deserialize(fileStream);
+            UpdateDisplay();
+
+            fileStream.Close();
         }
     }
 }

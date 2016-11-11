@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CliMate
 {
+    [Serializable]
     class OutputNode : Node
     {
         public OutputNode(NodeMap map) : base()
