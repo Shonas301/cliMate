@@ -211,6 +211,13 @@ namespace CliMate
             Form1.currentOpenProject.SetFirstHeightmap(image);
             this.Close();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Reset the image
+            image = new Heightmap(image.width, image.height);
+            tempPicBox.Image = image.ToBitmap();
+        }
     }
 
 
