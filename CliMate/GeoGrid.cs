@@ -87,7 +87,7 @@ namespace CliMate
                             }
                             else
                             {
-                                grid[i][j][k] = new Tile(Color.Black);
+                                grid[i][j][k] = new Tile(0.0f);
                             }
                             //on the last parallelogram
                             if (i == NUMPARA - 1)
@@ -111,7 +111,7 @@ namespace CliMate
                         }
                         else
                         {
-                            grid[i][j][k] = new Tile(Color.Black);
+                            grid[i][j][k] = new Tile(0.0f);
 
                         }
                     }
