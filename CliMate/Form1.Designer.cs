@@ -59,6 +59,9 @@
             this.openTKPanel = new System.Windows.Forms.PictureBox();
             this.outerPanel = new System.Windows.Forms.Panel();
             this.disableEnableToolbarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openTKPanel = new System.Windows.Forms.Panel();
+            this.filtersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.erosionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.toolPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.openTKPanel)).BeginInit();
@@ -98,7 +101,7 @@
             this.newToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.heightmapToolStripMenuItem1});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // heightmapToolStripMenuItem1
@@ -111,40 +114,41 @@
             // openToolStripMenuItem
             // 
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // openRecentToolStripMenuItem
             // 
             this.openRecentToolStripMenuItem.Name = "openRecentToolStripMenuItem";
-            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.openRecentToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.openRecentToolStripMenuItem.Text = "Open Recent";
             this.openRecentToolStripMenuItem.Click += new System.EventHandler(this.openRecentToolStripMenuItem_Click);
             // 
             // saveToolStripMenuItem
             // 
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveToolStripMenuItem.Text = "Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.saveAsToolStripMenuItem.Text = "Save As";
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.preferencesToolStripMenuItem});
+            this.preferencesToolStripMenuItem,
+            this.filtersToolStripMenuItem});
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
             this.editToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
             this.editToolStripMenuItem.Text = "Edit";
@@ -152,7 +156,7 @@
             // preferencesToolStripMenuItem
             // 
             this.preferencesToolStripMenuItem.Name = "preferencesToolStripMenuItem";
-            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(135, 22);
+            this.preferencesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.preferencesToolStripMenuItem.Text = "Preferences";
             // 
             // viewToolStripMenuItem
@@ -197,7 +201,7 @@
             // createBiomesToolStripMenuItem
             // 
             this.createBiomesToolStripMenuItem.Name = "createBiomesToolStripMenuItem";
-            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.createBiomesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.createBiomesToolStripMenuItem.Text = "Create Biomes";
             // 
             // heightmapToolStripMenuItem
@@ -206,7 +210,7 @@
             this.generateNewMapToolStripMenuItem,
             this.augmentExistingMapToolStripMenuItem});
             this.heightmapToolStripMenuItem.Name = "heightmapToolStripMenuItem";
-            this.heightmapToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.heightmapToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.heightmapToolStripMenuItem.Text = "Heightmap";
             // 
             // generateNewMapToolStripMenuItem
@@ -316,13 +320,24 @@
             this.outerPanel.Name = "outerPanel";
             this.outerPanel.Size = new System.Drawing.Size(1073, 576);
             this.outerPanel.TabIndex = 3;
+            // filtersToolStripMenuItem
             // 
-            // disableEnableToolbarToolStripMenuItem
+            this.filtersToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.erosionToolStripMenuItem});
+            this.filtersToolStripMenuItem.Name = "filtersToolStripMenuItem";
+            this.filtersToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.filtersToolStripMenuItem.Text = "Filters";
+            // 
+            // erosionToolStripMenuItem
             // 
             this.disableEnableToolbarToolStripMenuItem.Name = "disableEnableToolbarToolStripMenuItem";
             this.disableEnableToolbarToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.disableEnableToolbarToolStripMenuItem.Text = "Disable/Enable Toolbar";
             this.disableEnableToolbarToolStripMenuItem.Click += new System.EventHandler(this.disableEnableToolbarToolStripMenuItem_Click);
+            this.erosionToolStripMenuItem.Name = "erosionToolStripMenuItem";
+            this.erosionToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.erosionToolStripMenuItem.Text = "Erosion";
+            this.erosionToolStripMenuItem.Click += new System.EventHandler(this.erosionToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -380,6 +395,8 @@
         private System.Windows.Forms.PictureBox openTKPanel;
         private System.Windows.Forms.Panel outerPanel;
         private System.Windows.Forms.ToolStripMenuItem disableEnableToolbarToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem filtersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem erosionToolStripMenuItem;
     }
 }
 

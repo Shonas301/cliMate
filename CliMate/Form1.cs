@@ -259,6 +259,12 @@ namespace CliMate
                 toolPanel.Visible = true;
             }
         }
+
+        private void erosionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ErosionForm ef = new ErosionForm();
+            ef.ShowDialog();
+        }
     }
 }
 
