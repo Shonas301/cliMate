@@ -128,13 +128,22 @@ namespace CliMate
 
             //Draw latitude lines
             Graphics g = Graphics.FromImage(img);
-            Pen pen = new Pen(Color.Red);
+
+            Pen normalPen = new Pen(Color.Red);
+            Pen equatorPen = new Pen(Color.Green, 3);
 
             int numLines = 24;
             for (int i = 0; i < numLines; i++)
             {
                 //Calculate the height to draw this line at
                 double y = i * (img.Height / numLines);
+
+                //Use the thicker pen if equator
+                Pen pen = normalPen;
+                if (i == numLines / 2)
+                {
+                    pen = equatorPen;
+                }
 
                 //Draw the line
                 Point p1 = new Point(0, (int)y);
@@ -143,6 +152,7 @@ namespace CliMate
                 g.DrawLine(pen, p1, p2);
             }
 
+            //Update the image
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
             openTKPanel.BackgroundImage = img;
 
