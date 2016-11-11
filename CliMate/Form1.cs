@@ -141,7 +141,7 @@ namespace CliMate
         {
             Canvas c = new Canvas();
             c.ShowDialog();
-            //UpdateDisplay();
+            UpdateDisplay();
 
 
             //TODO get new project parameters, how they want to generate, etc

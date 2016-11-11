@@ -207,8 +207,8 @@ namespace CliMate
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            //TODO
-            //Form1.currentOpenProject.heightOverlay.contents = image;
+            //Set the image to the project's main input
+            Form1.currentOpenProject.SetFirstHeightmap(image);
             this.Close();
         }
     }

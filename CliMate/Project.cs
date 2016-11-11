@@ -51,6 +51,14 @@ namespace Climate
             map.AddNode(ifn);
         }
 
+        public void SetFirstHeightmap(Heightmap heightmap)
+        {
+            //TODO: Rename this method
+            //Set the input node to a new ImageFileNode using map as an input
+
+            SetInputNode(new ImageFileNode(map, heightmap));
+        }
+
         public void SetInputNode(InputNode node)
         {
             //Changes the input node
