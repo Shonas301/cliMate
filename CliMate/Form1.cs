@@ -47,7 +47,6 @@ namespace CliMate
             InitializeOpenFileDialog();
             orW = openTKPanel.Width;
             orH = openTKPanel.Height;
-            Console.WriteLine(orW + " " + orH);
         }
 
         private void InitializeOpenFileDialog()
