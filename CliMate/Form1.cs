@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.Serialization.Formatters.Binary;
 
 namespace CliMate
 {
@@ -47,7 +48,6 @@ namespace CliMate
             InitializeOpenFileDialog();
             orW = openTKPanel.Width;
             orH = openTKPanel.Height;
-            Console.WriteLine(orW + " " + orH);
         }
 
         private void InitializeOpenFileDialog()
@@ -125,8 +125,36 @@ namespace CliMate
         }
         private void UpdateDisplay()
         {
-
+            //Get the image of the map
             Image img = currentOpenProject.GetLastNode().ToBitmap();
+
+            //Draw latitude lines
+            Graphics g = Graphics.FromImage(img);
+
+            Pen normalPen = new Pen(Color.Red);
+            Pen equatorPen = new Pen(Color.Green, 3);
+
+            int numLines = 24;
+            for (int i = 0; i < numLines; i++)
+            {
+                //Calculate the height to draw this line at
+                double y = i * (img.Height / numLines);
+
+                //Use the thicker pen if equator
+                Pen pen = normalPen;
+                if (i == numLines / 2)
+                {
+                    pen = equatorPen;
+                }
+
+                //Draw the line
+                Point p1 = new Point(0, (int)y);
+                Point p2 = new Point(img.Width, (int)y);
+
+                g.DrawLine(pen, p1, p2);
+            }
+
+            //Update the image
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
             openTKPanel.BackgroundImage = img;
 
@@ -140,9 +168,9 @@ namespace CliMate
 
         private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Canvas c = new Canvas();
-            //c.ShowDialog();
-            //UpdateDisplay();
+            Canvas c = new Canvas();
+            c.ShowDialog();
+            UpdateDisplay();
 
 
             //TODO get new project parameters, how they want to generate, etc
@@ -209,7 +237,7 @@ namespace CliMate
 
         //calls the necessary method when you scroll with the mousewheel
         //taken from https://social.msdn.microsoft.com/Forums/windows/en-US/50ea6adc-52cf-491a-bb99-729ac83475ce/mousewheel-zoom?forum=winforms
-        void openTKPanel_MouseWheel(object sender, MouseEventArgs e)
+        void outerPanel_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta < 0)
             {
@@ -258,6 +286,26 @@ namespace CliMate
                 //makes toolbar visible again
                 toolPanel.Visible = true;
             }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Save the current open project
+            string testFile = "testFile.climate";
+            currentOpenProject.SaveToFile(testFile);
+        }
+
+        private void openFileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Open project
+            string testFile = "testFile.climate";
+            FileStream fileStream = new FileStream(testFile, FileMode.Open);
+
+            BinaryFormatter reader = new BinaryFormatter();
+            currentOpenProject = (Project)reader.Deserialize(fileStream);
+            UpdateDisplay();
+
+            fileStream.Close();
         }
 
         private void erosionToolStripMenuItem_Click(object sender, EventArgs e)

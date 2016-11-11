@@ -3,6 +3,7 @@ using System.Diagnostics;
 
 namespace CliMate
 {
+    [System.Serializable]
     public class Heightmap
     {
         public const double MAX_HEIGHT = 100;   //Goes both positive and negative.  TODO: Enforce this limit somehow.

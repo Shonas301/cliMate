@@ -3,6 +3,7 @@ using System;
 
 namespace Climate
 {
+    [Serializable]
     public abstract class InputNode : Node
     {
         //Parent class for generation things

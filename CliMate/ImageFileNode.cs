@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 namespace CliMate
 {
+    [Serializable]
     public class ImageFileNode : InputNode
     {
         public Bitmap image;
@@ -20,6 +21,14 @@ namespace CliMate
             image = new Bitmap(fileName);
             heightmap = new Heightmap(image);
 
+        }
+
+        public ImageFileNode(NodeMap map, Heightmap heightmap) : base(map)
+        {
+            //Creates one from a pre-existing heightmap.
+
+            image = heightmap.ToBitmap();
+            this.heightmap = heightmap;
         }
 
         public override Bitmap ToBitmap() {

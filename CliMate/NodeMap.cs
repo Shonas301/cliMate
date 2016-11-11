@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CliMate
 {
+    [Serializable]
     public class NodeMap
     {
         //This will store a Graph of nodes
@@ -22,6 +23,18 @@ namespace CliMate
             Nodes = new List<Node>();
             //Nodes.Add(output);
         }
+
+        public void SetFirstNode(Node n)
+        {
+            //Sets the first node(input node)
+            if (Nodes.Count == 0)
+            {
+                AddNode(n);
+            }
+
+            Nodes[0] = n;
+        }
+
         public void AddNode(Node n)
         {
             Nodes.Add(n);

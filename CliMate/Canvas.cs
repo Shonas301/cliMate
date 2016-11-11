@@ -24,7 +24,6 @@ namespace CliMate
 
         //Brushes
         private Dictionary<RadioButton, Brush> brushButtonMap = new Dictionary<RadioButton, Brush>();
-
         private double brushSize
         {
             get { return (double)brushSizeBox.Value; }
@@ -207,9 +206,16 @@ namespace CliMate
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            //TODO
-            //Form1.currentOpenProject.heightOverlay.contents = image;
+            //Set the image to the project's main input
+            Form1.currentOpenProject.SetFirstHeightmap(image);
             this.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //Reset the image
+            image = new Heightmap(image.width, image.height);
+            tempPicBox.Image = image.ToBitmap();
         }
     }
 

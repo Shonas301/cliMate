@@ -1,11 +1,12 @@
 ﻿using System;
 using System.IO;
-
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 using CliMate;
 
 namespace Climate
 {
+    [Serializable]
     public class Project
     {
         private string filePath { get; set; }
@@ -51,6 +52,37 @@ namespace Climate
             map.AddNode(ifn);
         }
 
+        public void SetFirstHeightmap(Heightmap heightmap)
+        {
+            //TODO: Rename this method
+            //Set the input node to a new ImageFileNode using map as an input
+
+            SetInputNode(new ImageFileNode(map, heightmap));
+        }
+
+        public void SetInputNode(InputNode node)
+        {
+            //Changes the input node
+            map.SetFirstNode(node);
+        }
+
+        public void SaveToFile(string fileName)
+        {
+            BinaryFormatter saver = new BinaryFormatter();
+            FileStream fileStream = new FileStream(fileName, FileMode.Create);
+
+            try
+            {
+                saver.Serialize(fileStream, this);
+            }
+            catch (System.Runtime.Serialization.SerializationException e)
+            {
+                Console.WriteLine(e.Message);
+                throw e;
+            }
+
+            fileStream.Close();
+        }
 
         //ALL grids are going to need access to this. Changing these MIGHT be tricky seeing as we'd have to recalculate all the way down the node tree.
         public int getProjectWidth() { return projectWidth; }
