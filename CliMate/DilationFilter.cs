@@ -1,15 +1,14 @@
-﻿// compile with: /unsafe
-using System;
+﻿using System;
 using System.Drawing;
 using System.Drawing.Imaging;
 
 
 namespace Climate
 {
-    public partial class ErosionFilter
+    public partial class DilationFilter
     {
         private Bitmap bmpimg;
-        public ErosionFilter()
+        public DilationFilter()
         {
             //Not needed
         }
@@ -24,8 +23,7 @@ namespace Climate
             return (Bitmap)bmpimg.Clone();
         }
 
-
-        public void Erosion(byte[,] sele)
+        public void Dilate(byte[,] sele)
         {
             Bitmap tempbmp = (Bitmap)this.bmpimg.Clone();
 
@@ -50,21 +48,21 @@ namespace Climate
                     for (int j = 1; j < data.Width - 1; j++)
                     {
                         byte* temp = ptr - data.Stride - 3;
-                        byte min = 255;
+                        byte max = 0;
 
                         for (int k = 0; k < 3; k++)
                         {
                             for (int l = 0; l < 3; l++)
                             {
-                                if (min > temp[data.Stride * k + l * 3])
+                                if (max < temp[data.Stride * k + l * 3])
                                 {
                                     if (sElement[k, l] != 0)
-                                        min = temp[data.Stride * k + l * 3];
+                                        max = temp[data.Stride * k + l * 3];
                                 }
                             }
                         }
 
-                        tptr[0] = tptr[1] = tptr[2] = min;
+                        tptr[0] = tptr[1] = tptr[2] = max;
 
 
                         ptr += 3;
@@ -80,6 +78,7 @@ namespace Climate
 
             bmpimg = (Bitmap)tempbmp.Clone();
         }
+
 
         public void thresh()
         {

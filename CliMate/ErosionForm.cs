@@ -22,10 +22,6 @@ namespace Climate
         private System.Windows.Forms.MenuItem menuItem3;
         private System.Windows.Forms.MenuItem menuItem4;
         private System.Windows.Forms.PictureBox pictureBox1;
-        /// <summary>
-        /// Required designer variable.
-        /// </summary>
-        private System.ComponentModel.Container components = null;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
@@ -40,12 +36,11 @@ namespace Climate
         private System.Windows.Forms.RichTextBox richTextBox8;
         private System.Windows.Forms.RichTextBox richTextBox9;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
-        private System.Windows.Forms.RadioButton radioButton2;
 
 
         //private LogicalOperator processing;
-        private ErosionFilter processing;
+        private ErosionFilter erosion;
+        private DilationFilter dilation;
 
         public ErosionForm() 
         {
@@ -54,7 +49,8 @@ namespace Climate
             //
             InitializeComponent();
 
-            processing = new ErosionFilter();
+            erosion = new ErosionFilter();
+            dilation = new DilationFilter();
 
             this.richTextBox1.Text = "1";
             this.richTextBox2.Text = "1";
@@ -93,7 +89,8 @@ namespace Climate
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainMenu1 = new System.Windows.Forms.MainMenu();
+            this.components = new System.ComponentModel.Container();
+            this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
             this.menuItem1 = new System.Windows.Forms.MenuItem();
             this.menuItem2 = new System.Windows.Forms.MenuItem();
             this.menuItem3 = new System.Windows.Forms.MenuItem();
@@ -113,8 +110,11 @@ namespace Climate
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.Process = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -122,14 +122,14 @@ namespace Climate
             // mainMenu1
             // 
             this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                      this.menuItem1,
-                                                                                      this.menuItem3});
+            this.menuItem1,
+            this.menuItem3});
             // 
             // menuItem1
             // 
             this.menuItem1.Index = 0;
             this.menuItem1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                      this.menuItem2});
+            this.menuItem2});
             this.menuItem1.Text = "File";
             // 
             // menuItem2
@@ -142,7 +142,7 @@ namespace Climate
             // 
             this.menuItem3.Index = 1;
             this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
-                                                                                      this.menuItem4});
+            this.menuItem4});
             this.menuItem3.Text = "Processing";
             // 
             // menuItem4
@@ -299,29 +299,44 @@ namespace Climate
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Image Tye";
             // 
-            // radioButton2
-            // 
-            this.radioButton2.Location = new System.Drawing.Point(64, 112);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(128, 32);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = "Gray Image";
-            // 
             // radioButton1
             // 
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(64, 48);
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Location = new System.Drawing.Point(45, 39);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(136, 24);
+            this.radioButton1.Size = new System.Drawing.Size(60, 17);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Binary Image";
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            this.radioButton1.Text = "Erosion";
+            this.radioButton1.UseVisualStyleBackColor = true;
             // 
-            // Form1
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(45, 112);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(66, 17);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.TabStop = true;
+            this.radioButton2.Text = "Dialation";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
+            // Process
+            // 
+            this.Process.Location = new System.Drawing.Point(488, 486);
+            this.Process.Name = "Process";
+            this.Process.Size = new System.Drawing.Size(75, 23);
+            this.Process.TabIndex = 8;
+            this.Process.Text = "Process";
+            this.Process.UseVisualStyleBackColor = true;
+            this.Process.Click += new System.EventHandler(this.Process_Click);
+            // 
+            // ErosionForm
             // 
             this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
             this.ClientSize = new System.Drawing.Size(592, 513);
+            this.Controls.Add(this.Process);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.textBox2);
@@ -329,11 +344,15 @@ namespace Climate
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.pictureBox1);
             this.Menu = this.mainMenu1;
-            this.Name = "Form1";
+            this.Name = "ErosionForm";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
         #endregion
@@ -351,8 +370,9 @@ namespace Climate
                 this.pictureBox1.Image = new Bitmap(new Bitmap(filechooser.FileName), 250, 250);
 
                 this.Invalidate();
-
-                this.processing.setImage(new Bitmap(this.pictureBox1.Image));
+                Bitmap img = new Bitmap(this.pictureBox1.Image);
+                this.erosion.setImage(img);
+                this.dilation.setImage(img);
 
             }
 
@@ -384,10 +404,17 @@ namespace Climate
             }
 
             if (this.radioButton1.Checked)
-                this.processing.binary_Dilation(sele);
+            {
+                this.erosion.Erosion(sele);
+                this.pictureBox2.Image = this.erosion.getImage();
+            }
+            else if (this.radioButton2.Checked)
+            {
+                this.dilation.Dilate(sele);
+                this.pictureBox2.Image = this.dilation.getImage();
+            }
             else
-                this.processing.gray_Dilation(sele);
-            this.pictureBox2.Image = this.processing.getImage();
+                MessageBox.Show(this, "You didn't pick anything, you fuck");
 
             this.Invalidate();
         }
@@ -398,6 +425,22 @@ namespace Climate
         }
 
         private void radioButton1_CheckedChanged(object sender, System.EventArgs e)
+        {
+
+        }
+
+        private IContainer components;
+        private RadioButton radioButton2;
+        private RadioButton radioButton1;
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private Button Process;
+
+        private void Process_Click(object sender, EventArgs e)
         {
 
         }

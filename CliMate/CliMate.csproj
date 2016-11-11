@@ -66,6 +66,7 @@
       <DependentUpon>Canvas.cs</DependentUpon>
     </Compile>
     <Compile Include="ClimateOverlay.cs" />
+    <Compile Include="DilationFilter.cs" />
     <Compile Include="ErosionFilter.cs" />
     <Compile Include="ErosionForm.cs">
       <SubType>Form</SubType>
@@ -123,6 +124,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TempOverlay.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="ErosionForm.resx">
+      <DependentUpon>ErosionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
