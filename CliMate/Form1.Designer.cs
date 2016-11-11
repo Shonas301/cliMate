@@ -306,7 +306,6 @@
             this.openTKPanel.Size = new System.Drawing.Size(1070, 576);
             this.openTKPanel.TabIndex = 2;
             this.openTKPanel.TabStop = false;
-            this.openTKPanel.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.openTKPanel_MouseWheel);
             // 
             // outerPanel
             // 
@@ -316,6 +315,7 @@
             this.outerPanel.Name = "outerPanel";
             this.outerPanel.Size = new System.Drawing.Size(1073, 576);
             this.outerPanel.TabIndex = 3;
+            this.outerPanel.MouseWheel += new System.Windows.Forms.MouseEventHandler(this.outerPanel_MouseWheel);
             // 
             // disableEnableToolbarToolStripMenuItem
             // 

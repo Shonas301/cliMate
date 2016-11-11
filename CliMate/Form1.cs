@@ -207,7 +207,7 @@ namespace CliMate
 
         //calls the necessary method when you scroll with the mousewheel
         //taken from https://social.msdn.microsoft.com/Forums/windows/en-US/50ea6adc-52cf-491a-bb99-729ac83475ce/mousewheel-zoom?forum=winforms
-        void openTKPanel_MouseWheel(object sender, MouseEventArgs e)
+        void outerPanel_MouseWheel(object sender, MouseEventArgs e)
         {
             if (e.Delta < 0)
             {
