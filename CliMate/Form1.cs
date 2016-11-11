@@ -123,8 +123,26 @@ namespace CliMate
         }
         private void UpdateDisplay()
         {
-
+            //Get the image of the map
             Image img = currentOpenProject.GetLastNode().ToBitmap();
+
+            //Draw latitude lines
+            Graphics g = Graphics.FromImage(img);
+            Pen pen = new Pen(Color.Red);
+
+            int numLines = 24;
+            for (int i = 0; i < numLines; i++)
+            {
+                //Calculate the height to draw this line at
+                double y = i * (img.Height / numLines);
+
+                //Draw the line
+                Point p1 = new Point(0, (int)y);
+                Point p2 = new Point(img.Width, (int)y);
+
+                g.DrawLine(pen, p1, p2);
+            }
+
             openTKPanel.BackgroundImageLayout = ImageLayout.Stretch;
             openTKPanel.BackgroundImage = img;
 
