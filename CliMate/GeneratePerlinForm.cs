@@ -85,5 +85,15 @@ namespace CliMate
             //Form1.currentOpenProject.heightOverlay.contents = previewMap;
             this.Close();
         }
+
+        private void GeneratePerlinForm_Load(object sender, EventArgs e)
+        {
+            //Set the textboxes to their default values
+            PersBox.Text = "1.0";
+            LacBox.Text = "1.0";
+            OctBox.Text = "1";
+            seedBox.Text = "1";
+            FreqBox.Text = ".1";
+        }
     }
 }

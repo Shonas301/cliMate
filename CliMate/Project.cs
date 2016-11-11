@@ -51,6 +51,19 @@ namespace Climate
             map.AddNode(ifn);
         }
 
+        public void SetFirstHeightmap(Heightmap heightmap)
+        {
+            //TODO: Rename this method
+            //Set the input node to a new ImageFileNode using map as an input
+
+            SetInputNode(new ImageFileNode(map, heightmap));
+        }
+
+        public void SetInputNode(InputNode node)
+        {
+            //Changes the input node
+            map.SetFirstNode(node);
+        }
 
         //ALL grids are going to need access to this. Changing these MIGHT be tricky seeing as we'd have to recalculate all the way down the node tree.
         public int getProjectWidth() { return projectWidth; }

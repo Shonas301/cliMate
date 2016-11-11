@@ -138,9 +138,9 @@ namespace CliMate
 
         private void heightmapToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //Canvas c = new Canvas();
-            //c.ShowDialog();
-            //UpdateDisplay();
+            Canvas c = new Canvas();
+            c.ShowDialog();
+            UpdateDisplay();
 
 
             //TODO get new project parameters, how they want to generate, etc

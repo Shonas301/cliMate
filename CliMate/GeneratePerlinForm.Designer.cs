@@ -62,65 +62,73 @@
             // 
             // widthBox
             // 
-            this.widthBox.Location = new System.Drawing.Point(9, 21);
+            this.widthBox.Location = new System.Drawing.Point(12, 26);
+            this.widthBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.widthBox.Name = "widthBox";
-            this.widthBox.Size = new System.Drawing.Size(100, 20);
+            this.widthBox.Size = new System.Drawing.Size(132, 22);
             this.widthBox.TabIndex = 0;
             // 
             // heightLabel
             // 
             this.heightLabel.AutoSize = true;
-            this.heightLabel.Location = new System.Drawing.Point(146, 45);
+            this.heightLabel.Location = new System.Drawing.Point(195, 55);
+            this.heightLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.heightLabel.Name = "heightLabel";
-            this.heightLabel.Size = new System.Drawing.Size(36, 13);
+            this.heightLabel.Size = new System.Drawing.Size(47, 17);
             this.heightLabel.TabIndex = 4;
             this.heightLabel.Text = "height";
             // 
             // widthLabel
             // 
-            this.widthLabel.Location = new System.Drawing.Point(8, 45);
+            this.widthLabel.Location = new System.Drawing.Point(11, 55);
+            this.widthLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.widthLabel.Name = "widthLabel";
-            this.widthLabel.Size = new System.Drawing.Size(32, 13);
+            this.widthLabel.Size = new System.Drawing.Size(43, 16);
             this.widthLabel.TabIndex = 3;
             this.widthLabel.Text = "width";
             // 
             // xLabel
             // 
             this.xLabel.AutoSize = true;
-            this.xLabel.Location = new System.Drawing.Point(122, 24);
+            this.xLabel.Location = new System.Drawing.Point(163, 30);
+            this.xLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.xLabel.Name = "xLabel";
-            this.xLabel.Size = new System.Drawing.Size(12, 13);
+            this.xLabel.Size = new System.Drawing.Size(14, 17);
             this.xLabel.TabIndex = 2;
             this.xLabel.Text = "x";
             // 
             // heightBox
             // 
-            this.heightBox.Location = new System.Drawing.Point(147, 21);
+            this.heightBox.Location = new System.Drawing.Point(196, 26);
+            this.heightBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.heightBox.Name = "heightBox";
-            this.heightBox.Size = new System.Drawing.Size(100, 20);
+            this.heightBox.Size = new System.Drawing.Size(132, 22);
             this.heightBox.TabIndex = 1;
             // 
             // seedBox
             // 
-            this.seedBox.Location = new System.Drawing.Point(9, 19);
+            this.seedBox.Location = new System.Drawing.Point(12, 23);
+            this.seedBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.seedBox.Name = "seedBox";
-            this.seedBox.Size = new System.Drawing.Size(77, 20);
+            this.seedBox.Size = new System.Drawing.Size(101, 22);
             this.seedBox.TabIndex = 2;
             // 
             // previewBox
             // 
-            this.previewBox.Location = new System.Drawing.Point(54, 19);
+            this.previewBox.Location = new System.Drawing.Point(72, 23);
+            this.previewBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.previewBox.Name = "previewBox";
-            this.previewBox.Size = new System.Drawing.Size(148, 140);
+            this.previewBox.Size = new System.Drawing.Size(197, 172);
             this.previewBox.TabIndex = 5;
             this.previewBox.TabStop = false;
             // 
             // OKButton
             // 
             this.OKButton.Enabled = false;
-            this.OKButton.Location = new System.Drawing.Point(46, 499);
+            this.OKButton.Location = new System.Drawing.Point(61, 614);
+            this.OKButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OKButton.Name = "OKButton";
-            this.OKButton.Size = new System.Drawing.Size(75, 23);
+            this.OKButton.Size = new System.Drawing.Size(100, 28);
             this.OKButton.TabIndex = 4;
             this.OKButton.Text = "OK";
             this.OKButton.UseVisualStyleBackColor = true;
@@ -128,9 +136,10 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(149, 499);
+            this.cancelButton.Location = new System.Drawing.Point(199, 614);
+            this.cancelButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cancelButton.Name = "cancelButton";
-            this.cancelButton.Size = new System.Drawing.Size(75, 23);
+            this.cancelButton.Size = new System.Drawing.Size(100, 28);
             this.cancelButton.TabIndex = 5;
             this.cancelButton.Text = "Cancel";
             this.cancelButton.UseVisualStyleBackColor = true;
@@ -138,9 +147,10 @@
             // 
             // generateButton
             // 
-            this.generateButton.Location = new System.Drawing.Point(101, 295);
+            this.generateButton.Location = new System.Drawing.Point(135, 363);
+            this.generateButton.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.generateButton.Name = "generateButton";
-            this.generateButton.Size = new System.Drawing.Size(75, 23);
+            this.generateButton.Size = new System.Drawing.Size(100, 28);
             this.generateButton.TabIndex = 3;
             this.generateButton.Text = "Generate";
             this.generateButton.UseVisualStyleBackColor = true;
@@ -153,9 +163,11 @@
             this.dimensionGroupBox.Controls.Add(this.heightLabel);
             this.dimensionGroupBox.Controls.Add(this.widthLabel);
             this.dimensionGroupBox.Controls.Add(this.xLabel);
-            this.dimensionGroupBox.Location = new System.Drawing.Point(12, 8);
+            this.dimensionGroupBox.Location = new System.Drawing.Point(16, 10);
+            this.dimensionGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dimensionGroupBox.Name = "dimensionGroupBox";
-            this.dimensionGroupBox.Size = new System.Drawing.Size(257, 68);
+            this.dimensionGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dimensionGroupBox.Size = new System.Drawing.Size(343, 84);
             this.dimensionGroupBox.TabIndex = 10;
             this.dimensionGroupBox.TabStop = false;
             this.dimensionGroupBox.Text = "Dimensions";
@@ -163,9 +175,11 @@
             // seedGroupBox
             // 
             this.seedGroupBox.Controls.Add(this.seedBox);
-            this.seedGroupBox.Location = new System.Drawing.Point(12, 82);
+            this.seedGroupBox.Location = new System.Drawing.Point(16, 101);
+            this.seedGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.seedGroupBox.Name = "seedGroupBox";
-            this.seedGroupBox.Size = new System.Drawing.Size(109, 54);
+            this.seedGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.seedGroupBox.Size = new System.Drawing.Size(145, 66);
             this.seedGroupBox.TabIndex = 11;
             this.seedGroupBox.TabStop = false;
             this.seedGroupBox.Text = "Seed";
@@ -173,9 +187,11 @@
             // previewGroupBox
             // 
             this.previewGroupBox.Controls.Add(this.previewBox);
-            this.previewGroupBox.Location = new System.Drawing.Point(12, 324);
+            this.previewGroupBox.Location = new System.Drawing.Point(16, 399);
+            this.previewGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.previewGroupBox.Name = "previewGroupBox";
-            this.previewGroupBox.Size = new System.Drawing.Size(247, 169);
+            this.previewGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.previewGroupBox.Size = new System.Drawing.Size(329, 208);
             this.previewGroupBox.TabIndex = 12;
             this.previewGroupBox.TabStop = false;
             this.previewGroupBox.Text = "Preview";
@@ -183,76 +199,88 @@
             // FrequencyGroupBox
             // 
             this.FrequencyGroupBox.Controls.Add(this.FreqBox);
-            this.FrequencyGroupBox.Location = new System.Drawing.Point(149, 82);
+            this.FrequencyGroupBox.Location = new System.Drawing.Point(199, 101);
+            this.FrequencyGroupBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FrequencyGroupBox.Name = "FrequencyGroupBox";
-            this.FrequencyGroupBox.Size = new System.Drawing.Size(110, 54);
+            this.FrequencyGroupBox.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.FrequencyGroupBox.Size = new System.Drawing.Size(147, 66);
             this.FrequencyGroupBox.TabIndex = 13;
             this.FrequencyGroupBox.TabStop = false;
             this.FrequencyGroupBox.Text = "Frequency";
             // 
             // FreqBox
             // 
-            this.FreqBox.Location = new System.Drawing.Point(10, 19);
+            this.FreqBox.Location = new System.Drawing.Point(13, 23);
+            this.FreqBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FreqBox.Name = "FreqBox";
-            this.FreqBox.Size = new System.Drawing.Size(77, 20);
+            this.FreqBox.Size = new System.Drawing.Size(101, 22);
             this.FreqBox.TabIndex = 3;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.LacBox);
-            this.groupBox1.Location = new System.Drawing.Point(12, 153);
+            this.groupBox1.Location = new System.Drawing.Point(16, 188);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(109, 54);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(145, 66);
             this.groupBox1.TabIndex = 14;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Lacunarity";
             // 
             // LacBox
             // 
-            this.LacBox.Location = new System.Drawing.Point(9, 19);
+            this.LacBox.Location = new System.Drawing.Point(12, 23);
+            this.LacBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.LacBox.Name = "LacBox";
-            this.LacBox.Size = new System.Drawing.Size(77, 20);
+            this.LacBox.Size = new System.Drawing.Size(101, 22);
             this.LacBox.TabIndex = 3;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.OctBox);
-            this.groupBox2.Location = new System.Drawing.Point(149, 153);
+            this.groupBox2.Location = new System.Drawing.Point(199, 188);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(109, 54);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox2.Size = new System.Drawing.Size(145, 66);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Octave Count";
             // 
             // OctBox
             // 
-            this.OctBox.Location = new System.Drawing.Point(10, 19);
+            this.OctBox.Location = new System.Drawing.Point(13, 23);
+            this.OctBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.OctBox.Name = "OctBox";
-            this.OctBox.Size = new System.Drawing.Size(77, 20);
+            this.OctBox.Size = new System.Drawing.Size(101, 22);
             this.OctBox.TabIndex = 3;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.PersBox);
-            this.groupBox3.Location = new System.Drawing.Point(85, 213);
+            this.groupBox3.Location = new System.Drawing.Point(113, 262);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(109, 54);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox3.Size = new System.Drawing.Size(145, 66);
             this.groupBox3.TabIndex = 15;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Persistance";
             // 
             // PersBox
             // 
-            this.PersBox.Location = new System.Drawing.Point(6, 19);
+            this.PersBox.Location = new System.Drawing.Point(8, 23);
+            this.PersBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.PersBox.Name = "PersBox";
-            this.PersBox.Size = new System.Drawing.Size(77, 20);
+            this.PersBox.Size = new System.Drawing.Size(101, 22);
             this.PersBox.TabIndex = 3;
             // 
             // GeneratePerlinForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(276, 534);
+            this.ClientSize = new System.Drawing.Size(368, 657);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -264,8 +292,10 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.OKButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GeneratePerlinForm";
             this.Text = "Generate Terrain";
+            this.Load += new System.EventHandler(this.GeneratePerlinForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.previewBox)).EndInit();
             this.dimensionGroupBox.ResumeLayout(false);
             this.dimensionGroupBox.PerformLayout();
