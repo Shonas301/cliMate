@@ -22,7 +22,7 @@ namespace CliMate
 
         }
 
-        new public Bitmap ToBitmap() {
+        public override Bitmap ToBitmap() {
             return heightmap.ToBitmap();
         }
 

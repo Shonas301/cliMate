@@ -31,7 +31,7 @@ namespace CliMate
 
         public virtual void setInputNode(Node kiddo) { children[0] = kiddo; }
         
-        public Bitmap ToBitmap() { return null; }
+        public virtual Bitmap ToBitmap() { return null; }
 
         public RectGrid getOutputGrid() { return outGrid; }
     }

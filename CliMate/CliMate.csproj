@@ -99,6 +99,7 @@
       <DependentUpon>NodeInterface.cs</DependentUpon>
     </Compile>
     <Compile Include="NodeMap.cs" />
+    <Compile Include="NoiseNode.cs" />
     <Compile Include="NoteForm.cs">
       <SubType>Form</SubType>
     </Compile>
